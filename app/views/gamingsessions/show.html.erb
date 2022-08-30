@@ -1,2 +1,23 @@
-<h1>Sessions#show</h1>
-<p>Find me in app/views/sessions/show.html.erb</p>
+<h1>Merci d'avoir utilisé Vel-Watt !</h1>
+
+
+<%= image_tag 'groopsys.JPG', alt: 'icon', style: 'height:40px;width:auto' %>
+<p>Score :<%= @gamingsession.score %> points</p>
+
+<p>Convertissez vos <%= @gamingsession.score %> points en avantages chez nos partenaires</p>
+
+
+<%= link_to 'Sauvegarder mes points', new_user_session_path %>
+
+<p><%= @gamingsession.total_production %> W/h</p>
+<p>Total production record <%= @totalprodsession[0]["total_production"] %> <i class="fa-solid fa-crown"></i></p>
+<p><%= @gamingsession.max_production %> W/h</p>
+<p>Max production record <%= @maxprodsession[0]["max_production"] %><i class="fa-solid fa-crown"></i> </p>
+
+<P>QUIZZ</P>
+
+
+<p>Comparons vos résultats au quotidien</p>
+
+<p>Combien de tems devriez-vous pédaler pour charger/utiliser ces appareils ?</p>
+<p>Cliquez sur l'image pour le découvrir</p>
