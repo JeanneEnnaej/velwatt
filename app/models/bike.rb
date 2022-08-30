@@ -1,5 +1,5 @@
 class Bike < ApplicationRecord
-  has_many :sessions
+  has_many :gamingsessions
 
   validates :ip_address, presence: true
 end

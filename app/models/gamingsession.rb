@@ -1,4 +1,4 @@
-class Session < ApplicationRecord
+class Gamingsession < ApplicationRecord
   belongs_to :bike
   belongs_to :user
 

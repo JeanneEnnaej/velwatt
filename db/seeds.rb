@@ -19,8 +19,8 @@ Bike.create!(ip_address: "12.345.678.910")
 p "seed sessions"
 
 # date en secondes depuis 1970/01, max_prod/total_prod en w/h, session_duration en secondes
-Session.create!(date: Time.at(1661787354996/1000), max_production: 240, total_production: 670, session_duration: 900, score: 400, bike_id: 1, user_id: 1)
-Session.create!(date: Time.at(1641787354996/1000), max_production: 120, total_production: 420, session_duration: 900, score: 230, bike_id: 1, user_id: 1)
-Session.create!(date: Time.at(1631787354996/1000), max_production: 160, total_production: 500, session_duration: 900, score: 258, bike_id: 1, user_id: 2)
+Gamingsession.create!(date: Time.at(1661787354996/1000), max_production: 240, total_production: 670, session_duration: 900, score: 400, bike_id: 1, user_id: 1)
+Gamingsession.create!(date: Time.at(1641787354996/1000), max_production: 120, total_production: 420, session_duration: 900, score: 230, bike_id: 1, user_id: 1)
+Gamingsession.create!(date: Time.at(1631787354996/1000), max_production: 160, total_production: 500, session_duration: 900, score: 258, bike_id: 1, user_id: 2)
 
 p"finito"

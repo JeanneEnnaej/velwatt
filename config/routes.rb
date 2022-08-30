@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  namespace :gaming do
-    resources :sessions, only: [ :index, :show ]
-  end
+  resources :gamingsessions, only: [ :index, :show ]
+
   resources :bikes, only: [] do
     get :game, on: :member
   end

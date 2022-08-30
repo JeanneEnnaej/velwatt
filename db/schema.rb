@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_132851) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_090630) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_132851) do
     t.string "ip_address"
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "gamingsessions", force: :cascade do |t|
     t.date "date"
     t.integer "max_production"
     t.integer "total_production"
@@ -30,8 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_132851) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bike_id"], name: "index_sessions_on_bike_id"
-    t.index ["user_id"], name: "index_sessions_on_user_id"
+    t.index ["bike_id"], name: "index_gamingsessions_on_bike_id"
+    t.index ["user_id"], name: "index_gamingsessions_on_user_id"
   end
 
   create_table "tips", force: :cascade do |t|
@@ -54,6 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_132851) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "sessions", "bikes"
-  add_foreign_key "sessions", "users"
+  add_foreign_key "gamingsessions", "bikes"
+  add_foreign_key "gamingsessions", "users"
 end
