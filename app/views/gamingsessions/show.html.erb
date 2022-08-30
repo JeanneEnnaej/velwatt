@@ -1,7 +1,7 @@
+<%= image_tag 'groopsys.JPG', alt: 'icon', style: 'height:40px;width:auto' %>
 <h1>Merci d'avoir utilisé Vel-Watt !</h1>
 
 
-<%= image_tag 'groopsys.JPG', alt: 'icon', style: 'height:40px;width:auto' %>
 <p>Score :<%= @gamingsession.score %> points</p>
 
 <p>Convertissez vos <%= @gamingsession.score %> points en avantages chez nos partenaires</p>
@@ -21,3 +21,10 @@
 
 <p>Combien de tems devriez-vous pédaler pour charger/utiliser ces appareils ?</p>
 <p>Cliquez sur l'image pour le découvrir</p>
+
+<p>Réfrigérateur : 200kWh</p>
+<p>votre production : <%= @gamingsession.total_production %> Wh</p>
+
+<%=  %>
+<% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round(2) %>
+<p> Pour alimenter le frigo pendant 1 journée vous auriez du pédaler pendant <%= @frigo %>h</p>
