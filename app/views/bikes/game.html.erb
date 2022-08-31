@@ -1,5 +1,12 @@
-<h1>Bikes#game</h1>
-<p>Find me in app/views/bikes/game.html.erb</p>
+<div data-controller="game-config">
+  <h1>BikeGame</h1>
+  <span data-action="click->game-config#initSession">CREATE SESSION</span>
+  <h2 data-game-config-target="compteur">toto</h2>
+</div>
 
 <%# affiche le qr code sur la page à la fin du jeu %>
-<%= @svg.html_safe %>
+
+
+<div style="display: none">
+  <%= @svg.html_safe %>
+</div>
