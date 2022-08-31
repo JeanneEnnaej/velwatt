@@ -1,2 +1,9 @@
 <h1>Sessions#index</h1>
-<p>Find me in app/views/sessions/index.html.erb</p>
+<p>Hello <%= current_user.first_name %></p>
+
+<%#= link_to "show de la dernière session", gamingsession_path(@gamingsession_id) %>
+
+<%# affiche les sessions pour verif %>
+<% @gamingsessions.each do |gs| %>
+  <%= gs.id %>
+<% end %>
