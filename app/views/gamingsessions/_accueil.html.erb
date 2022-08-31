@@ -1,0 +1,33 @@
+<h1>Ma production</h1>
+
+<p>Solde des points :</p>
+<% @solde = 0 %>
+<% @gamingsessions.each do |gs| %>
+  <% @solde += gs.score%>
+<% end %>
+<%= @solde %>
+
+<p>Temps passé : </p>
+<% @total_time = 0 %>
+<% @gamingsessions.each do |gs| %>
+  <% @total_time += gs.session_duration%>
+<% end %>
+<p><%= @total_time = (@total_time/60) %> min</p>
+
+<p>Electricité produite</p>
+
+<% @total_watt = 0 %>
+<% @gamingsessions.each do |gs| %>
+  <% @total_watt += gs.total_production%>
+<% end %>
+<p><%= @total_watt %>Wh</p>
+
+<p>Explications</p>
+
+<p><%= @total_watt %>Wh = <%= (@total_watt/1000.0).round(4) %> kWh</p>
+
+<p> Que faire avec un 1kWH ?</p>
+<p>Allumer une ampoule led pendant 143h</p>
+<p>Rouler avec une Renault électrique Zoé pendant 8,5km</p>
+
+<p>Ma production VS la réalité</p>
