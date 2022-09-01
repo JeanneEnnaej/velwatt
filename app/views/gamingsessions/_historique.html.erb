@@ -1,0 +1,11 @@
+<h1>Historique de vos sessions</h1>
+
+<p><%= @gamingsessions.count %> sessions</p>
+
+
+<% @gamingsessions.each do |gs| %>
+  <%= gs.date%>
+  <p>Prod max<%= gs.max_production%></p>
+  <p>Prod total<%= gs.total_production%></p>
+  <p>Score<%= gs.score%></p>
+<% end %>
