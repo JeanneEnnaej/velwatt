@@ -1,11 +1,9 @@
-<h2>Merci d'avoir utilisé Vel-Watt</h2>
+<h1>Merci d'avoir utilisé Vel-Watt</h1>
+<h2>Votre score :</h2>
 
 <%#  parti score %>
 <div class="home-card">
   <div class="card-infos">
-    <div>
-      <h3>Votre score :</h3>
-    </div>
     <div class="details-calcul">
       <div  class="image-arbre">
         <%= image_tag "groopsys.JPG" %>
@@ -17,7 +15,7 @@
       </div>
     </div>
     <div class="info-avantage">
-    <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+      <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
     </div>
   </div>
 </div>
@@ -92,3 +90,5 @@
 <%# calcul de comparaison %>
 <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round(2) %>
 <p> Pour alimenter le frigo pendant 1 journée vous auriez du pédaler pendant <%= @frigo %>h</p>
+
+<div class="XXXX"></div>
