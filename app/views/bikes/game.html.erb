@@ -1,5 +1,20 @@
-<h1>Bikes#game</h1>
-<p>Find me in app/views/bikes/game.html.erb</p>
+<div data-controller="game-config">
+  <h1>BikeGame</h1>
+  <span data-action="click->game-config#initSession">CREATE SESSION</span>
+  <p>Total :</p>
+  <h2 data-game-config-target="totalValue">0.000 wh</h2>
+  <p>Max production :</p>
+  <h2 data-game-config-target="maxProduct">0 w</h2>
+  <p>Instant :</p>
+  <h2 data-game-config-target="compteurValue">0 w</h2>
+  <span data-action="click->game-config#createGamingSessionDB">Save to DB</span>
+  <span data-game-config-url-value="/gamingsessions"></span>
+  <%= link_to "button", gamingsessions_path %>
+</div>
 
 <%# affiche le qr code sur la page à la fin du jeu %>
-<%= @svg.html_safe %>
+
+
+<div style="display: none">
+  <%= @svg.html_safe %>
+</div>

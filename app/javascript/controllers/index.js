@@ -4,8 +4,10 @@
 
 import { application } from "./application"
 
-import BalanceWalletController from "./balance_wallet_controller"
-application.register("balance-wallet", BalanceWalletController)
+
+import GameConfigController from "./game_config_controller"
+application.register("game-config", GameConfigController)
+
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

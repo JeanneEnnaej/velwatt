@@ -1,26 +1,21 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar-lewagon">
+  <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "VW.png" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%# <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <%= current_user.first_name %>
-          <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete}%>
-
+          <%#= current_user.first_name %>
+          <%#= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete}%>
+        <%#
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
+          <%# <li class="nav-item"> %>
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%# </li> %>
+        <%# end %>
 
-      </ul>
-    </div>
+      <%# </ul> %>
   </div>
 </div>
