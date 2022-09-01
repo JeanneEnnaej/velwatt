@@ -2,7 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 let OldProduct = 0;
 let Compteur = 0;
-const times = 100;
+let productTimes = 0;
+const times = 1000;
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
@@ -128,11 +129,13 @@ export default class extends Controller {
       Compteur = Number(product) - OldProduct;
       OldProduct = Number(product);
       console.log("changement de la valeurs");
-    } 
-    //On renvoie :
-    this.totalValueTarget.innerText = product;
+    }
 
-    this.compteurValueTarget.innerText = Compteur;
+    productTimes = product / 7200 ;
+    //On renvoie :
+    this.totalValueTarget.innerText = `${productTimes.toFixed(3)} wh`;
+
+    this.compteurValueTarget.innerText = `${Compteur} w`;
   }
 
   startBike(times) {
