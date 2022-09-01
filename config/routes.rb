@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     get :game, on: :member
   end
 
+  resources :tickets, only: [] do
+    resources :purchases, only: :create
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

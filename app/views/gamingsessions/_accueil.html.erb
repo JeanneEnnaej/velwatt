@@ -12,7 +12,17 @@
 <% end %>
 <%= @solde %>
 
-<p>Wallet = <%=current_user.wallet = @solde/2 %> V-W</p>
+<% @achats = 0 %>
+
+<p>Solde des achats</p>
+<% until @purchases == nil  %>
+  <% @purchases.all.each do |p| %>
+    <% @achats += p.ticket.price%>
+  <% end %>
+<% end %>
+<%= @achats %>
+
+<p>Wallet = <%=current_user.wallet %> V-W</p>
 
 <p>Temps passé : </p>
 <% @total_time = 0 %>
