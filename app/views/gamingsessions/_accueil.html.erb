@@ -1,11 +1,18 @@
 <h1>Ma production</h1>
 
+<%= current_user.first_name %>
+
+
+
+
 <p>Solde des points :</p>
 <% @solde = 0 %>
 <% @gamingsessions.each do |gs| %>
   <% @solde += gs.score%>
 <% end %>
 <%= @solde %>
+
+
 
 <p>Temps passé : </p>
 <% @total_time = 0 %>
