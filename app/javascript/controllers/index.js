@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import GameConfigController from "./game_config_controller"
+application.register("game-config", GameConfigController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
