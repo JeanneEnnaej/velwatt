@@ -1,13 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
-let OldProduct = 0;
-let Compteur = 0;
+let oldProduct = 0;
+let compteur = 0;
 let productTimes = 0;
-const times = 1000;
+let maxProduct = 0;
+const times = 100;
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
-  static targets = ["compteurValue", "totalValue"];
+  static targets = ["compteurValue", "totalValue", "maxProduct"];
 
   connect() {
     console.log("game-config init");
@@ -33,8 +34,9 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      Compteur = 0;
-      OldProduct = 0;
+      compteur = 0;
+      oldProduct = 0;
+      maxProduct = 0;
       this.createParticipant(url, data);
     });
   }
@@ -125,17 +127,24 @@ export default class extends Controller {
 
   showProduction(product, times) {
 
-    if (product > OldProduct) {
-      Compteur = Number(product) - OldProduct;
-      OldProduct = Number(product);
+     
+    if (compteur < 5 && product === oldProduct) {
+      compteur = 0;
+    } else if (product > oldProduct) {
+      compteur = Number(product) - oldProduct;
+      oldProduct = Number(product);
       console.log("changement de la valeurs");
+    }
+
+    if (compteur > maxProduct) {
+      maxProduct = compteur;
     }
 
     productTimes = product / 7200 ;
     //On renvoie :
     this.totalValueTarget.innerText = `${productTimes.toFixed(3)} wh`;
-
-    this.compteurValueTarget.innerText = `${Compteur} w`;
+    this.maxProductTarget.innerText = `${maxProduct} w`;
+    this.compteurValueTarget.innerText = `${compteur} w`;
   }
 
   startBike(times) {
