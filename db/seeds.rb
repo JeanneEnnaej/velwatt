@@ -19,8 +19,13 @@ Bike.create!(ip_address: "12.345.678.910")
 p "seed sessions"
 
 # date en secondes depuis 1970/01, max_prod/total_prod en w/h, session_duration en secondes
-Gamingsession.create!(date: Time.at(1661787354996/1000), max_production: 240, total_production: 20, session_duration: 900, score: 400, bike_id: 1, user_id: 1)
-Gamingsession.create!(date: Time.at(1641787354996/1000), max_production: 120, total_production: 15, session_duration: 900, score: 230, bike_id: 1, user_id: 1)
-Gamingsession.create!(date: Time.at(1631787354996/1000), max_production: 160, total_production: 17, session_duration: 900, score: 258, bike_id: 1, user_id: 2)
+Gamingsession.create!(date: Time.at(1661787354996/1000), max_production: 240, total_production: 20, session_duration: 900, score: 400, bike_id: 1, user_id: nil )
+Gamingsession.create!(date: Time.at(1641787354996/1000), max_production: 120, total_production: 15, session_duration: 900, score: 230, bike_id: 1, user_id: nil )
+Gamingsession.create!(date: Time.at(1631787354996/1000), max_production: 160, total_production: 17, session_duration: 900, score: 258, bike_id: 1, user_id: nil )
+
+p "tickets"
+
+Ticket.create!(company: "decat", content: "Ce coupon vous donne 10% de redu", price: 70)
+Ticket.create!(company: "amineder", content: "Ce coupon vous donne 20% de redu sur un Amine", price: 90)
 
 p"finito"

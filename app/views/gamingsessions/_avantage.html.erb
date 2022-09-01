@@ -6,3 +6,11 @@
 <p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vell-Watt ( VW ) contre des bons de réductions !</p>
 
 <p>Wallet = <%=current_user.wallet = @solde/2 %> V-W</p>
+
+
+<p><% Ticket.all.each do |t| %></p>
+  <%= t.company %>
+  <%= t.content %>
+  <%= t.price %>
+  <p>Acheter</p>
+<% end %>
