@@ -1,6 +1,6 @@
 class GamingsessionsController < ApplicationController
   # permet d'accéder à show sans login
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [:show, :create]
   before_action :save_ongoing_gamingsession, only: :index
 
   # affichage de l'index des gamingsessions que de l'user connecté
@@ -19,9 +19,22 @@ class GamingsessionsController < ApplicationController
     @totalprodsession = Gamingsession.all.order("total_production DESC").limit(1).as_json
   end
 
+  def create
+    @session = Gamingsession.new(session_params.merge({date: Date.today}))
+    if @session.save!
+      head :ok
+    else
+      head :unprocessable_entity
+    end
+  end
+
   private
 
-  #permet AVANT index de récupérer l'id dans le cookie
+  def session_params
+    params.require(:gamingsession).permit(:max_production, :total_production, :session_duration, :score, :bike_id)
+  end
+
+  # permet AVANT index de récupérer l'id dans le cookie
   def save_ongoing_gamingsession
     # if le cookies avec l'id est présent
     if cookies[:gamingsession_id].present?
