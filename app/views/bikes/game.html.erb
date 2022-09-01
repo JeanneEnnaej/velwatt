@@ -7,6 +7,9 @@
   <h2 data-game-config-target="maxProduct">0 w</h2>
   <p>Instant :</p>
   <h2 data-game-config-target="compteurValue">0 w</h2>
+  <span data-action="click->game-config#createGamingSessionDB">Save to DB</span>
+  <span data-game-config-url-value="/gamingsessions"></span>
+  <%= link_to "button", gamingsessions_path %>
 </div>
 
 <%# affiche le qr code sur la page à la fin du jeu %>

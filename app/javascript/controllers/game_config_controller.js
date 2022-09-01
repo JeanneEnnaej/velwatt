@@ -1,14 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
+let bikeId = 1;
+let dateSession = 0;
 let oldProduct = 0;
 let compteur = 0;
-let productTimes = 0;
+let productTotalSession = 0;
+let productHour = 0;
 let maxProduct = 0;
-const times = 100;
+const times = 50;
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
   static targets = ["compteurValue", "totalValue", "maxProduct"];
+  static values = { url: String };
 
   connect() {
     console.log("game-config init");
@@ -37,6 +41,7 @@ export default class extends Controller {
       compteur = 0;
       oldProduct = 0;
       maxProduct = 0;
+      dateSession = data.session_date;
       this.createParticipant(url, data);
     });
   }
@@ -50,7 +55,7 @@ export default class extends Controller {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         "session_id": participant.session_id,
-        "session_date": 0,
+        "session_date": dateSession,
         "session_status": "IN_PROGRESS"
       })
     })
@@ -71,12 +76,13 @@ export default class extends Controller {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         "session_id": participant.session_id,
-        "session_date": 0,
+        "session_date": dateSession,
         "session_status": "ENDED"
       })
     })
     .then(response => response.json())
     .then((data) => {
+      this.createGamingSessionDB();
       console.log("session finish");
     });
   }
@@ -88,10 +94,10 @@ export default class extends Controller {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "bike_id": 1,
+        "bike_id": bikeId,
         "session_id": session.session_id,
         "participate_production": 0,
-        "participate_date": session.session_date
+        "participate_date": dateSession
       })
     })
     .then(response => response.json())
@@ -140,9 +146,10 @@ export default class extends Controller {
       maxProduct = compteur;
     }
 
-    productTimes = product / 7200 ;
+    productHour = product / 7200 ;
+    productTotalSession = Number(product);
     //On renvoie :
-    this.totalValueTarget.innerText = `${productTimes.toFixed(3)} wh`;
+    this.totalValueTarget.innerText = `${productHour.toFixed(3)} wh`;
     this.maxProductTarget.innerText = `${maxProduct} w`;
     this.compteurValueTarget.innerText = `${compteur} w`;
   }
@@ -152,5 +159,30 @@ export default class extends Controller {
       method: "GET",
       headers: { "Accept-Language": "fr" }
     })
+  }
+
+  createGamingSessionDB() {
+    fetch("/gamingsessions", {
+      method: "POST",
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        max_production: maxProduct,
+        total_production: productTotalSession,
+        session_duration: 100,
+        score: 10,
+        bike_id: bikeId
+      })
+    })
+      .then(response => () => {
+        if (response.status === 200) {
+          console.log("ok");
+        }
+      })
+      .then((data) => {
+        console.log("save to db");
+      })
   }
 }
