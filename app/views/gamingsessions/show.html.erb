@@ -1,21 +1,82 @@
-<%# logo %>
-<%= image_tag 'groopsys.JPG', alt: 'icon', style: 'height:40px;width:auto' %>
-<h1>Merci d'avoir utilisé Vel-Watt !</h1>
+<h2>Merci d'avoir utilisé Vel-Watt</h2>
 
 <%#  parti score %>
-<p>Score :<%= @gamingsession.score %> points</p>
+<div class="home-card">
+  <div class="card-infos">
+    <div>
+      <h3>Votre score :</h3>
+    </div>
+    <div class="details-calcul">
+      <div  class="image-arbre">
+        <%= image_tag "groopsys.JPG" %>
+        <p>x 30</p>
+      </div>
+<%# <p>Score := @gamingsession.score points</p> %>
+      <div class="score">
+        <h2>= <%= @gamingsession.score %> pts</h2>
+      </div>
+    </div>
+    <div class="info-avantage">
+    <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+    </div>
+  </div>
+</div>
+<div class="button_container">
+  <div class="button">
+    <%= link_to 'Sauvegarder mes points', new_user_session_path %>
+  </div>
+</div>
 
-<p>Convertissez vos <%= @gamingsession.score %> points en avantages chez nos partenaires</p>
+
+<div>
+<h2>Vous avez produit</h2>
+</div>
+
 
 <%# lien vers le sign-up/sign-in %>
-<%= link_to 'Sauvegarder mes points', new_user_session_path %>
 
 <%# donnée du user vs les records %>
-<p><%= @gamingsession.total_production %> W/h</p>
-<p>Total production record <%= @totalprodsession[0]["total_production"] %> <i class="fa-solid fa-crown"></i></p>
-<p><%= @gamingsession.max_production %> W/h</p>
-<p>Max production record <%= @maxprodsession[0]["max_production"] %><i class="fa-solid fa-crown"></i> </p>
+<div  class="chiffres-container">
+  <div class="info-container">
+    <div class="data-container">
+      <div class="circle-container">
+        <div>
+        <h2><%= @gamingsession.total_production %> Wh</h2>
+        </div>
+      </div>
+      <div class="little-cercle">
+          <i class="fa-solid fa-crown fa-xs couronne"></i>
+        <div class="prod-record">
+        <p><%= @totalprodsession[0]["total_production"] %> Wh</p>
+        </div>
+      </div>
+      <div class="production-title">
+      <p>Prod instantanée max</p>
+      </div>
+    </div>
 
+    <div class="data-container">
+      <div class="circle-container">
+        <div>
+        <h2><%= @gamingsession.max_production %> Wh</h2>
+        </div>
+      </div>
+      <div class="little-cercle">
+          <i class="fa-solid fa-crown fa-xs couronne"></i>
+        <div class="prod-record">
+          <p><%= @maxprodsession[0]["max_production"] %> Wh</p>
+        </div>
+      </div>
+      <div class="production-title">
+        <p>Prod max</p>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <i class="fa-solid fa-crown fa-xs couronne"></i>
+    <p>Record effectué sur le vélo ce jour</p>
+  </div>
+</div>
 <P>QUIZZ</P>
 
 <%# comparatif %>
