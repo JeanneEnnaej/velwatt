@@ -5,7 +5,7 @@
 
 <% @gamingsessions.each do |gs| %>
   <%= gs.date%>
-  <p>Prod max<%= gs.max_production%></p>
-  <p>Prod total<%= gs.total_production%></p>
+  <p>Prod max<%= gs.max_production%>Wh</p>
+  <p>Prod total<%= gs.total_production%>wH</p>
   <p>Score<%= gs.score%></p>
 <% end %>
