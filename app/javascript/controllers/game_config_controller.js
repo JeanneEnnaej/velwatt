@@ -1,8 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 
-let sec = 10;
-let min = 0;
-let t;
 
 let participantSession;
 let bikeId = 1;
@@ -69,13 +66,14 @@ export default class extends Controller {
     .then(response => response.json())
     .then(() => {
       console.log("Session Started");
-      this.startTimer();
       this.startBike(times);
       this.getProduction(url, participant, times);
     });
   }
 
   endSession(partiipant) {
+    console.log("session ended");
+    window.location.reload();
     const ipAdress = "10.10.0.10";
     const url = `http://${ipAdress}/api/v1`;
 
@@ -189,34 +187,5 @@ export default class extends Controller {
       .then((data) => {
         console.log("save to db");
       })
-  }
-
-  startTimer() {
-    console.log("timer connected");
-    this.timer();
-  }
-
-  tick(){
-    sec--;
-    if (sec === -1){
-      sec = 59;
-      min--;
-    }
-  }
-  add() {
-    this.tick();
-    this.timerViewTarget.innerText = 
-      (min > 9 ? min : "0" + min)
-      + ":" + (sec > 9 ? sec : "0" + sec);
-      if (min === 0 && sec === 0){
-        console.log("timer finish");
-        this.endSession();
-        i = times;
-      } else {
-        this.timer();
-      }
-  }
-  timer() {
-      t = setTimeout(this.add.bind(this), 1000);
   }
 }

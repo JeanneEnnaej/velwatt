@@ -2,10 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="timer"
 
-let sec = 1;
-let min = 10;
+let sec = 10;
+let min = 0;
 let t;
-let participantSession;
 
 
 export default class extends Controller {
@@ -15,9 +14,8 @@ export default class extends Controller {
     console.log("timer is here");
   }
 
-  startTimer(participant) {
+  startTimer() {
     console.log("timer connected");
-    participantSession = participant;
     this.timer();
   }
 
@@ -28,6 +26,7 @@ export default class extends Controller {
       min--;
     }
   }
+
   add() {
     this.tick();
     this.timerViewTarget.innerText = 
@@ -35,10 +34,13 @@ export default class extends Controller {
       + ":" + (sec > 9 ? sec : "0" + sec);
       if (min === 0 && sec === 0){
         console.log("timer finish");
+        const gameSessionEndEvent = new Event("game-session:end")
+        this.element.dispatchEvent(gameSessionEndEvent)
       } else {
         this.timer();
       }
   }
+
   timer() {
       t = setTimeout(this.add.bind(this), 1000);
   }

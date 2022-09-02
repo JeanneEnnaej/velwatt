@@ -1,11 +1,11 @@
 
 
-<div data-controller="game-config">
+<div data-controller="game-config timer" data-action="game-session:end->game-config#endSession">
   <div>
-    <p data-game-config-target="timerView"></p>
+    <p data-timer-target="timerView"></p>
   </div>
   <h1>BikeGame</h1>
-  <span data-action="click->game-config#initSession">CREATE SESSION</span>
+  <span data-action="click->game-config#initSession click->timer#startTimer">CREATE SESSION</span>
   <p>Total :</p>
   <h2 data-game-config-target="totalValue">0.000 wh</h2>
   <p>Max production :</p>
