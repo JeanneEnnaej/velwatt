@@ -1,0 +1,30 @@
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin box-shadow{
+  box-shadow: 0px 0px 20px $color-primary;
+}
+
+@mixin border{
+  border: solid 0px $color-primary;
+}
+
+@mixin border-radius{
+  border-radius: 16px;
+}
