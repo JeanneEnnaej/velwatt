@@ -1,5 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
+
+let participantSession;
 let bikeId = 1;
 let dateSession = 0;
 let oldProduct = 0;
@@ -7,11 +9,13 @@ let compteur = 0;
 let productTotalSession = 0;
 let productHour = 0;
 let maxProduct = 0;
-const times = 50;
+const times = 300;
+let i;
+
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
-  static targets = ["compteurValue", "totalValue", "maxProduct"];
+  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView"];
   static values = { url: String };
 
   connect() {
@@ -60,14 +64,16 @@ export default class extends Controller {
       })
     })
     .then(response => response.json())
-    .then((data) => {
+    .then(() => {
       console.log("Session Started");
       this.startBike(times);
       this.getProduction(url, participant, times);
     });
   }
 
-  endSession(participant) {
+  endSession(partiipant) {
+    console.log("session ended");
+    window.location.reload();
     const ipAdress = "10.10.0.10";
     const url = `http://${ipAdress}/api/v1`;
 
@@ -75,7 +81,7 @@ export default class extends Controller {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "session_id": participant.session_id,
+        "session_id": participantSession.session_id,
         "session_date": dateSession,
         "session_status": "ENDED"
       })
@@ -104,12 +110,13 @@ export default class extends Controller {
     .then((data) => {
       console.log("Participantalon :",data);
       console.log("Connected !");
+      participantSession = data;
       this.startSession(data)
     });
   }
 
   async getProduction(url, participant, times) {
-    let i = 0;
+    i = 0;
     do {
       console.log(`Boucles : ${i}`);
       fetch(`${url}/participate/findByBikeIdAndSessionId/${participant.bike_id}/${participant.session_id}`, {
@@ -123,10 +130,6 @@ export default class extends Controller {
       });
       i += 1;
       await this.sleep(180);
-
-      if (i === (times - 1)) {
-        this.endSession(participant);
-      }
     } while (i < times);
     
   }
