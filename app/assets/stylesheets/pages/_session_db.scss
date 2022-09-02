@@ -1,0 +1,121 @@
+.home-card{
+  width: 90%;
+  height: 200px;
+  background-color: $background-ligth;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 16px;
+
+  }
+
+
+  .card-infos{
+  width: 80%;
+  height: 100%;
+  }
+
+
+.details-calcul{
+  display: flex;
+  align-items: center;
+  height: 70%;
+  justify-content: space-between;
+
+  .image-arbre{
+    width: 70%;
+    height: 60%;
+
+    p{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    }
+
+    img{
+      width:60%;
+    }
+    }
+
+    .score{
+      display: flex;
+      width: 50%;
+
+      h2{
+        margin: 0;
+        height: 100%;
+
+      }
+      }
+
+  }
+
+  .image-arbre{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  p{
+  display: flex;
+  margin: 0 auto;
+  align-items: flex-end;
+
+  }
+  }
+
+  .info-avantage{
+    width: 100%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+
+    p{
+      text-align: center;
+    }
+  }
+
+
+.quizz-card {
+  width: 90%;
+  height: 200px;
+  background-color: #474747;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: solid 2px #07FFD2;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .quizz-reponses {
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    grid-template-columns: 120px 120px;
+    grid-template-rows: 60px 60px;
+    column-gap: 20px;
+
+    p {
+      font-size: 11px;
+    }
+
+  }
+
+  .quizz-choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+}
