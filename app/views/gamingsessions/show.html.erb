@@ -1,4 +1,8 @@
-<h1>Merci d'avoir utilisé Vel-Watt</h1>
+<% if current_user %>
+  <h1> Session du <%= @gamingsession.date %></h1>
+<% else %>
+  <h1>Merci d'avoir utilisé Vel-Watt</h1>
+<% end %>
 <h2>Votre score :</h2>
 
 <%#  parti score %>
@@ -14,16 +18,21 @@
         <h2>= <%= @gamingsession.score %> pts</h2>
       </div>
     </div>
-    <div class="info-avantage">
-      <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+    <% unless current_user %>
+      <div class="info-avantage">
+        <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% unless current_user %>
+  <div class="button_container">
+    <div class="button">
+      <%= link_to 'Sauvegarder mes points', new_user_session_path %>
     </div>
   </div>
-</div>
-<div class="button_container">
-  <div class="button">
-    <%= link_to 'Sauvegarder mes points', new_user_session_path %>
-  </div>
-</div>
+<% end %>
 
 
 <div>
