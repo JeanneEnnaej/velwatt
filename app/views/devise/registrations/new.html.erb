@@ -1,6 +1,6 @@
  <div class="super-container">
-  <div>
-    <h2>Inscription</h2>
+  <div class="title-signup">
+    <p>Inscription<p>
   </div>
    <div  class="logo">
   </div>
@@ -33,9 +33,12 @@
           <div class="form-actions">
             <%= f.button :submit, "Créer mon compte" %>
           </div>
+          <div class="form-actions">
+            <div class="button-login">
+              <%= link_to "Me connecter", new_user_session_path%>
+            </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-<%= render "devise/shared/links"%>

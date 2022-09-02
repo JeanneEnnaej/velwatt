@@ -1,7 +1,9 @@
 <% if current_user %>
   <h1> Session du <%= @gamingsession.date %></h1>
 <% else %>
-  <h1>Merci d'avoir utilisé Vel-Watt</h1>
+  <div class="db-session-title">
+    <h1>Merci d'avoir utilisé <br>Vel-Watt !</h1>
+  </div>
 <% end %>
 <h2>Votre score :</h2>
 
@@ -29,7 +31,7 @@
 <% unless current_user %>
   <div class="button_container">
     <div class="button">
-      <%= link_to 'Sauvegarder mes points', new_user_session_path %>
+      <%= link_to 'Sauvegarder mes points', new_user_registration_path %>
     </div>
   </div>
 <% end %>
