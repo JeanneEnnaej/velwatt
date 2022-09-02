@@ -101,3 +101,6 @@
 <p> Pour alimenter le frigo pendant 1 journée vous auriez du pédaler pendant <%= @frigo %>h</p>
 
 <div class="XXXX"></div>
+<% if current_user %>
+  <%= render "menu" %>
+<% end %>
