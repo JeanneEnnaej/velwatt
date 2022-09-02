@@ -1,35 +1,43 @@
 h1{
 font-family: 'Montserrat', sans-serif;
-font-size:32px;
+font-size:24px;
 font-weight: 800;
 
+text-align: center;
+color: $txtcolor-primary;
+margin-top: 50px;
+margin-bottom: 40px;
 }
 
 h2{
   font-family: 'Montserrat', sans-serif;
-  font-size:24px;
+  font-size:18px;
   font-weight: 800;
-
+  color: $txtcolor-primary;
   text-align: center;
   margin-top: 30px;
   }
 
 h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size:18px;
+  font-size:14px;
   font-weight: 800;
-
+  color: $txtcolor-primary;
   text-align: center;
 }
 
 p{
   font-family: 'Montserrat', sans-serif;
-  font-size:12px;
+  font-size:10px;
   font-weight: 800;
-
+  color: $txtcolor-primary;
 }
 
 a{
   text-decoration: none;
+  color: $txtcolor-primary;
+}
 
+span{
+  color: $txtcolor-primary;
 }

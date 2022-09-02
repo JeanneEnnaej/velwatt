@@ -1,0 +1,147 @@
+@import "config/bases";
+@import "components/button";
+@import"config/variable.scss";
+
+
+.super-container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.logo{
+  background-image: url("VW.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100px;
+}
+
+.container-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  margin: 0;
+  margin-top: 16px;
+  padding-bottom: 16px;
+}
+
+.formulaire{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+
+form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.input.email.optional.user_email{
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+flex-direction: column;
+height: 100%;
+width: 100%;
+padding: 0;
+margin: 0;
+
+}
+input[type="email" i]{
+background-color: $background-ligth;
+color: $txtcolor-primary;
+font-family: 'Montserrat', sans-serif;
+font-size: 12px;
+font-weight: 600;
+border-radius:10px;
+border: solid 0.5px $color-primary;
+box-shadow: 0px 0px 20px $color-primary;
+width: 300px;
+height: 20px;
+margin-bottom: 20px;
+font-family: 'Montserrat', sans-serif;
+}
+
+
+input.password.optional.user_password{
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+flex-direction: column;
+height: 100%;
+width: 100%;
+padding: 0;
+margin: 0;
+
+}
+
+input[type="password" i] {
+  background-color: $background-ligth;
+  color: $txtcolor-primary;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius:10px;
+  border: solid 0.5px $color-primary;
+  box-shadow: 0px 0px 20px $color-primary;
+  width: 300px;
+  height: 20px;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+
+.form-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 20%;
+  width: 100%;
+  margin-top: 40px;
+}
+
+
+
+.label-fr{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: $txtcolor-primary;
+  font-size: 16px;
+}
+
+input.btn{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+width: 150px;
+height: 40px;
+background-color: $background-ligth;
+color:white;
+font-family: 'Montserrat', sans-serif;
+font-size: 10px;
+font-weight: 600;
+border-radius:10px;
+border: solid 2px $stroke-secondary;
+box-shadow: 0px 0px 20px $stroke-secondary;
+}

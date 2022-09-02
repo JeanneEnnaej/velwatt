@@ -1,11 +1,13 @@
-<h2>Merci d'avoir utilisé Vel-Watt</h2>
+<% if current_user %>
+  <h1> Session du <%= @gamingsession.date %></h1>
+<% else %>
+  <h1>Merci d'avoir utilisé Vel-Watt</h1>
+<% end %>
+<h2>Votre score :</h2>
 
 <%#  parti score %>
 <div class="home-card">
   <div class="card-infos">
-    <div>
-      <h3>Votre score :</h3>
-    </div>
     <div class="details-calcul">
       <div  class="image-arbre">
         <%= image_tag "groopsys.JPG" %>
@@ -16,16 +18,21 @@
         <h2>= <%= @gamingsession.score %> pts</h2>
       </div>
     </div>
-    <div class="info-avantage">
-    <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+    <% unless current_user %>
+      <div class="info-avantage">
+        <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% unless current_user %>
+  <div class="button_container">
+    <div class="button">
+      <%= link_to 'Sauvegarder mes points', new_user_session_path %>
     </div>
   </div>
-</div>
-<div class="button_container">
-  <div class="button">
-    <%= link_to 'Sauvegarder mes points', new_user_session_path %>
-  </div>
-</div>
+<% end %>
 
 
 <div>
@@ -92,3 +99,5 @@
 <%# calcul de comparaison %>
 <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round(2) %>
 <p> Pour alimenter le frigo pendant 1 journée vous auriez du pédaler pendant <%= @frigo %>h</p>
+
+<div class="XXXX"></div>
