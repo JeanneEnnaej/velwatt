@@ -22,7 +22,7 @@
 }
 
 @mixin border{
-  border: solid 0px $color-primary;
+  border: solid 0.5px $color-primary;
 }
 
 @mixin border-radius{
