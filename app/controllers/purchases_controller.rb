@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
 
     if @purchase.save
       current_user.update(wallet: current_user.wallet - @ticket.price)
-      redirect_to advantages_path, notice: "Success"
+      redirect_to advantages_path
     else
       render "index", status: :unprocessable_entity
     end
