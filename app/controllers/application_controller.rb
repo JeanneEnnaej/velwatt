@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
   # permet d'arriver sur l'index des gamingsessions après le login
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || totaux_path
+    totaux_path
   end
 end
