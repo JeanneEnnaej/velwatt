@@ -6,37 +6,18 @@
 
 
 <p>Solde des points :</p>
-<% @solde = 0 %>
-<% @gamingsessions.each do |gs| %>
-  <% @solde += gs.score%>
-<% end %>
-<%= @solde %>
+<p><%= @solde %></p>
 
-<% @achats = 0 %>
-
-<p>Solde des achats</p>
-<% until @purchases == nil  %>
-  <% @purchases.all.each do |p| %>
-    <% @achats += p.ticket.price%>
-  <% end %>
-<% end %>
-<%= @achats %>
-
+<%#  wallet de l'user %>
 <p>Wallet = <%=current_user.wallet %> V-W</p>
 
+<%# cumul du temps de toutes les sessions %>
 <p>Temps passé : </p>
-<% @total_time = 0 %>
-<% @gamingsessions.each do |gs| %>
-  <% @total_time += gs.session_duration%>
-<% end %>
-<p><%= @total_time = (@total_time/60) %> min</p>
+<p><%= @total_time %> min</p>
+
+<%# cumul de tous les Wh produits %>
 
 <p>Electricité produite</p>
-
-<% @total_watt = 0 %>
-<% @gamingsessions.each do |gs| %>
-  <% @total_watt += gs.total_production%>
-<% end %>
 <p><%= @total_watt %>Wh</p>
 
 <p>Explications</p>
