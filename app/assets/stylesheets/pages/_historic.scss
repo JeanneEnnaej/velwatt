@@ -65,11 +65,11 @@ margin-top: 40px;
 
     }
 
-    .prod-max{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
+    .see-session{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
 
 
     }
@@ -77,25 +77,26 @@ margin-top: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
-    width: 25%;
+      width: 25%;
     }
 
 
 
     .score-session{
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
     }
   }
   .tab{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
 
 
     .date{
@@ -106,28 +107,27 @@ margin-top: 40px;
 
     }
 
-    .prod-max{
+    .see-session{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25%;
-
+    color: white;
 
     }
     .prod-total{
       display: flex;
       justify-content: center;
       align-items: center;
-    width: 25%;
+      width: 25%;
     }
 
 
-
     .score-session{
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
     }
   }
