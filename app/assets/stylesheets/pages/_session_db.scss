@@ -143,7 +143,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #b32b2b;
+    background-color: #666666;
+    border: solid 1px red;
+    box-shadow: 0px 0px 20px red;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -183,7 +185,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #36b32b;
+    background-color: #666666;
+    border: solid 1px $color-primary;
+    box-shadow: 0px 0px 20px $color-primary;
     width: 115px;
     height: 40px;
     border-radius: 10px;
