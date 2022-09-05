@@ -1,4 +1,4 @@
-<h1>Le conseil Vel-Watt du jour</h1>
+<%# <h1>Le conseil Vel-Watt du jour</h1>
 
 <p>Eteindre les veilles</p>
 <p>Le bon geste : utiliser des multiprises à interrupteur qui permettent de brancher plusuers appareils et de les éteindre tous en même temps.</p>
@@ -7,11 +7,11 @@
 
 
 
-<p>Wallet =<%=current_user.wallet %> V-W</p>
+<p>Wallet =<%=current_user.wallet V-W</p> %>
 
-<% Ticket.all.each do |ticket| %>
-  <p><%= ticket.company %></p>
-  <%= ticket.content %>
-  <%= ticket.price%>
-  <%= button_to "Acheter", ticket_purchases_path(ticket.id) %>
-<% end %>
+<%# Ticket.all.each do |ticket| %>
+  <%# <p>= ticket.company</p> %>
+  <%#= ticket.content %>
+  <%#= ticket.price%>
+  <%#= button_to "Acheter", ticket_purchases_path(ticket.id) %>
+<%# end %>

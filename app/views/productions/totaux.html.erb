@@ -1,0 +1,61 @@
+<div class="container">
+  <div>
+    <h1>Ma production</h1>
+  </div>
+  <div class="info">
+    <div class="velo">
+    </div>
+    <div class="infos-chiffres">
+      <div class="points">
+        <p>Solde des points :</p>
+        <h2><%= @solde %></h2>
+      </div>
+      <div class="wallet">
+        <p>Wallet = </p>
+        <h2><%=current_user.wallet %> V-W</h2>
+      </div>
+      <div class="temps">
+        <p>Temps passé : </p>
+        <h2><%= @total_time %> min</h2>
+      </div>
+      <div class="prod">
+        <p>Electricité produite</p>
+        <h2><%= @total_watt %>KWh</h2>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div>
+  <h2>Explications</h2>
+    <div>
+      <h2><%= @total_watt %>Wh  = <%= (@total_watt/1000.0).round(4) %> KWh</h2>
+    </div>
+  </div>
+  <div class="explication">
+      <h2>Que faire avec un 1kWH ?</h2>
+      <p>Allumer une ampoule led pendant 143h</p>
+      <p>Rouler avec une Renault électrique Zoé pendant 8,5km</p>
+      <p>Faire fonctionner une tireuse pendant 45mn</p>
+    <div>
+    </div>
+  </div>
+  <div class="vs">
+    <h2>Ma production VS Réalité</h2>
+      <p>Vous avez produit de quoi recharger <%=(@total_watt/0.30).round(1) %> fois d'un smartphone </p>
+
+      <p>Vous avez produit <%=((@total_watt/1000.0)*100).round(1) %> % de l'énergie necéssaire au cycle d'une machine à laver </p>
+
+      <p>Vous avez produit de quoi faire fonctionner un refrigerateur pendant <%=(@total_watt/(548.0/24)).round(1) %> heure(s) </p>
+
+      <p>Vous avez produit <%=((@total_watt/21095000.0)*100).round(4) %> % de la consommation de la Tour Eiffel pour une journée </p>
+  </div>
+  <div class="comparaison">
+  </div>
+</div>
+
+<div class="XXXX"></div>
+<%= render "pages/menu" %>
