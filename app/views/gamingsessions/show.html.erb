@@ -31,11 +31,10 @@
     </div>
   </div>
 
-  <% unless current_user %>
-    <div class="button_container">
-      <div class="button">
-        <%= link_to 'Sauvegarder mes points', new_user_registration_path %>
-      </div>
+<% unless current_user %>
+  <div class="button_container">
+    <div class="button">
+      <%= link_to 'Sauvegarder mes points', new_user_session_path %>
     </div>
   <% end %>
 
@@ -92,7 +91,6 @@
       <p>Record effectué sur le vélo ce jour</p>
     </div>
   </div>
-
   <div class= "quizz-card">
     <p>Lequel de ces appareils consomme le plus d’électricité par an ?</p>
     <div class="quizz-reponses">
@@ -148,8 +146,12 @@
 
     </div>
   </div>
+  <div class="XXXX">
+  </div>
 </div>
-<div class="XXXX"></div>
+
 <% if current_user %>
   <%= render "pages/menu" %>
+  <% else %>
+  <%= render "pages/menu_session" %>
 <% end %>
