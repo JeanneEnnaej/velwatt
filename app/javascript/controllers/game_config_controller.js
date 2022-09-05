@@ -9,17 +9,25 @@ let compteur = 0;
 let productTotalSession = 0;
 let productHour = 0;
 let maxProduct = 0;
-const times = 300;
+let api;
+let url;
+const times = 50;
 let i;
 
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
   static targets = ["compteurValue", "totalValue", "maxProduct", "timerView"];
-  static values = { url: String };
+  static values = {
+    url: String,
+    api: String
+  };
 
   connect() {
     console.log("game-config init");
+    api = this.apiValue;
+    console.log(api)
+    this.apiUrl = `https://${api}/api/v1`;
   }
 
   sleep(ms) {
@@ -28,10 +36,8 @@ export default class extends Controller {
 
   initSession() {
     console.log("Init session");
-    const ipAdress = "10.10.0.10";
-    const url = `http://${ipAdress}/api/v1`;
 
-    fetch(`${url}/session/save`, {
+    fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -46,15 +52,13 @@ export default class extends Controller {
       oldProduct = 0;
       maxProduct = 0;
       dateSession = data.session_date;
-      this.createParticipant(url, data);
+      this.createParticipant(data);
     });
   }
 
   startSession(participant) {
-    const ipAdress = "10.10.0.10";
-    const url = `http://${ipAdress}/api/v1`;
 
-    fetch(`${url}/session/save`, {
+    fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -66,18 +70,16 @@ export default class extends Controller {
     .then(response => response.json())
     .then(() => {
       console.log("Session Started");
-      this.startBike(times);
-      this.getProduction(url, participant, times);
+      //this.startBike(times);
+      this.getProduction(participant);
     });
   }
 
   endSession(partiipant) {
     console.log("session ended");
-    window.location.reload();
-    const ipAdress = "10.10.0.10";
-    const url = `http://${ipAdress}/api/v1`;
+    // window.location.reload();
 
-    fetch(`${url}/session/save`, {
+    fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -93,10 +95,10 @@ export default class extends Controller {
     });
   }
 
-  createParticipant(url, session) {
+  createParticipant(session) {
     console.log(session.session_id);
 
-    fetch(`${url}/participate/save`, {
+    fetch(`${this.apiUrl}/participate/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -108,25 +110,25 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      console.log("Participantalon :",data);
+      console.log("Participantalon :", data);
       console.log("Connected !");
       participantSession = data;
       this.startSession(data)
     });
   }
 
-  async getProduction(url, participant, times) {
+  async getProduction(participant) {
     i = 0;
     do {
       console.log(`Boucles : ${i}`);
-      fetch(`${url}/participate/findByBikeIdAndSessionId/${participant.bike_id}/${participant.session_id}`, {
+      fetch(`${this.apiUrl}/participate/findByBikeIdAndSessionId/${participant.bike_id}/${participant.session_id}`, {
         method: "GET",
         headers: {"Content-Type": "application/json"}
       })
       .then(response => response.json())
       .then((data) => {
         console.log("Get participate product :",data.participate_production);
-        this.showProduction(data.participate_production, times);
+        this.showProduction(data.participate_production);
       });
       i += 1;
       await this.sleep(180);
@@ -134,7 +136,8 @@ export default class extends Controller {
     
   }
 
-  showProduction(product, times) {
+  showProduction(product) {
+
 
      
     if (compteur < 5 && product === oldProduct) {
@@ -157,7 +160,7 @@ export default class extends Controller {
     this.compteurValueTarget.innerText = `${compteur} w`;
   }
 
-  startBike(times) {
+  startBike() {
     fetch(`http://10.10.0.100:4200?=${times}`, {
       method: "GET",
       headers: { "Accept-Language": "fr" }
