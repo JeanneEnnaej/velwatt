@@ -31,10 +31,11 @@
     </div>
   </div>
 
-<% unless current_user %>
-  <div class="button_container">
-    <div class="button">
-      <%= link_to 'Sauvegarder mes points', new_user_session_path %>
+  <% unless current_user %>
+    <div class="button_container">
+      <div class="button">
+        <%= link_to 'Sauvegarder mes points', new_user_session_path %>
+      </div>
     </div>
   <% end %>
 
