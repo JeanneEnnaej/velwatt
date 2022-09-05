@@ -31,7 +31,7 @@
 <% unless current_user %>
   <div class="button_container">
     <div class="button">
-      <%= link_to 'Sauvegarder mes points', new_user_registration_path %>
+      <%= link_to 'Sauvegarder mes points', new_user_session_path %>
     </div>
   </div>
 <% end %>
@@ -112,28 +112,28 @@
   <div class="comparatif-cat">
     <div class="comparatif-objet">
       <p>Réfrigérateur : 200kWh par an</p>
-      <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).ceil %>
+      <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
       <p>votre production : <%= @gamingsession.total_production %> Wh</p>
       <p> Pour alimenter le frigo pendant 1 journée vous devriez pédaler pendant <%= @frigo %>h</p>
 
     </div>
     <div class="comparatif-objet">
       <p>Télévision : 250Wh pour 1h</p>
-      <% @tv = ((((250.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).ceil %>
+      <% @tv = ((((250.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
       <p>votre production : <%= @gamingsession.total_production %> Wh</p>
       <p> Pour alimenter la télévision pendant 1 h vous devriez pédaler pendant <%= @tv %>h</p>
     </div>
 
     <div class="comparatif-objet">
       <p>Lave-linge : 24kWh pour un cycle</p>
-      <% @machine = ((((24000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).ceil %>
+      <% @machine = ((((24000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
       <p>votre production : <%= @gamingsession.total_production %> Wh</p>
       <p> Pour produire l'électricité necéssaire pour faire un cycle de machine à laver vous devriez pédaler pendant <%= @machine %>h</p>
     </div>
 
     <div class="comparatif-objet">
       <p> Radiateur électrique: 3 800kWh/an</p>
-      <% @radiateur = ((((10000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).ceil %>
+      <% @radiateur = ((((10000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
       <p>votre production : <%= @gamingsession.total_production %> Wh</p>
       <p> Pour alimenter un chauffage électrique pendant 1 journée vous devriez pédaler pendant <%= @radiateur %>h</p>
     </div>
@@ -141,8 +141,12 @@
     <%# calcul de comparaison %>
 
   </div>
+  <div class="XXXX">
+  </div>
 </div>
-<div class="XXXX"></div>
+
 <% if current_user %>
   <%= render "pages/menu" %>
+  <% else %>
+  <%= render "pages/menu_session" %>
 <% end %>
