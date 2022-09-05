@@ -1,6 +1,8 @@
 
 
-<div data-controller="game-config timer" data-action="game-session:end->game-config#endSession">
+<div data-controller="game-config timer"
+  data-action="game-session:end->game-config#endSession"
+  data-game-config-api-value="<%= ENV['FAST_API_ENDPOINT'] %>">
   <div>
     <p data-timer-target="timerView"></p>
   </div>
