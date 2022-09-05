@@ -1,5 +1,9 @@
 class PurchasesController < ApplicationController
 
+  def index
+    @purchases = Purchase.where(user: current_user)
+  end
+
   def create
     @ticket = Ticket.find(params[:ticket_id])
     @purchase = Purchase.new(ticket: @ticket, user: current_user)

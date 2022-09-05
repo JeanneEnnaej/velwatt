@@ -16,15 +16,38 @@
   <div class="avantages-explication">
     <p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vell-Watt ( VW ) contre des bons de réductions !</p>
   </div>
+
+<div class="sessions-container">
+  <div class="tickets">
+    <p>Vos bons : </p>
+    <% if Purchase.where(user: current_user) == nil %>
+        <%= "test" %>
+    <% else %>
+      <% Purchase.where(user: current_user).each do |p| %>
+        <div class="tab">
+          <div class="prod-total">
+            <p><%= p.ticket.company %></p>
+          </div>
+          <div class="tecket-content">
+            <p><%= p.ticket.content %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
   <div>
-    <h2>Votre solde :<%=current_user.wallet %> 3500 V-W</h2>
+    <h2>Votre solde :<%=current_user.wallet %></h2>
   </div>
 
-  
+
   <div class="carte-avantage">
     <div class="coupon-type">
       <div class="code-promo">
-        <p>Code Promo</p>
+        <p><%= Ticket.first.price %> VW</p>
       </div>
     </div>
     <div class="background-marque">
@@ -38,20 +61,41 @@
         <p>DECATHLON</p>
         </div>
         <div class="marque-price">
-        <p>25€ de réduction</p>
+        <p>5€ de réduction</p>
         </div>
       </div>
     </div>
   </div>
+<p><%= button_to "Obtenir", ticket_purchases_path(Ticket.first.id), class: "buy-button" %></p>
+
+  <div class="carte-avantage">
+    <div class="coupon-type">
+      <div class="code-promo">
+        <p><%= Ticket.last.price %> VW</p>
+      </div>
+    </div>
+    <div class="background-marque-tree">
+    </div>
+    <div class="carte-marque">
+      <div class="marque-logo-tree">
+      <p></p>
+      </div>
+      <div class="marque-info">
+        <div class="marque-name">
+        <p>Plantes des arbres</p>
+        </div>
+        <div class="marque-price">
+        <p>10 arbres plantés</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<p><%= button_to "Obtenir", ticket_purchases_path(Ticket.last.id), class: "buy-button" %></p>
+
 </div>
 
+<div class="XXXX"></div>
 
 
-<% Ticket.all.each do |ticket| %>
-  <p><%= ticket.company %></p>
-  <%= ticket.content %>
-  <%= ticket.price%>
-  <%= button_to "Acheter", ticket_purchases_path(ticket.id) %>
-<% end %>
 
 <%= render "pages/menu" %>
