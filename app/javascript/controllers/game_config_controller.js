@@ -73,7 +73,7 @@ export default class extends Controller {
 
   endSession(partiipant) {
     console.log("session ended");
-    window.location.reload();
+    //window.location.reload();
     const ipAdress = "10.10.0.10";
     const url = `http://${ipAdress}/api/v1`;
 
