@@ -18,32 +18,45 @@
   </div>
 
 
- <div>
-    <h2>Votre solde : <%=current_user.wallet %> VW</h2>
+  <div>
+      <h2>Votre solde : <%=current_user.wallet %> VW</h2>
   </div>
-
-<div class="sessions-container">
-  <div class="tickets">
-    <p>Vos bons : </p>
+  <div  class="sessions-container">
+    <div class = "tab-title">
+      <div class="Enseigne">
+      <p>Marque</p>
+      </div>
+      <div class="Content">
+        <p>Description</p>
+      </div>
+      <div class="Statut">
+        <p>Statut</p>
+      </div>
+      <div class="Code">
+        <p>Code</p>
+      </div>
+    </div>
     <% if Purchase.where(user: current_user) == [] %>
         <p>Vous n'avez aucun bon actuellement</p>
     <% else %>
       <% Purchase.where(user: current_user).each do |p| %>
         <div class="tab">
-          <div class="prod-total">
+          <div class="Enseigne">
             <p><%= p.ticket.company %></p>
           </div>
-          <div class="tecket-content">
+          <div class="Content">
             <p><%= p.ticket.content %></p>
+          </div>
+          <div class="Statut">
+            <p>Valable</p>
+          </div>
+          <div class="Code">
+            <p>X <%= 8.times.map{rand(10)}.join("") %></p>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-</div>
-
-
-
   <div class="carte-avantage">
     <div class="coupon-type">
       <div class="code-promo">
