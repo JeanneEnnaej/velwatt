@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { ceilPowerOfTwo } from "three/src/math/MathUtils";
 
 
 // Connects to data-controller="game-three"
@@ -14,6 +15,19 @@ export default class extends Controller {
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
+
+    const light = new THREE.DirectionalLight( 0xffffff, 2.5 );
+    light.position.set( 0, 340, 160 ); //default; light shining from top
+    light.castShadow = true; // default false
+    scene.add( light );
+
+    //Set up shadow properties for the light
+    light.shadow.mapSize.width = 512; // default
+    light.shadow.mapSize.height = 512; // default
+    light.shadow.camera.near = 0.5; // default
+    light.shadow.camera.far = 100; // default
+
+    // Fake BIKE
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 		const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 		const cube = new THREE.Mesh( geometry, material );
@@ -25,30 +39,33 @@ export default class extends Controller {
     // Instantiate a loader
     const loader = new GLTFLoader();
 
+    loader.load('models3D/planetMap.glb', function ( gltf ) {
+      const map = gltf.scene;
+      map.rotation.y = Math.PI / 2;
+      map.receiveShadow = true;
+      scene.add( map );
+    })
+
     // Load a glTF resource
-    loader.load('models3D/MapV2.glb', function ( gltf ) {
+    loader.load('models3D/planetTree.glb', function ( gltf ) {
 
         camera.position.z = 15; //15
         camera.position.y = 60; //60
         camera.rotateX( - Math.PI * 0.1 );
 
-        let directionalLight = new THREE.DirectionalLight(0xffffff,2.5);
-        directionalLight.position.set(0,80,40);
-        directionalLight.castShadow = true;
-        scene.add(directionalLight);
+        
 
-        let light = new THREE.PointLight(0xffffff,1);
-        light.position.set(0,300,500);
-        //scene.add(light);
+        const tree = gltf.scene;
 
-        const map = gltf.scene;
+        tree.castShadow = true; //default is false
+        tree.receiveShadow = true; //default
 
-        scene.add( map );
-        map.rotation.y = Math.PI / 2;
+        scene.add( tree );
+        tree.rotation.y = Math.PI / 2;
 
         function animate() {
           requestAnimationFrame( animate );
-          map.rotation.z += (0.003);
+          //tree.rotation.z += (0.003);
           renderer.render( scene, camera );
         };
 
@@ -58,5 +75,8 @@ export default class extends Controller {
         console.log( 'An error happened' );
       }
     );
+
+    const helper = new THREE.CameraHelper( light.shadow.camera );
+    scene.add( helper );
   }
 }
