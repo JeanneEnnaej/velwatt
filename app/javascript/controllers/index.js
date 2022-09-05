@@ -4,13 +4,14 @@
 
 import { application } from "./application"
 
-
 import GameConfigController from "./game_config_controller"
 application.register("game-config", GameConfigController)
 
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ReturnImagesController from "./return_images_controller"
+application.register("return-images", ReturnImagesController)
 
 import TimerController from "./timer_controller"
 application.register("timer", TimerController)
