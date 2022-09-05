@@ -87,19 +87,19 @@
   </div>
 </div>
 
-<div class= "quizz-card">
+<div class= "quizz-card" data-controller="quizz-answer">
   <p>Lequel de ces appareils consomme le plus d’électricité par an ?</p>
   <div class="quizz-reponses">
-  <div class="quizz-choice">
+  <div data-quizz-answer-target="frigo" data-action="click->quizz-answer#frigo" class="quizz-choice-frigo">
   <p>Le réfrigérateur</p>
   </div>
-  <div class="quizz-choice">
+  <div data-quizz-answer-target="lavelinge"  data-action="click->quizz-answer#lavelinge" class="quizz-choice-lavelinge" >
   <p>Le lave-linge</p>
   </div>
-  <div class="quizz-choice">
+  <div data-quizz-answer-target="smartphone" data-action="click->quizz-answer#smartphone" class="quizz-choice-smartphone">
   <p>Le smartphone</p>
   </div>
-  <div class="quizz-choice">
+  <div data-quizz-answer-target="tv" data-action="click->quizz-answer#tv" class="quizz-choice-tv">
   <p>La télévision</p>
   </div>
   </div>
