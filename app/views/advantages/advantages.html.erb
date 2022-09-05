@@ -17,11 +17,16 @@
     <p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vell-Watt ( VW ) contre des bons de réductions !</p>
   </div>
 
+
+ <div>
+    <h2>Votre solde : <%=current_user.wallet %> VW</h2>
+  </div>
+
 <div class="sessions-container">
   <div class="tickets">
     <p>Vos bons : </p>
-    <% if Purchase.where(user: current_user) == nil %>
-        <%= "test" %>
+    <% if Purchase.where(user: current_user) == [] %>
+        <p>Vous n'avez aucun bon actuellement</p>
     <% else %>
       <% Purchase.where(user: current_user).each do |p| %>
         <div class="tab">
@@ -37,11 +42,6 @@
   </div>
 </div>
 
-
-
-  <div>
-    <h2>Votre solde :<%=current_user.wallet %></h2>
-  </div>
 
 
   <div class="carte-avantage">
