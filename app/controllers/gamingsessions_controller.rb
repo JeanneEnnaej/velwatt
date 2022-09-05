@@ -1,12 +1,16 @@
 class GamingsessionsController < ApplicationController
   # permet d'accéder à show sans login
-  skip_before_action :authenticate_user!, only: [:show, :create]
+  skip_before_action :authenticate_user!, only: [:show, :create, :update]
   before_action :save_ongoing_gamingsession, only: :index
 
   # affichage de l'index des gamingsessions que de l'user connecté
   def index
     @gamingsessions = current_user.gamingsessions
+  end
 
+  def update
+    @gamingsession = Gamingsession.find(params[:id])
+    @gamingsession.update!(session_params)
   end
 
   # pdashboard de la gamingsession

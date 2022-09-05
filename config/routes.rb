@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "pages#home"
-  resources :gamingsessions, only: [ :index, :show, :create ]
+  resources :gamingsessions, only: [ :index, :show, :create, :update ]
 
   get "totaux", to: "productions#totaux"
 

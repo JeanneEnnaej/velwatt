@@ -10,6 +10,9 @@ application.register("game-config", GameConfigController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import QuizzAnswerController from "./quizz_answer_controller"
+application.register("quizz-answer", QuizzAnswerController)
+
 import ReturnImagesController from "./return_images_controller"
 application.register("return-images", ReturnImagesController)
 
