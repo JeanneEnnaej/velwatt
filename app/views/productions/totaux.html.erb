@@ -8,18 +8,19 @@
     <div class="infos-chiffres">
       <div class="points">
         <p>Solde des points :</p>
-        <p><%= @solde %></p>
+        <h2><%= @solde %></h2>
       </div>
       <div class="wallet">
-        <p>Wallet = <%=current_user.wallet %> V-W</p>
+        <p>Wallet = </p>
+        <h2><%=current_user.wallet %> V-W</h2>
       </div>
       <div class="temps">
         <p>Temps passé : </p>
-        <p><%= @total_time %> min</p>
+        <h2><%= @total_time %> min</h2>
       </div>
       <div class="prod">
         <p>Electricité produite</p>
-        <p><%= @total_watt %>KWh</p>
+        <h2><%= @total_watt %>KWh</h2>
       </div>
     </div>
   </div>

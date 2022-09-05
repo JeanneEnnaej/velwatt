@@ -1,13 +1,50 @@
-<h1>Historique de vos sessions</h1>
+<div>
+  <div >
+    <h1>Historique de vos sessions</h1>
+  </div>
+  <div class="count-sessions">
+    <div class="count">
+      <h2><%= @gamingsessions.count %></h2>
+    </div>
+    <div class="sess">
+      <p>sessions<p>
+    </div>
+  </div>
+  <div class="sessions-container">
+    <div class="tab-title">
+      <div class="date">
+        <p>Date</p>
+      </div>
+      <div class="prod-max">
+        <p>Prod max</p>
+      </div>
+      <div class="prod-total">
+        <p>Prod total</p>
+      </div>
+      <div class="score-session">
+        <p>Score</p>
+      </div>
+    </div>
+    <% @gamingsessions.each do |gs| %>
+      <div class="tab">
+        <div class="date">
+          <p><%= gs.date%></p>
+        </div>
+        <div class="prod-max">
+          <p><%= gs.max_production%>Wh</p>
+        </div>
+        <div class="prod-total">
+          <p><%= gs.total_production%>wH</p>
+        </div>
+        <div class="score-session">
+          <p><%= gs.score%></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<p><%= @gamingsessions.count %> sessions</p>
 
 
-<% @gamingsessions.each do |gs| %>
-  <p><%= gs.date%></p>
-  <p>Prod max<%= gs.max_production%>Wh</p>
-  <p>Prod total<%= gs.total_production%>wH</p>
-  <p>Score<%= gs.score%></p>
-<% end %>
 
 <%= render "pages/menu" %>

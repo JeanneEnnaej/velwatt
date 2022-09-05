@@ -1,13 +1,51 @@
-<h1>Le conseil Vel-Watt du jour</h1>
+<div class="container-tip">
+  <div class="title-tip">
+    <h2>Le conseil Vel-Watt du jour</h2>
+  </div>
+  <div class="tip-card">
+    <div class="tip-image blur">
+    </div>
+      <h3>Eteindre les veilles</h3>
+    <div class="tip-description">
+      <p>Le bon geste : utiliser des multiprises à interrupteur qui permettent de brancher plusuers appareils et de les éteindre tous en même temps.</p>
+    </div>
+  </div>
+  <div>
+    <h2>Les avantages Vel-Watt</h2>
+  </div>
+  <div class="avantages-explication">
+    <p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vell-Watt ( VW ) contre des bons de réductions !</p>
+  </div>
+  <div>
+    <h2>Votre solde :<%=current_user.wallet %> 3500 V-W</h2>
+  </div>
 
-<p>Eteindre les veilles</p>
-<p>Le bon geste : utiliser des multiprises à interrupteur qui permettent de brancher plusuers appareils et de les éteindre tous en même temps.</p>
+  
+  <div class="carte-avantage">
+    <div class="coupon-type">
+      <div class="code-promo">
+        <p>Code Promo</p>
+      </div>
+    </div>
+    <div class="background-marque">
+    </div>
+    <div class="carte-marque">
+      <div class="marque-logo">
+      <p></p>
+      </div>
+      <div class="marque-info">
+        <div class="marque-name">
+        <p>DECATHLON</p>
+        </div>
+        <div class="marque-price">
+        <p>25€ de réduction</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vell-Watt ( VW ) contre des bons de réductions !</p>
 
-
-
-<p>Wallet =<%=current_user.wallet %> V-W</p>
 
 <% Ticket.all.each do |ticket| %>
   <p><%= ticket.company %></p>
