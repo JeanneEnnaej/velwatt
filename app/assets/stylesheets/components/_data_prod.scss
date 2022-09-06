@@ -5,7 +5,7 @@ align-items: center;
 background-color: $background-ligth;
 flex-direction: column;
 width: 90%;
-height: 300px;
+height: auto;
 margin: 0 auto;
 border-radius: 16px;
 
@@ -51,7 +51,6 @@ border-radius: 16px;
         height: 150px;
         background-color: $background-ligth;
         border: solid 2px $color-primary;
-        box-shadow: 0px 0px 20px $color-primary;
         margin: 0;
       }
 
@@ -69,9 +68,8 @@ border-radius: 16px;
         height: 60px;
         background-color: $background-ligth;
         border: solid 1px $color-primary;
-        box-shadow: 0px 0px 10px $color-primary;
         margin: 0;
-        
+
         .prod-record{
         text-align: center;
 

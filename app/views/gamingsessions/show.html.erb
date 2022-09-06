@@ -40,24 +40,21 @@
   <% end %>
 
 
-  <div>
-  <h2>Vous avez produit</h2>
-  </div>
-
-<%# A NE PAS SUPPRIMER !!! %>
-<span data-quizz-answer-target="gsid"><%= @gamingsession.id %></span>
 
 
   <%# lien vers le sign-up/sign-in %>
 
-  <%# donnée du user vs les records %>
-  <div  class="chiffres-container">
-    <div class="info-container">
-      <div class="data-container">
-        <div class="circle-container">
-          <div>
-          <h2><%= @gamingsession.total_production %> Wh</h2>
-          </div>
+
+<%# donnée du user vs les records %>
+<div  class="chiffres-container">
+  <div>
+  <h2>Vous avez produit</h2>
+  </div>
+  <div class="info-container">
+    <div class="data-container">
+      <div class="circle-container">
+        <div>
+        <h2><%= @gamingsession.total_production %> Wh</h2>
         </div>
         <div class="little-cercle">
             <i class="fa-solid fa-crown fa-xs couronne"></i>
