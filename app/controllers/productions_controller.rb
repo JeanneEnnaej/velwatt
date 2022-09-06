@@ -6,7 +6,7 @@ class ProductionsController < ApplicationController
     @total_time = total_time(@gamingsessions)
     @total_watt = total_watt(@gamingsessions)
     # @current_user.wallet = (@solde/2)
-    @current_user.update(wallet: current_user.wallet + (@solde / 2))
+    @current_user.update(wallet: (@solde / 2))
   end
 
   private
