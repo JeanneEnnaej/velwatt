@@ -25,7 +25,7 @@
   <% unless current_user %>
     <p class="text-div">Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
     <div class="button_container">
-      <div class="button">
+      <div class="button-net">
         <%= link_to 'Sauvegarder mes points', new_user_session_path %>
       </div>
     </div>
@@ -114,38 +114,43 @@
     </div>
   <% end %>
   <%# comparatif %>
-  <div class="comparatif-card" data-controller="return-images">
+  <div class="comparatif-cardp" data-controller="return-images">
     <p>Et concretement?</p>
     <p>Découvrez combien de temps vous auriez du pédaler pour utiliser des appareils du quotidien.</p>
 
-    <div class="comparatif-cat">
-      <div class="comparatif-objet">
-        <p>Réfrigérateur : 200kWh par an</p>
+
+  <div class="container-comparatif">
+    <div class="comparatif-cardleft">
+      <div class="img-frigo"></div>
+      <div class="card-content-left">
+        <p>Réfrigérateur : </p>
         <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p>votre production : <%= @gamingsession.total_production %> Wh</p>
-        <p> Pour alimenter le frigo pendant 1 journée vous devriez pédaler pendant <%= @frigo %>h</p>
+        <p><span class="text-compa"><%= @frigo %>h</span> de Vel-Watt pour alimenter un frigo pendant <span class="text-compa">1 journée.</span></p>
       </div>
-      <div class="comparatif-objet">
-        <p>Télévision : 250Wh pour 1h</p>
+    </div>
+    <div class="comparatif-cardright">
+      <div class="card-content-right">
+        <p>Télévision : </p>
         <% @tv = ((((250.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p>votre production : <%= @gamingsession.total_production %> Wh</p>
-        <p> Pour alimenter la télévision pendant 1 h vous devriez pédaler pendant <%= @tv %>h</p>
+        <p><span class="text-compa"><%= @tv %>h</span> de Vel-Watt pour regarder la télévision pendant <span class="text-compa">1 heure.</span></p>
       </div>
-
-      <div class="comparatif-objet">
-        <p>Lave-linge : 24kWh pour un cycle</p>
+      <div class="img-tv"></div>
+    </div>
+    <div class="comparatif-cardleft">
+      <div class="img-lavelinge"></div>
+      <div class="card-content-left">
+        <p>Lave-linge : </p>
         <% @machine = ((((24000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p>votre production : <%= @gamingsession.total_production %> Wh</p>
-        <p> Pour produire l'électricité necéssaire pour faire un cycle de machine à laver vous devriez pédaler pendant <%= @machine %>h</p>
+        <p><span class="text-compa"><%= @machine %>h</span> de Vel-Watt pour faire <span class="text-compa">1 cycle</span> de lave-linge</p>
       </div>
-
-      <div class="comparatif-objet">
-        <p> Radiateur électrique: 3 800kWh/an</p>
+    </div>
+    <div class="comparatif-cardright">
+      <div class="card-content-right">
+        <p>Radiateur électrique : </p>
         <% @radiateur = ((((10000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p>votre production : <%= @gamingsession.total_production %> Wh</p>
-        <p> Pour alimenter un chauffage électrique pendant 1 journée vous devriez pédaler pendant <%= @radiateur %>h</p>
+        <p><span class="text-compa"><%= @radiateur %>h</span> de Vel-Watt pour alimenter un radiateur pendant <span class="text-compa">1 journée.</span></p>
       </div>
-      <%# calcul de comparaison %>
+      <div class="img-radiateur"></div>
     </div>
   </div>
     <div class="XXXX">
