@@ -19,7 +19,11 @@
 
 
   <div>
-      <h2>Votre solde : <%=current_user.wallet %> VW</h2>
+      <% if current_user.wallet == nil  %>
+        <h2>Votre solde : 0 VW</h2>
+      <% else %>
+        <h2>Votre solde : <%=current_user.wallet %> VW</h2>
+      <% end %>
   </div>
   <div  class="sessions-container">
     <div class = "tab-title">
@@ -71,10 +75,10 @@
       </div>
       <div class="marque-info">
         <div class="marque-name">
-        <p>DECATHLON</p>
+        <p><%= Ticket.first.company %></p>
         </div>
         <div class="marque-price">
-        <p>5€ de réduction</p>
+        <p>5<%= Ticket.first.content %></p>
         </div>
       </div>
     </div>
@@ -95,10 +99,10 @@
       </div>
       <div class="marque-info">
         <div class="marque-name">
-        <p>Plantes des arbres</p>
+        <p><%= Ticket.last.company %></p>
         </div>
         <div class="marque-price">
-        <p>10 arbres plantés</p>
+        <p><%= Ticket.last.content%></p>
         </div>
       </div>
     </div>

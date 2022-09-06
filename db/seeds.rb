@@ -34,7 +34,8 @@ Gamingsession.create!(date: Time.at(1631787354996/1000), max_production: 160, to
 
 p "tickets"
 
-Ticket.create!(company: "decat", content: "Ce coupon vous donne 10% de redu", price: 70)
-Ticket.create!(company: "amineder", content: "Ce coupon vous donne 20% de redu sur un Amine", price: 90)
+Ticket.create!(company: "Décathlon", content: "10% de reduction dans votre magasin Décathlon", price: 70)
+Ticket.create!(company: "Reforest'Action", content: "Plantez 10 arbres grâce à Reforest'Action", price: 90)
+
 
 p"finito"

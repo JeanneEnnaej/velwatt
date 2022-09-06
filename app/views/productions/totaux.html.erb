@@ -14,7 +14,8 @@
     <h2>Votre solde</h2>
     </div>
     <div>
-      <h2><%= @solde %> points</h2>
+
+      <h2><%= @solde %> points = <%= current_user.wallet %> VW</h2>
     </div>
   </div>
   <div class="bloc-container">
@@ -23,7 +24,7 @@
       </div>
       <div>
         <p>Électricité produite</p>
-        <h2><%= (@total_watt.to_f/7200).round(4)%>Wh</h2>
+        <h2><%= @total_watt%>Wh</h2>
       </div>
     </div>
 
