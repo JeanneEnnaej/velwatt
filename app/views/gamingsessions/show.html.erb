@@ -1,8 +1,10 @@
 <% if current_user %>
-  <h1> Session du <%= @gamingsession.date %></h1>
+<div class="div-espace">
+  <h1 > Session du <%= @gamingsession.date %></h1>
+</div>
 <% else %>
   <div class="db-session-title">
-    <h1>Merci d'avoir utilisé <br>Vel-Watt !</h1>
+    <h1>Bienvenue sur <br>Vel-Watt !</h1>
   </div>
 <% end %>
 <h2>Votre score :</h2>
@@ -21,19 +23,19 @@
     </div>
   </div>
   <% unless current_user %>
-    <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+    <p class="text-div">Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
     <div class="button_container">
       <div class="button">
         <%= link_to 'Sauvegarder mes points', new_user_session_path %>
       </div>
     </div>
   <% end %>
-  <div class="unless_current_user"></div>
+
   <%# lien vers le sign-up/sign-in %>
   <%# donnée du user vs les records %>
+    <h2>Vous avez produit :</h2>
   <div class="chiffres-container">
     <div>
-    <h2>Vous avez produit</h2>
     </div>
     <div class="info-container">
       <div class="data-container">
@@ -114,8 +116,8 @@
   <%# comparatif %>
   <div class="comparatif-card" data-controller="return-images">
     <p>Et concretement?</p>
-    <p>Combien de temps devriez-vous pédaler pour utiliser ces appareils ?</p>
-    <p>Cliquez sur l'image pour le découvrir</p>
+    <p>Découvrez combien de temps vous auriez du pédaler pour utiliser des appareils du quotidien.</p>
+
     <div class="comparatif-cat">
       <div class="comparatif-objet">
         <p>Réfrigérateur : 200kWh par an</p>
