@@ -5,7 +5,8 @@ class ProductionsController < ApplicationController
     @solde = solde_points(@gamingsessions)
     @total_time = total_time(@gamingsessions)
     @total_watt = total_watt(@gamingsessions)
-    @current_user.wallet = (@solde/2)
+    # @current_user.wallet = (@solde/2)
+    @current_user.update(wallet: (@solde / 2))
   end
 
   private
@@ -31,7 +32,7 @@ class ProductionsController < ApplicationController
     gamingsessions.each do |gs|
       total_watt += gs.total_production
     end
-    total_watt
+    total_watt = (total_watt.to_f / 7200).round(4)
   end
 
   def save_ongoing_gamingsession
