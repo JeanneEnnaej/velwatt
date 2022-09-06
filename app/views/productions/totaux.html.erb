@@ -11,10 +11,9 @@
     <div class="trophy">
     </div>
     <div>
-    <h2>Votre solde</h2>
+      <h2>Votre solde</h2>
     </div>
     <div>
-
       <h2><%= @solde %> points = <%= current_user.wallet %> VW</h2>
     </div>
   </div>
@@ -38,14 +37,14 @@
     </div>
   </div>
 
-    <h2>Que faire avec 1kWh</h2>
-   <div class="explication">
-      <div class="liste">
-        <p>Allumer une ampoule led pendant 143h</p>
-        <p>Rouler avec une Renault électrique Zoé pendant 8,5km</p>
-        <p>Faire fonctionner une tireuse pendant 45mn</p>
-      </div>
+  <h2>Que faire avec 1kWh</h2>
+  <div class="explication">
+    <div class="liste">
+      <p>Allumer une ampoule led pendant 143h</p>
+      <p>Rouler avec une Renault électrique Zoé pendant 8,5km</p>
+      <p>Faire fonctionner une tireuse pendant 45mn</p>
     </div>
+  </div>
   <h2>Ma production VS Réalité</h2>
   <div class="VS">
     <div class="line_1">
@@ -60,6 +59,7 @@
       <div class="ET">
       </div>
     </div>
+  </div>
 </div>
 
       <%# <p>Vous avez produit de quoi recharger <%=(@total_watt/0.30).round(1) fois d'un smartphone </p> %>

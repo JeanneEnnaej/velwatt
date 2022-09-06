@@ -1,11 +1,11 @@
-<div class="container-tip">
+<div class="container">
   <div class="title-tip">
     <h2>Le conseil Vel-Watt du jour</h2>
   </div>
   <div class="tip-card">
     <div class="tip-image blur">
     </div>
-      <p>Eteindre les veilles</p>
+    <p>Eteindre les veilles</p>
     <div class="tip-description">
       <p>Le bon geste : utiliser des multiprises à interrupteur qui permettent de brancher plusuers appareils et de les éteindre tous en même temps.</p>
     </div>
@@ -28,7 +28,7 @@
   <div  class="sessions-container">
     <div class = "tab-title">
       <div class="Enseigne">
-      <p>Marque</p>
+        <p>Marque</p>
       </div>
       <div class="Content">
         <p>Description</p>
@@ -71,19 +71,19 @@
     </div>
     <div class="carte-marque">
       <div class="marque-logo">
-      <p></p>
+        <p></p>
       </div>
       <div class="marque-info">
         <div class="marque-name">
-        <p><%= Ticket.first.company %></p>
+          <p><%= Ticket.first.company %></p>
         </div>
         <div class="marque-price">
-        <p>5<%= Ticket.first.content %></p>
+          <p>5<%= Ticket.first.content %></p>
         </div>
       </div>
     </div>
   </div>
-<p><%= button_to "Obtenir", ticket_purchases_path(Ticket.first.id), class: "buy-button" %></p>
+  <p><%= button_to "Obtenir", ticket_purchases_path(Ticket.first.id), class: "buy-button" %></p>
 
   <div class="carte-avantage">
     <div class="coupon-type">
@@ -95,21 +95,19 @@
     </div>
     <div class="carte-marque">
       <div class="marque-logo-tree">
-      <p></p>
+        <p></p>
       </div>
       <div class="marque-info">
         <div class="marque-name">
-        <p><%= Ticket.last.company %></p>
+          <p><%= Ticket.last.company %></p>
         </div>
         <div class="marque-price">
-        <p><%= Ticket.last.content%></p>
+          <p><%= Ticket.last.content%></p>
         </div>
       </div>
     </div>
   </div>
-<p><%= button_to "Obtenir", ticket_purchases_path(Ticket.last.id), class: "buy-button" %></p>
-
+  <p><%= button_to "Obtenir", ticket_purchases_path(Ticket.last.id), class: "buy-button" %></p>
 </div>
 
 <%= render "pages/menu" %>
-<div class="XXXX"></div>
