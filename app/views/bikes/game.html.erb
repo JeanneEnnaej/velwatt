@@ -1,27 +1,28 @@
+<div data-controller="game-three">
 
+</div>
 
-<div data-controller="game-config timer"
-  data-action="game-session:end->game-config#endSession"
-  data-game-config-api-value="<%= ENV['FAST_API_ENDPOINT'] %>">
-  <div>
-    <p data-timer-target="timerView"></p>
-  </div>
-  <h1>BikeGame</h1>
-  <span data-action="click->game-config#initSession click->timer#startTimer">CREATE SESSION</span>
-  <p>Total :</p>
-  <h2 data-game-config-target="totalValue">0.000 wh</h2>
-  <p>Max production :</p>
-  <h2 data-game-config-target="maxProduct">0 w</h2>
-  <p>Instant :</p>
-  <h2 data-game-config-target="compteurValue">0 w</h2>
-  <span data-action="click->game-config#createGamingSessionDB">Save to DB</span>
+<div class="gamePages" data-controller="game-config timer" data-action="game-session:end->game-config#endSession">
   <span data-game-config-url-value="/gamingsessions"></span>
-  <%= link_to "button", gamingsessions_path %>
+  <div data-controller="game-config timer"
+    data-action="game-session:end->game-config#endSession"
+    data-game-config-api-value="<%= ENV['FAST_API_ENDPOINT'] %>">
+    <div>
+      <p data-timer-target="timerView"></p>
+    </div>
+    <span data-action="click->game-config#initSession click->timer#startTimer">START GAME</span>
+    <p>Total :</p>
+    <h2 data-game-config-target="totalValue">0.000 wh</h2>
+    <p>Max production :</p>
+    <h2 data-game-config-target="maxProduct">0 w</h2>
+    <p>Instant :</p>
+    <h2 data-game-config-target="compteurValue">0 w</h2>
+  </div>
 </div>
 
 <%# affiche le qr code sur la page à la fin du jeu %>
 
 
-<div style="display: none">
+<div class="QRcodes">
   <%= @svg.html_safe %>
 </div>

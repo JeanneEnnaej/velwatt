@@ -109,7 +109,7 @@
 
   }
 
-  .quizz-choice {
+  .quizz-choice-tv {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,7 +118,82 @@
     height: 40px;
     border-radius: 10px;
   }
+
+  .quizz-choice-tv-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b32b2b;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .quizz-choice-frigo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .quizz-choice-frigo-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    border: solid 1px red;
+    box-shadow: 0px 0px 20px red;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .quizz-choice-smartphone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .quizz-choice-smartphone-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b32b2b;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .quizz-choice-lavelinge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .quizz-choice-lavelinge-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    border: solid 1px $color-primary;
+    box-shadow: 0px 0px 20px $color-primary;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+  }
 }
+
 
 
 .comparatif-card {

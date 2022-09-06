@@ -1,9 +1,11 @@
 class ProductionsController < ApplicationController
+  before_action :save_ongoing_gamingsession, only: :totaux
   def totaux
     @gamingsessions = Gamingsession.where(user: current_user)
     @solde = solde_points(@gamingsessions)
     @total_time = total_time(@gamingsessions)
     @total_watt = total_watt(@gamingsessions)
+    @current_user.wallet = (@solde/2)
   end
 
   private
@@ -30,6 +32,22 @@ class ProductionsController < ApplicationController
       total_watt += gs.total_production
     end
     total_watt
+  end
+
+  def save_ongoing_gamingsession
+    # if le cookies avec l'id est présent
+    if cookies[:gamingsession_id].present?
+      @gamingsession = Gamingsession.find(cookies[:gamingsession_id])
+      # si la gamingsession appartient déjà à quelqu'un
+      if @gamingsession.user_id.present?
+        cookies.delete(:gamingsession_id)
+      else
+        # si la gamingsession n'appartient à personne
+        @gamingsession.user_id = current_user.id
+        @gamingsession.save
+        cookies.delete(:gamingsession_id)
+      end
+    end
   end
 
 end

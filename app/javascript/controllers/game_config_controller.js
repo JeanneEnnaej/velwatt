@@ -78,7 +78,6 @@ export default class extends Controller {
   endSession(partiipant) {
     console.log("session ended");
     // window.location.reload();
-
     fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
