@@ -10,47 +10,29 @@
       <p>sessions<p>
     </div>
   </div>
-  
-  <div class="sessions-container">
-    <div class="tab-title">
-      <div class="date">
-        <p>Date</p>
-      </div>
-      <div class="prod-total">
-        <p>Prod total</p>
-      </div>
-      <div class="score-session">
-        <p>Score</p>
-      </div>
-      <div class="see-session">
-        <p></p>
-      </div>
-    </div>
-    <% @gamingsessions.each do |gs| %>
-      <div class="tab">
-        <div class="date">
-          <p><%= gs.date%></p>
-        </div>
-        <div class="prod-total">
-          <p><%= gs.total_production%>wH</p>
-        </div>
-        <div class="score-session">
-          <p><%= gs.score%></p>
-        </div>
-        <div class="see-session">
-          <%= link_to gamingsession_path(gs.id) do %>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          <% end %>
-        </div>
-
-      </div>
-    <% end %>
-  </div>
 </div>
 
+<div class="histo-container">
+  <% @gamingsessions.each do |gs| %>
+    <div class="histo-card">
+      <div class="histo-text">
+        <div class="date-div">
+          <p class="date-text">Session du <span class="text-histo"><%= gs.date%></span></p>
+        </div>
 
+        <div class="number-div">
+          <p>Production totale : <span class="text-histo"><%= gs.total_production%>Wh</span></p>
+          <p>Score : <span class="text-histo"><%= gs.score%></span></p>
+        </div>
+      </div>
+      <div class="see-session">
+        <%= link_to gamingsession_path(gs.id) do %>
+          <i class="fa-solid fa-bicycle"></i>
+        <% end %>
+      </div>
 
-
-
+    </div>
+  <% end %>
+</div>
 
 <%= render "pages/menu" %>

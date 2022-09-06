@@ -132,4 +132,48 @@ margin-top: 20px;
     }
   }
 
+
+
+}
+
+.histo-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+  margin-top: 16px;
+
+}
+.histo-card{
+  background-color: $background-ligth;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // flex-direction: column;
+  width: 300px;
+  padding: 8px 0;
+  column-gap: 18px;
+
+  p{
+    margin: 6px 0;
+
+    .text-histo{
+      color: $txtcolor-secondary;
+    }
+
+  }
+
+
+
+  .number-div{
+    display: flex;
+    flex-direction: column;
+    column-gap: 8px;
+  }
+
+  .see-session > a > i{
+    color: $txtcolor-secondary;
+    font-size: 25px;
+  }
 }
