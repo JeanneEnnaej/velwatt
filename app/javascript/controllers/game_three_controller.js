@@ -10,9 +10,9 @@ export default class extends Controller {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x87CEEB);
     const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
-    camera.position.z = 15; //15
-    camera.position.y = 60; //60
-    camera.rotateX( - Math.PI * 0.1 );
+    camera.position.z = -5; //(-5
+    camera.position.y = 55; //55
+    camera.rotateX( - Math.PI * 0.1 ); // * 0.1
 
     const renderer = new THREE.WebGLRenderer({antialias:true});
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -21,20 +21,20 @@ export default class extends Controller {
 
 
     const light = new THREE.DirectionalLight( 0xfcf6bd, 1.5 );
-    light.position.set( -130, 130, 60 ); //default; light shining from top
+    light.position.set( -130, 130, 30 ); //default; light shining from top
     light.castShadow = true; // default false
 
-    light.shadow.camera.left = -3000;
-    light.shadow.camera.right = 3000;
-    light.shadow.camera.top = 3500;
-    light.shadow.camera.bottom = -3000;
+    light.shadow.camera.left = -50;
+    light.shadow.camera.right = 50;
+    light.shadow.camera.top = 50;
+    light.shadow.camera.bottom = -50;
 
     scene.add( light );
 
 
     //Set up shadow properties for the light
-    light.shadow.mapSize.width = 512*40; // default
-    light.shadow.mapSize.height = 512*40; // default
+    light.shadow.mapSize.width = 512*2; // default
+    light.shadow.mapSize.height = 512*2; // default
     light.shadow.camera.near = 0.5; // default
     light.shadow.camera.far = 4000; // default
     light.shadow.normalBias = -0.1;
