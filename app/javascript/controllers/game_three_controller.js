@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { ceilPowerOfTwo } from "three/src/math/MathUtils";
+
 
 
 // Connects to data-controller="game-three"
@@ -10,22 +10,38 @@ export default class extends Controller {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x87CEEB);
     const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
+    camera.position.z = 15; //15
+    camera.position.y = 60; //60
+    camera.rotateX( - Math.PI * 0.1 );
 
     const renderer = new THREE.WebGLRenderer({antialias:true});
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.shadowMap.enabled = true;
     document.body.appendChild( renderer.domElement );
 
 
-    const light = new THREE.DirectionalLight( 0xffffff, 2.5 );
-    light.position.set( 0, 340, 160 ); //default; light shining from top
+    const light = new THREE.DirectionalLight( 0xfcf6bd, 1.5 );
+    light.position.set( -130, 130, 60 ); //default; light shining from top
     light.castShadow = true; // default false
+
+    light.shadow.camera.left = -3000;
+    light.shadow.camera.right = 3000;
+    light.shadow.camera.top = 3500;
+    light.shadow.camera.bottom = -3000;
+
     scene.add( light );
 
+
     //Set up shadow properties for the light
-    light.shadow.mapSize.width = 512; // default
-    light.shadow.mapSize.height = 512; // default
+    light.shadow.mapSize.width = 512*40; // default
+    light.shadow.mapSize.height = 512*40; // default
     light.shadow.camera.near = 0.5; // default
-    light.shadow.camera.far = 100; // default
+    light.shadow.camera.far = 4000; // default
+    light.shadow.normalBias = -0.1;
+
+    // Ambient Light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(ambientLight);
 
     // Fake BIKE
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -33,7 +49,7 @@ export default class extends Controller {
 		const cube = new THREE.Mesh( geometry, material );
     cube.position.z = 5;
     cube.position.y = 53;
-    
+
 		scene.add( cube );
 
     // Instantiate a loader
@@ -42,6 +58,10 @@ export default class extends Controller {
     loader.load('models3D/planetMap.glb', function ( gltf ) {
       const map = gltf.scene;
       map.rotation.y = Math.PI / 2;
+      map.traverse(function (node) {
+        if (node.isMesh)
+          node.receiveShadow = true
+      })
       map.receiveShadow = true;
       scene.add( map );
     })
@@ -49,23 +69,19 @@ export default class extends Controller {
     // Load a glTF resource
     loader.load('models3D/planetTree.glb', function ( gltf ) {
 
-        camera.position.z = 15; //15
-        camera.position.y = 60; //60
-        camera.rotateX( - Math.PI * 0.1 );
-
-        
-
         const tree = gltf.scene;
 
-        tree.castShadow = true; //default is false
-        tree.receiveShadow = true; //default
+        tree.traverse(function (node) {
+          if (node.isMesh)
+            node.castShadow = true
+        })
 
         scene.add( tree );
         tree.rotation.y = Math.PI / 2;
 
         function animate() {
           requestAnimationFrame( animate );
-          //tree.rotation.z += (0.003);
+          tree.rotation.z += (0.003);
           renderer.render( scene, camera );
         };
 
@@ -77,6 +93,6 @@ export default class extends Controller {
     );
 
     const helper = new THREE.CameraHelper( light.shadow.camera );
-    scene.add( helper );
+    // scene.add( helper );
   }
 }
