@@ -80,7 +80,9 @@ align-items: center;
 flex-direction: column;
 position:relative;
 width:90%;
+height: auto;
 margin-top: 30px;
+margin-bottom: 10px;
 
   .coupon-type{
   display: flex;
@@ -96,9 +98,9 @@ margin-top: 30px;
   border: solid 1px $color-primary;
   margin: 0;
 
-  .code-promo{
-  text-align: center;
-  }
+    .code-promo{
+    text-align: center;
+    }
   }
 
   .background-marque{
@@ -133,44 +135,58 @@ margin-top: 30px;
   flex-direction: row;
   position: absolute;
   bottom: -40px;
-  width: 60%;
+  width: 75%;
   height: 80px;
   background-color: $background-ligth;
   border-radius: 16px;
 
     .marque-info{
-      display: flex;
-      justify-content: center;
-      align-items:center;
-      flex-direction: column;
-      width:60%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    width:60%;
+    height: 100%;
 
-      p{
-        text-align: left;
+      .marque-name{
+        p{
+          text-align: center;
+          margin: 0;
+          margin-bottom: 10px;
+          border-bottom: 0.1px solid white;
+        }
+      }
+
+      .marque-price{
+        p{
+          text-align: center;
+          margin: 0;
+          font-size: 10px;
+        }
       }
     }
-    .marque-logo{
-      background-image: url("Decat.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      width: 40%;
-      height: 90%;
-      margin-right: 5PX;
-    }
+      .marque-logo{
+        background-image: url("Decat.png");
+        background-color: white;
+        border-radius: 16px 0 0 16px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 40%;
+        height: 80px;
+      }
 
-    .marque-logo-tree{
-      background-image: url("foret.JPG");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      width: 40%;
-      height: 90%;
-      margin-right: 5PX;
-    }
-
+      .marque-logo-tree{
+        background-image: url("foret.JPG");
+        background-color: white;
+        border-radius: 16px 0 0 16px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 40%;
+        height: 80px;
+      }
   }
-
 }
 
 .buy-button {
@@ -200,51 +216,50 @@ margin-top: 30px;
 
 
 .tab-title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+width: 100%;
 
   p{
-    font-size: 14px;
-    text-align: center;
+  font-size: 14px;
+  text-align: center;
   }
 
 
-    .Enseigne{
+  .Enseigne{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+
+  }
+
+  .Content{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25%;
-
-    }
-
-    .Content{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 25%;
-
-
-    }
-    .Statut{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 25%;
-    }
-
-
-
-    .Code{
-      width: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-    }
   }
+
+  .Statut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+  }
+
+  .Code{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+}
+
   .tab{
     display: flex;
     justify-content: center;
