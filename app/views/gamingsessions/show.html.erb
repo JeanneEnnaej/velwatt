@@ -17,9 +17,7 @@
           <%= image_tag "groopsys.JPG" %>
           <p>x 30</p>
         </div>
-  <%# <p>Score := @gamingsession.score points</p> %>
         <div class="score">
-
           <h2>= <span data-quizz-answer-target="score"><%= @gamingsession.score %></span> pts</h2>
         </div>
       </div>
@@ -30,7 +28,6 @@
       <% end %>
     </div>
   </div>
-
   <% unless current_user %>
     <div class="button_container">
       <div class="button">
@@ -38,39 +35,34 @@
       </div>
     </div>
   <% end %>
-
-
-
-
+  <div class="unless_current_user"></div>
   <%# lien vers le sign-up/sign-in %>
-
-
-<%# donnée du user vs les records %>
-<div  class="chiffres-container">
-  <div>
-  <h2>Vous avez produit</h2>
-  </div>
-  <div class="info-container">
-    <div class="data-container">
-      <div class="circle-container">
-        <div>
-        <h2><%= @gamingsession.total_production %> Wh</h2>
+  <%# donnée du user vs les records %>
+  <div class="chiffres-container">
+    <div>
+    <h2>Vous avez produit</h2>
+    </div>
+    <div class="info-container">
+      <div class="data-container">
+        <div class="circle-container">
+          <div>
+            <h2><%= @gamingsession.total_production %> Wh</h2>
+          </div>
         </div>
         <div class="little-cercle">
             <i class="fa-solid fa-crown fa-xs couronne"></i>
           <div class="prod-record">
-          <p><%= @totalprodsession[0]["total_production"] %> Wh</p>
+            <p><%= @totalprodsession[0]["total_production"] %> Wh</p>
           </div>
         </div>
         <div class="production-title">
-        <p>Prod instantanée max</p>
+          <p>Prod instantanée max</p>
         </div>
       </div>
-
       <div class="data-container">
         <div class="circle-container">
           <div>
-          <h2><%= @gamingsession.max_production %> Wh</h2>
+            <h2><%= @gamingsession.max_production %> Wh</h2>
           </div>
         </div>
         <div class="little-cercle">
@@ -92,32 +84,31 @@
   <div class= "quizz-card">
     <p>Lequel de ces appareils consomme le plus d’électricité par an ?</p>
     <div class="quizz-reponses">
-    <div data-quizz-answer-target="frigo" data-action="click->quizz-answer#frigo" class="quizz-choice-frigo">
-    <p>Le réfrigérateur</p>
-    </div>
-    <div data-quizz-answer-target="lavelinge"  data-action="click->quizz-answer#lavelinge" class="quizz-choice-lavelinge" >
-    <p>Le lave-linge</p>
-    </div>
-    <div data-quizz-answer-target="smartphone" data-action="click->quizz-answer#smartphone" class="quizz-choice-smartphone">
-    <p>Le smartphone</p>
-    </div>
-    <div data-quizz-answer-target="tv" data-action="click->quizz-answer#tv" class="quizz-choice-tv">
-    <p>La télévision</p>
-    </div>
+      <div data-quizz-answer-target="frigo" data-action="click->quizz-answer#frigo" class="quizz-choice-frigo">
+        <p>Le réfrigérateur</p>
+      </div>
+      <div data-quizz-answer-target="lavelinge"  data-action="click->quizz-answer#lavelinge" class="quizz-choice-lavelinge" >
+        <p>Le lave-linge</p>
+      </div>
+      <div data-quizz-answer-target="smartphone" data-action="click->quizz-answer#smartphone" class="quizz-choice-smartphone">
+        <p>Le smartphone</p>
+      </div>
+      <div data-quizz-answer-target="tv" data-action="click->quizz-answer#tv" class="quizz-choice-tv">
+        <p>La télévision</p>
+      </div>
     </div>
   </div>
   <%# comparatif %>
   <div class="comparatif-card" data-controller="return-images">
-      <p>Et concretement?</p>
-      <p>Combien de temps devriez-vous pédaler pour utiliser ces appareils ?</p>
-      <p>Cliquez sur l'image pour le découvrir</p>
+    <p>Et concretement?</p>
+    <p>Combien de temps devriez-vous pédaler pour utiliser ces appareils ?</p>
+    <p>Cliquez sur l'image pour le découvrir</p>
     <div class="comparatif-cat">
       <div class="comparatif-objet">
         <p>Réfrigérateur : 200kWh par an</p>
         <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
         <p>votre production : <%= @gamingsession.total_production %> Wh</p>
         <p> Pour alimenter le frigo pendant 1 journée vous devriez pédaler pendant <%= @frigo %>h</p>
-
       </div>
       <div class="comparatif-objet">
         <p>Télévision : 250Wh pour 1h</p>
@@ -139,15 +130,12 @@
         <p>votre production : <%= @gamingsession.total_production %> Wh</p>
         <p> Pour alimenter un chauffage électrique pendant 1 journée vous devriez pédaler pendant <%= @radiateur %>h</p>
       </div>
-
       <%# calcul de comparaison %>
-
     </div>
   </div>
-  <div class="XXXX">
-  </div>
+    <div class="XXXX">
+    </div>
 </div>
-
 <% if current_user %>
   <%= render "pages/menu" %>
   <% else %>
