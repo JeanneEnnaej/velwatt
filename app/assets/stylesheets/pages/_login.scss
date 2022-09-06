@@ -62,6 +62,7 @@ form{
 }
 
 .input.email.optional.user_email{
+  color: #344F6F;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -74,8 +75,8 @@ margin: 0;
 
 }
 input[type="email" i]{
-background-color: $background-ligth;
-color: $txtcolor-primary;
+background-color: white;
+color: #344F6F;
 font-family: 'Montserrat', sans-serif;
 font-size: 12px;
 font-weight: 600;
@@ -104,8 +105,8 @@ margin: 0;
 }
 
 input[type="password" i] {
-  background-color: $background-ligth;
-  color: $txtcolor-primary;
+  background-color: white;
+  color: #344F6F;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;

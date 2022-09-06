@@ -18,19 +18,23 @@ user[first_name]
   }
 
   input[type="text" i]{
-  background-color: $background-ligth;
-  color: $txtcolor-primary;
+  background-color: white;
+  color: #344F6F;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
   border-radius:10px;
   border: solid 0.5px $color-primary;
-  box-shadow: 0px 0px 20px $color-primary;
+  // box-shadow: 0px 0px 20px $color-primary;
   width: 300px;
-  height: 20px;
+  height: 30px;
   margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+
   }
+
+
 
 .container-formu{
   display: flex;
@@ -73,3 +77,7 @@ input.string.required.user_last_name{
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
   }
+
+input.user_email.string.email.required{
+  color: black;
+}
