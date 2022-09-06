@@ -1,7 +1,7 @@
 
-<div clas="super-container">
-  <div>
-
+<div class="super-container">
+  <div class="croix">
+    <%= link_to 'X', gamingsession_path(cookies[:gamingsession_id]) %>
   </div>
   <div class="logo">
   </div>
@@ -31,9 +31,9 @@
               <%= f.button :submit, "Connexion" %>
             </div>
           </div>
-           <div class="form-actions">
-            <div class="">
-              <%= link_to "M'inscrire", new_user_registration_path%>
+           <div >
+            <div class="inscription">
+              <p><%= link_to "Vous n'avez pas de compte? Inscrivez-vous !", new_user_registration_path%></p>
             </div>
           </div>
         </div>
