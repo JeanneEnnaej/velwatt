@@ -12,23 +12,16 @@
 <div data-controller="quizz-answer" data-quizz-answer-points-value="<%= @gamingsession.score %>">
   <div class="home-card">
     <div class="card-infos">
-      <div class="details-calcul">
-        <div  class="image-arbre">
-          <%= image_tag "groopsys.JPG" %>
-          <p>x 30</p>
+        <div class="img-trophy">
         </div>
         <div class="score">
           <h2>= <span data-quizz-answer-target="score"><%= @gamingsession.score %></span> pts</h2>
         </div>
-      </div>
-      <% unless current_user %>
-        <div class="info-avantage">
-          <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
-        </div>
-      <% end %>
+
     </div>
   </div>
   <% unless current_user %>
+    <p>Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
     <div class="button_container">
       <div class="button">
         <%= link_to 'Sauvegarder mes points', new_user_session_path %>

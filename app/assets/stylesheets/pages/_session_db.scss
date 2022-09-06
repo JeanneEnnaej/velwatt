@@ -1,11 +1,19 @@
 .home-card{
   width: 90%;
-  height: 200px;
+  height: 60px;
   background-color: $background-ligth;
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  text-align: center;
   margin: 0 auto;
   border-radius: 16px;
+  margin-top: 24px;
+
+  .score{
+    display: flex;
+    justify-content: center;
+
+  }
 
   }
 
@@ -13,57 +21,20 @@
   .card-infos{
   width: 80%;
   height: 100%;
-  }
 
-
-.details-calcul{
-  display: flex;
-  align-items: center;
-  height: 70%;
-  justify-content: space-between;
-
-  .image-arbre{
-    width: 70%;
-    height: 60%;
-
-    p{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  .img-trophy{
+    background-image: url("trophy.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    position:absolute;
+    top:80px;
+    left:80px;
     }
-
-    img{
-      width:60%;
-    }
-    }
-
-    .score{
-      display: flex;
-      width: 50%;
-
-      h2{
-        margin: 0;
-        height: 100%;
-
-      }
-      }
-
   }
 
-  .image-arbre{
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  p{
-  display: flex;
-  margin: 0 auto;
-  align-items: flex-end;
-
-  }
-  }
 
   .info-avantage{
     width: 100%;
