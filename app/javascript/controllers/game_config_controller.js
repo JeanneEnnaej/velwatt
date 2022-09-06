@@ -160,10 +160,14 @@ export default class extends Controller {
   }
 
   startBike() {
-    fetch(`http://10.10.0.100:4200?=${times}`, {
+    fetch(`${this.apiUrl}/arduino//startGame/${times}`, {
       method: "GET",
-      headers: { "Accept-Language": "fr" }
+      headers: {"Content-Type": "application/json"}
     })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data);
+    });
   }
 
   createGamingSessionDB() {
