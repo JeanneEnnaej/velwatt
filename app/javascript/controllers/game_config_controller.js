@@ -11,7 +11,7 @@ let productHour = 0;
 let maxProduct = 0;
 let api;
 let url;
-const times = 50;
+const times = 1000;
 let i;
 
 
@@ -70,7 +70,7 @@ export default class extends Controller {
     .then(response => response.json())
     .then(() => {
       console.log("Session Started");
-      //this.startBike(times);
+      this.startBike();
       this.getProduction(participant);
     });
   }
@@ -89,6 +89,7 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
+      i = times;
       this.createGamingSessionDB();
       console.log("session finish");
     });
@@ -132,13 +133,13 @@ export default class extends Controller {
       i += 1;
       await this.sleep(180);
     } while (i < times);
-    
+
   }
 
   showProduction(product) {
 
 
-     
+
     if (compteur < 5 && product === oldProduct) {
       compteur = 0;
     } else if (product > oldProduct) {
@@ -160,13 +161,14 @@ export default class extends Controller {
   }
 
   startBike() {
-    fetch(`${this.apiUrl}/arduino//startGame/${times}`, {
+
+    fetch(`${this.apiUrl}/arduino/startGame/${times}`, {
       method: "GET",
       headers: {"Content-Type": "application/json"}
     })
     .then(response => response.json())
-    .then((data) => {
-      console.log(data);
+    .then(() => {
+      console.log("Start : ");
     });
   }
 

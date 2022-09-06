@@ -2,8 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="timer"
 
-let sec = 1;
-let min = 3;
+let sec = 0;
+let min = 2;
 let t;
 
 
@@ -29,7 +29,7 @@ export default class extends Controller {
 
   add() {
     this.tick();
-    this.timerViewTarget.innerText = 
+    this.timerViewTarget.innerText =
       (min > 9 ? min : "0" + min)
       + ":" + (sec > 9 ? sec : "0" + sec);
       if (min === 0 && sec === 0){
