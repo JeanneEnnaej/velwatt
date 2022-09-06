@@ -1,11 +1,11 @@
 .chiffres-container{
 display: flex;
-justify-content: space-between;
+
 align-items: center;
 background-color: $background-ligth;
 flex-direction: column;
 width: 90%;
-height: 300px;
+height: 250px;
 margin: 0 auto;
 border-radius: 16px;
 
@@ -14,10 +14,10 @@ border-radius: 16px;
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    margin-left: 30px;
+    margin-left: 50px;
     height: 15%;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
 
     i{
       margin-right: 5px;
@@ -31,8 +31,9 @@ border-radius: 16px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 60%;
+  margin-top: 24px;
 
     .data-container{
     position:relative;
@@ -48,8 +49,8 @@ border-radius: 16px;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        width:150px;
-        height: 150px;
+        width:140px;
+        height: 140px;
         background-color: $background-ligth;
         border: solid 2px $color-primary;
         margin: 0;
@@ -63,7 +64,7 @@ border-radius: 16px;
         position:absolute;
         row-gap:8px ;
         bottom:50px;
-        right:0;
+        right:10px;
         border-radius: 50%;
         width:60px;
         height: 60px;

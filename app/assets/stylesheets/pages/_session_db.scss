@@ -1,11 +1,38 @@
-.home-card{
-  width: 90%;
-  height: 200px;
-  background-color: $background-ligth;
+.div-espace{
+  height: 68px;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+
+  h1{
+    margin: 0;
+  }
+
+}
+
+.text-div{
+  text-align: center;
+  margin: 16px 20px;
+  margin-top: 24px;
+  padding: 0 20px;
+}
+
+.home-card{
+  width: 90%;
+  height: 60px;
+  background-color: $background-ligth;
+  display: flex;
+  justify-content: end;
+  text-align: center;
   margin: 0 auto;
   border-radius: 16px;
+  margin-top: 24px;
+
+  .score{
+    display: flex;
+    justify-content: center;
+
+  }
 
   }
 
@@ -13,57 +40,20 @@
   .card-infos{
   width: 80%;
   height: 100%;
-  }
 
-
-.details-calcul{
-  display: flex;
-  align-items: center;
-  height: 70%;
-  justify-content: space-between;
-
-  .image-arbre{
-    width: 70%;
-    height: 60%;
-
-    p{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  .img-trophy{
+    background-image: url("trophy.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    position:absolute;
+    top:110px;
+    left:80px;
     }
-
-    img{
-      width:60%;
-    }
-    }
-
-    .score{
-      display: flex;
-      width: 50%;
-
-      h2{
-        margin: 0;
-        height: 100%;
-
-      }
-      }
-
   }
 
-  .image-arbre{
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  p{
-  display: flex;
-  margin: 0 auto;
-  align-items: flex-end;
-
-  }
-  }
 
   .info-avantage{
     width: 100%;
@@ -196,7 +186,7 @@
 
 
 
-.comparatif-card {
+.comparatif-cardp {
   width: 90%;
   height: auto;
   display: flex;
@@ -240,4 +230,111 @@
     }
   }
 
+}
+
+.container-comparatif{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  row-gap: 16px;
+  margin-top: 16px;
+
+  p{
+    font-size: 13px;
+  }
+
+
+  .comparatif-cardleft{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 90px;
+    background-color: $background-ligth;
+    border-radius: 16px;
+    align-items: center;
+    .img-frigo{
+      background-image: url("FRIGO.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 130px;
+      border-bottom-left-radius: 16px;
+      border-top-left-radius: 16px;
+
+    }
+
+    .img-lavelinge{
+      background-image: url("lave-linge.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 130px;
+      border-bottom-left-radius: 16px;
+      border-top-left-radius: 16px;
+
+    }
+    .card-content-left{
+      padding: 8px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+
+      p{
+        margin: 0;
+      }
+    }
+  }
+
+  .comparatif-cardright{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 90px;
+    background-color: $background-ligth;
+    border-radius: 16px;
+    align-items: center;
+    .img-tv{
+      background-image: url("tele.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 130px;
+      border-bottom-right-radius: 16px;
+      border-top-right-radius: 16px;
+
+    }
+
+    .img-radiateur{
+      background-image: url("radiateurter.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 130px;
+      border-bottom-right-radius: 16px;
+      border-top-right-radius: 16px;
+
+    }
+    .card-content-right{
+      padding: 8px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+
+      p{
+        margin: 0;
+      }
+    }
+  }
+}
+
+.text-compa{
+  color: $txtcolor-secondary;
 }
