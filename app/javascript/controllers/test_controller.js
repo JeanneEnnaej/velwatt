@@ -11,41 +11,87 @@ export default class extends Controller {
     scene.background = new THREE.Color(0x87CEEB);
     const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
 
+    camera.position.x = 0; //15
+    camera.position.z = 15; //15
+    camera.position.y = 60; //60
+    camera.rotateX( - Math.PI * 0.1 );
 
-    //Create a WebGLRenderer and turn on shadows in the renderer
+    scene.add(camera);
+
     const renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+    renderer.setPixelRatio( window.devicePixelRatio );
+    document.body.appendChild( renderer.domElement );
 
-    //Create a DirectionalLight and turn on shadows for the light
-    const light = new THREE.DirectionalLight( 0xffffff, 1 );
-    light.position.set( 0, 1, 0 ); //default; light shining from top
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(ambientLight);
+
+    const light = new THREE.DirectionalLight( 0xffffff, 1);
+    light.position.set( 20, 60, 60 ); //default; light shining from top
     light.castShadow = true; // default false
+
+    light.shadow.camera.left = -3000;
+    light.shadow.camera.right = 3000;
+    light.shadow.camera.top = 3500;
+    light.shadow.camera.bottom = -3000;
+
     scene.add( light );
 
     //Set up shadow properties for the light
-    light.shadow.mapSize.width = 512; // default
-    light.shadow.mapSize.height = 512; // default
+    light.shadow.mapSize.width = 512*40; // default
+    light.shadow.mapSize.height = 512*40; // default
     light.shadow.camera.near = 0.5; // default
-    light.shadow.camera.far = 500; // default
+    light.shadow.camera.far = 4000; // default
+    light.shadow.normalBias = -0.1;
 
-    //Create a sphere that cast shadows (but does not receive them)
-    const sphereGeometry = new THREE.SphereGeometry( 5, 32, 32 );
-    const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000 } );
-    const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
-    sphere.castShadow = true; //default is false
-    sphere.receiveShadow = false; //default
-    scene.add( sphere );
+    const material = new THREE.MeshStandardMaterial({color: 0x395730});
+    material.roughness = 0.7;
 
-    //Create a plane that receives shadows (but does not cast them)
-    const planeGeometry = new THREE.PlaneGeometry( 20, 20, 32, 32 );
-    const planeMaterial = new THREE.MeshStandardMaterial( { color: 0x00ff00 } )
-    const plane = new THREE.Mesh( planeGeometry, planeMaterial );
-    plane.receiveShadow = true;
-    scene.add( plane );
+    const cylinderR = new THREE.Mesh(
+      new THREE.CylinderGeometry(51.8, 51.8, 35, 150),
+      material
+    );
 
-    //Create a helper for the shadow camera (optional)
-    const helper = new THREE.CameraHelper( light.shadow.camera );
-    scene.add( helper );
+    cylinderR.receiveShadow = true;
+    cylinderR.rotation.x = - Math.PI * 0.5;
+    cylinderR.rotation.z = - Math.PI * 0.5;
+    cylinderR.position.y = - 2;
+    cylinderR.position.x = 20;
+
+    const cylinderL = new THREE.Mesh(
+      new THREE.CylinderGeometry(51.8, 51.8, 35, 150),
+      material
+    );
+
+    cylinderL.receiveShadow = true;
+    cylinderL.rotation.x = - Math.PI * 0.5;
+    cylinderL.rotation.z = - Math.PI * 0.5;
+    cylinderL.position.y = - 2;
+    cylinderL.position.x = -20;
+
+    scene.add(cylinderR, cylinderL);
+
+    const loader = new GLTFLoader();
+    loader.load('planetTree.glb', function ( gltf ) {
+      const tree = gltf.scene;
+      tree.rotation.y = Math.PI / 2;
+      tree.traverse(function (node) {
+        if (node.isMesh)
+          node.castShadow = true;
+      })
+      scene.add( tree );
+
+
+      function animate() {
+        requestAnimationFrame( animate );
+        tree.rotation.z += (0.003);
+        cylinderL.rotation.x += (0.003);
+        cylinderR.rotation.x += (0.003);
+        renderer.render( scene, camera );
+      };
+
+      animate();
+    });
   };
 };
