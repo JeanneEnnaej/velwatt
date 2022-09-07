@@ -1,13 +1,17 @@
-<div class="container">
+<div class="container-tip">
   <div class="title-tip">
     <h2>Le conseil Vel-Watt du jour</h2>
   </div>
   <div class="tip-card">
-    <div class="tip-image blur">
+    <div class="Ampoule">
     </div>
-    <p>Eteindre les veilles</p>
-    <div class="tip-description">
-      <p>Le bon geste : utiliser des multiprises à interrupteur qui permettent de brancher plusuers appareils et de les éteindre tous en même temps.</p>
+    <div class="info-tip">
+      <div class="Subject_tip">
+        <h2>Eteindre les veilles</h2>
+      </div>
+      <div class="tip-description">
+        <p>Le bon geste : utiliser des multiprises à interrupteur qui permettent de brancher plusuers appareils et de les éteindre tous en même temps.</p>
+      </div>
     </div>
   </div>
   <div>
@@ -28,7 +32,7 @@
   <div  class="sessions-container">
     <div class = "tab-title">
       <div class="Enseigne">
-        <p>Marque</p>
+      <p>Marque</p>
       </div>
       <div class="Content">
         <p>Description</p>
@@ -61,53 +65,60 @@
       <% end %>
     <% end %>
   </div>
-  <div class="carte-avantage">
-    <div class="coupon-type">
-      <div class="code-promo">
-        <p><%= Ticket.first.price %> VW</p>
-      </div>
-    </div>
-    <div class="background-marque">
-    </div>
-    <div class="carte-marque">
-      <div class="marque-logo">
-        <p></p>
-      </div>
-      <div class="marque-info">
-        <div class="marque-name">
-          <p><%= Ticket.first.company %></p>
-        </div>
-        <div class="marque-price">
-          <p>5<%= Ticket.first.content %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p><%= button_to "Obtenir", ticket_purchases_path(Ticket.first.id), class: "buy-button" %></p>
+  <div class="scroll-card">
+    <div class="carte-avantage">
 
-  <div class="carte-avantage">
-    <div class="coupon-type">
-      <div class="code-promo">
-        <p><%= Ticket.last.price %> VW</p>
+      <div class="coupon-type">
+        <div class="code-promo">
+          <p><%= Ticket.first.price %> VW</p>
+        </div>
       </div>
-    </div>
-    <div class="background-marque-tree">
-    </div>
-    <div class="carte-marque">
-      <div class="marque-logo-tree">
+      <div class="background-marque"></div>
+      <div class="carte-marque">
+        <div class="marque-logo">
         <p></p>
-      </div>
-      <div class="marque-info">
-        <div class="marque-name">
-          <p><%= Ticket.last.company %></p>
         </div>
-        <div class="marque-price">
-          <p><%= Ticket.last.content%></p>
+        <div class="marque-info">
+          <div class="marque-name">
+          <p><%= Ticket.first.company %></p>
+          </div>
+          <div class="marque-price">
+          <p><%= Ticket.first.content %></p>
+          </div>
         </div>
+
       </div>
+      <p><%#= link_to "Obtenir", ticket_purchases_path(Ticket.last.id), data:{turbo_method: :post}, class: "buy-button" %></p>
+
     </div>
-  </div>
-  <p><%= button_to "Obtenir", ticket_purchases_path(Ticket.last.id), class: "buy-button" %></p>
+
+    <div class="carte-avantage">
+
+      <div class="coupon-type">
+        <div class="code-promo">
+          <p><%= Ticket.last.price %> VW</p>
+        </div>
+      </div>
+      <div class="background-marque-tree">
+        <div class="carte-marque">
+          <div class="marque-logo-tree">
+          <p></p>
+          </div>
+          <div class="marque-info">
+            <div class="marque-name">
+            <p><%= Ticket.last.company %></p>
+            </div>
+            <div class="marque-price">
+            <p><%= Ticket.last.content %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p><%#= link_to "Obtenir", ticket_purchases_path(Ticket.last.id), data:{turbo_method: :post}, class: "buy-button" %></p>
+
+    </div>
+
 </div>
 
 <%= render "pages/menu" %>
+<div class="XXXX"></div>
