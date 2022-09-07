@@ -8,8 +8,11 @@ class PurchasesController < ApplicationController
     @ticket = Ticket.find(params[:ticket_id])
     @purchase = Purchase.new(ticket: @ticket, user: current_user)
 
+
     if @purchase.save
-      current_user.update(wallet: current_user.wallet - @ticket.price)
+      current_user.wallet -= @purchase.ticket.price
+      current_user.save
+
       redirect_to advantages_path
     else
       render "index", status: :unprocessable_entity
