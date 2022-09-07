@@ -174,6 +174,9 @@
     width: 115px;
     height: 40px;
     border-radius: 10px;
+    .succes{
+      display:none;
+    }
   }
 
   .quizz-choice-lavelinge-active {
@@ -185,6 +188,42 @@
     width: 115px;
     height: 40px;
     border-radius: 10px;
+    position: relative;
+    .succes{
+      display:none;
+    }
+  }
+
+  .quizz-choice-lavelinge-active-succes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666666;
+    border: solid 1px $color-primary;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+    .succes{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position:absolute;
+      row-gap:8px ;
+      bottom:20px;
+      right:-25px;
+      border-radius: 50%;
+      width:70px;
+      height: 70px;
+      background-color: $color-primary;
+      border: solid 1px white;
+      margin: 0;
+      p{
+
+        color: black;
+      }
+    }
   }
 }
 
