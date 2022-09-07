@@ -6,12 +6,14 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Connects to data-controller="game-three"
 export default class extends Controller {
+
+
   connect() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x87CEEB);
     const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
-    camera.position.z = -5; //(-5
-    camera.position.y = 55; //55
+    camera.position.z = -5; // -5
+    camera.position.y = 55; // 55
     camera.rotateX( - Math.PI * 0.1 ); // * 0.1
 
     const renderer = new THREE.WebGLRenderer({antialias:true});
@@ -67,32 +69,39 @@ export default class extends Controller {
     })
 
     // Load a glTF resource
+
+
+
+
     loader.load('models3D/planetTree.glb', function ( gltf ) {
 
-        const tree = gltf.scene;
+      const tree = gltf.scene;
 
-        tree.traverse(function (node) {
-          if (node.isMesh)
-            node.castShadow = true
-        })
+      tree.traverse(function (node) {
+        if (node.isMesh)
+        node.castShadow = true
+      })
 
-        scene.add( tree );
-        tree.rotation.y = Math.PI / 2;
+      scene.add( tree );
+      tree.rotation.y = Math.PI / 2;
 
-        function animate() {
-          requestAnimationFrame( animate );
-          tree.rotation.z += (0.003);
-          renderer.render( scene, camera );
-        };
+      function animate() {
+        requestAnimationFrame( animate );
+        let compteur = document.querySelector(".compteur").innerText / 30000;
 
-        animate();
+        tree.rotation.z += (compteur);
+        renderer.render( scene, camera );
+      };
 
-      }, undefined, function ( error ) {
-        console.log( 'An error happened' );
-      }
+      animate();
+
+    }, undefined, function ( error ) {
+      console.log( 'An error happened' );
+    }
     );
 
     const helper = new THREE.CameraHelper( light.shadow.camera );
     // scene.add( helper );
   }
+
 }

@@ -8,30 +8,30 @@
    <div  class="logo-signup">
   </div>
 
-  <div class="container-formu">
+  <div class="container-formu-up">
     <div>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
         data: {turbo: false}) do |f| %>
         <div class="formulaire">
           <div class="form-inputs">
-            <p class="label-fr">Votre Prénom:</p>
-              <%= f.input :first_name, label: false%>
-            <p class="label-fr">Votre Nom:</p>
-              <%= f.input :last_name, label: false%>
-            <p class="label-fr">Votre adresse e-mail:</p>
+            <p class="label-fr">Votre Prénom :</p>
+              <%= f.input :first_name, label: false, placeholder: "Toto" %>
+            <p class="label-fr">Votre Nom :</p>
+              <%= f.input :last_name, label: false, placeholder: "Titi" %>
+            <p class="label-fr">Votre adresse e-mail :</p>
               <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }, label: false%>
+                        input_html: { autocomplete: "email" }, label: false, placeholder: "toto@toto.com" %>
 
-              <p class="label-fr">Tapez votre mot de passe:</p>
+              <p class="label-fr">Tapez votre mot de passe :</p>
                 <%= f.input :password,
                         required: true,
-                        input_html: { autocomplete: "new-password" }, label: false %>
-            <p class="label-fr">Retapez votre mot de passe:</p>
+                        input_html: { autocomplete: "new-password" }, label: false,placeholder: "mot de passe"  %>
+            <p class="label-fr">Retapez votre mot de passe :</p>
               <%= f.input :password_confirmation,
                         required: true,
-                        input_html: { autocomplete: "new-password" }, label: false %>
+                        input_html: { autocomplete: "new-password" }, label: false,placeholder: "mot de passe"  %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Créer mon compte" %>

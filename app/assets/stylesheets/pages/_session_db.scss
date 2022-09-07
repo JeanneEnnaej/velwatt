@@ -29,17 +29,21 @@
   margin-top: 24px;
 
   .score{
-    display: flex;
-    justify-content: center;
-
+    h2 {
+      font-size: 24px;
+      padding-left: 26px;
+    }
   }
 
   }
 
 
   .card-infos{
-  width: 80%;
-  height: 100%;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
   .img-trophy{
     background-image: url("trophy.png");
@@ -113,7 +117,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #b32b2b;
+    background-color: #666666;
+    border: solid 1px red;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -135,7 +140,6 @@
     justify-content: center;
     background-color: #666666;
     border: solid 1px red;
-    box-shadow: 0px 0px 20px red;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -155,7 +159,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #b32b2b;
+    background-color: #666666;
+    border: solid 1px red;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -177,7 +182,6 @@
     justify-content: center;
     background-color: #666666;
     border: solid 1px $color-primary;
-    box-shadow: 0px 0px 20px $color-primary;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -250,39 +254,26 @@
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 90px;
+    height: 110px;
     background-color: $background-ligth;
     border-radius: 16px;
     align-items: center;
-    .img-frigo{
-      background-image: url("FRIGO.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 100%;
-      width: 50%;
-      border-bottom-left-radius: 16px;
-      border-top-left-radius: 16px;
-
+    padding-left: 20px;
+    .icone-compa{
+      width: 60px;
     }
-
-    .img-lavelinge{
-      background-image: url("lave-linge.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 100%;
-      width: 40%;
-      border-bottom-left-radius: 16px;
-      border-top-left-radius: 16px;
+    .iconify{
+      font-size: 56px;
+      color: $txtcolor-secondary;
 
     }
     .card-content-left{
-      padding: 8px;
+      padding: 16px;
       margin: 0;
       display: flex;
       flex-direction: column;
       text-align: start;
+      width: auto;
 
       p{
         margin: 0;
@@ -294,40 +285,25 @@
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 90px;
+    height: 110px;
     background-color: $background-ligth;
     border-radius: 16px;
     align-items: center;
-    .img-tv{
-      background-image: url("tele.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 100%;
-      width: 50%;
-      border-bottom-right-radius: 16px;
-      border-top-right-radius: 16px;
-
+    padding-right: 20px;
+    .icone-compa{
+      width: 60px;
     }
-
-    .img-radiateur{
-      background-image: url("radiateurter.jpeg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 100%;
-      width: 50%;
-      border-bottom-right-radius: 16px;
-      border-top-right-radius: 16px;
+    .iconify{
+      font-size: 56px;
+      color: $txtcolor-secondary;
 
     }
     .card-content-right{
-      padding: 8px;
+      padding: 16px;
       margin: 0;
       display: flex;
       flex-direction: column;
       text-align: end;
-
 
       p{
         margin: 0;

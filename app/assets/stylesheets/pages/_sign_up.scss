@@ -11,6 +11,11 @@
   height: 80px;
 }
 
+.super-container-up{
+  display: flex;
+  flex-direction: column;
+  height: 780px;
+}
 
 .input.string.required.user_first_name{
   display: flex;
@@ -26,22 +31,27 @@
   }
 
   input[type="text" i]{
-  background-color: $background-input;
-  color: #344F6F;
+  background-color: $background-ligth;
+  color:white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   border-radius:10px;
-  border: solid 0.5px $color-primary;
+  border: solid 1px white;
   // box-shadow: 0px 0px 20px $color-primary;
   width: 300px;
-  height: 44px;
+  height: 40px;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
 
+
   }
 
+  input::placeholder {
+    color: white;
+    opacity: 0.5;
+  }
 
 
 .container-formu{
