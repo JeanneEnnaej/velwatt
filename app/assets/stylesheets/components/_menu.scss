@@ -19,11 +19,19 @@ display: flex;
 width: 80%;
 justify-content: space-between;
 
-.fa-solid{
+
+  .fa-solid{
   display: flex;
   align-items: center;
   color: white;
+
+
+    &.prod{
+    color:$color-primary;
+    }
+
   }
+
 
 }
 
