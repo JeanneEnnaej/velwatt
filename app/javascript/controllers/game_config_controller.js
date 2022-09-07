@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 
 let participantSession;
-let bikeId = 1;
+let bikeId = 1; // faire un fetch pour dynamique
 let dateSession = 0;
 let oldProduct = 0;
 let compteur = 0;
