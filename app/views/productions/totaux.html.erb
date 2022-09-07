@@ -45,35 +45,57 @@
       <p>Faire fonctionner une tireuse pendant 45mn</p>
     </div>
   </div>
-  <h2>Ma production VS Réalité</h2>
-  <div class="VS">
-    <div class="line_1">
-      <div class="lave-linge">
-      </div>
-      <div class="frigo">
-      </div>
+
+    <h2>Ma production VS Réalité</h2>
+  <div class="reel-vs-prod">
+    <div class="card-reel">
+      <span class="iconify" data-icon="ic:outline-smartphone"></span>
+
+      <p>Vous avez produit de quoi recharger <span class="text-result"><%=(@total_watt/0.30).round(1) %> fois</span>  un smartphone </p>
     </div>
-    <div class="line_2">
-      <div class="phone">
-      </div>
-      <div class="ET">
-      </div>
+
+    <div class="card-reel">
+    <span class="iconify" data-icon="mdi:washing-machine"></span>
+
+      <p>Vous avez produit <span class="text-result"><%=((@total_watt/1000.0)*100).round(1) %> %</span> de l'énergie necéssaire au cycle d'une machine à laver </p>
+    </div>
+    <div class="card-reel">
+    <span class="iconify" data-icon="bxs:fridge"></span>
+
+      <p>Vous avez produit de quoi faire fonctionner un refrigerateur pendant <span class="text-result"><%=(@total_watt/(548.0/24)).round(1)%> heure(s)</span> </p>
+    </div>
+    <div class="card-reel">
+    <span class="iconify" data-icon="mdi:eiffel-tower"></span>
+
+      <p>Vous avez produit <span class="text-result"><%=((@total_watt/21095000.0)*100).round(4)%> %</span> de la consommation de la Tour Eiffel pour une journée </p>
     </div>
   </div>
+
 </div>
 
-      <%# <p>Vous avez produit de quoi recharger <%=(@total_watt/0.30).round(1) fois d'un smartphone </p> %>
-
-      <%# <p>Vous avez produit <%=((@total_watt/1000.0)*100).round(1) % de l'énergie necéssaire au cycle d'une machine à laver </p> %>
-
-      <%# <p>Vous avez produit de quoi faire fonctionner un refrigerateur pendant <%=(@total_watt/(548.0/24)).round(1) heure(s) </p> %>
-
-      <%# <p>Vous avez produit <%=((@total_watt/21095000.0)*100).round(4) de la consommation de la Tour Eiffel pour une journée </p> %>
 
 
 
 
 
-<div class="XXXX">
-</div>
+  <%# <div class="echelle-reelle">
+    <div class="user-bike", style="margin-left:0px;"><span class="iconify" data-icon="ic:outline-directions-bike"></span>
+    </div>
+    <div class="echelle">
+      <div class="gradient"></div>
+      <div class="echelons">
+        <span class="iconify" data-icon="ic:baseline-smartphone", style="margin-left:25.3px;" ></span>
+        <span class="iconify" data-icon="bi:pc-display-horizontal", style="margin-left:15.7px;"></span>
+        <span class="iconify" data-icon="material-symbols:oven-gen", style="margin-left:53.3px;"></span>
+        <span class="iconify" data-icon="akar-icons:wifi", style="margin-left:26.7px;"></span>
+        <span class="iconify" data-icon="iconoir:washing-machine", style="margin-left:59.3px;"></span>
+      </div>
+    </div>
+  </div> %>
+
+
+
+
+
+<div class="XXXX"></div>
 <%= render "pages/menu"%>
