@@ -26,7 +26,7 @@ export default class extends Controller {
   }
 
   lavelinge(event) {
-    const goodAnswer = 10
+    const goodAnswer = 1
     this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
     const pts = this.pointsValue
     sum = pts + goodAnswer
