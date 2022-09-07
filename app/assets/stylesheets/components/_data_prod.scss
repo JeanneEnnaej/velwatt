@@ -49,8 +49,8 @@ border-radius: 16px;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        width:140px;
-        height: 140px;
+        width:130px;
+        height: 130px;
         background-color: $background-ligth;
         border: solid 2px $color-primary;
         margin: 0;
@@ -66,8 +66,8 @@ border-radius: 16px;
         bottom:50px;
         right:10px;
         border-radius: 50%;
-        width:60px;
-        height: 60px;
+        width:55px;
+        height: 55px;
         background-color: $background-ligth;
         border: solid 1px $color-primary;
         margin: 0;
@@ -79,6 +79,7 @@ border-radius: 16px;
           p{
           margin: none;
           text-align: center;
+          font-size: 10px;
           }
         }
 
