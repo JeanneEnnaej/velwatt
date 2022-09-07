@@ -17,7 +17,7 @@ let i;
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
-  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView"];
+  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView", 'svg'];
   static values = {
     url: String,
     api: String
@@ -27,7 +27,11 @@ export default class extends Controller {
     console.log("game-config init");
     api = this.apiValue;
     console.log(api)
-    this.apiUrl = `https://${api}/api/v1`;
+    this.apiUrl = `${api}/api/v1`;
+  }
+
+  disconnect() {
+    this.endSession()
   }
 
   sleep(ms) {
@@ -75,9 +79,26 @@ export default class extends Controller {
     });
   }
 
-  endSession(partiipant) {
+  endSession() {
     console.log("session ended");
-    // window.location.reload();
+    this.#apiArduinoEndSession()
+
+    // FAKE DATA
+      // maxProduct = 30
+      // productTotalSession = 345
+      // bikeId = 1
+    // END FAKE DATA
+
+    this.#apiWebEndSession()
+  }
+
+  #apiWebEndSession() {
+    console.log('je fini la session rails')
+    this.createGamingSessionDB()
+  }
+
+
+  #apiArduinoEndSession() {
     fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -88,9 +109,8 @@ export default class extends Controller {
       })
     })
     .then(response => response.json())
-    .then((data) => {
+    .then(() => {
       i = times;
-      this.createGamingSessionDB();
       console.log("session finish");
     });
   }
@@ -187,13 +207,10 @@ export default class extends Controller {
         bike_id: bikeId
       })
     })
-      .then(response => () => {
-        if (response.status === 200) {
-          console.log("ok");
-        }
-      })
+      .then(response => response.json())
       .then((data) => {
-        console.log("save to db");
+        console.log("save to db", data.svg);
+        this.svgTarget.innerHTML = data.svg
       })
   }
 }

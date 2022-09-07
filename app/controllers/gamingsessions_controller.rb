@@ -23,15 +23,28 @@ class GamingsessionsController < ApplicationController
   end
 
   def create
-    @session = Gamingsession.new(session_params.merge({date: Date.today}))
-    if @session.save!
-      head :ok
+    @gamingsession = Gamingsession.new(session_params.merge({date: Date.today}))
+    if @gamingsession.save!
+      render json: {svg: svg, url: gamingsession_url(@gamingsession)}
     else
       head :unprocessable_entity
     end
   end
 
   private
+
+  def svg
+    # @qr_code = RQRCode::QRCode.new("http://localhost:3000/gamingsessions/2")
+    qr_code = RQRCode::QRCode.new(gamingsession_url(@gamingsession))
+    # permet de mettre le qr code en forme carré noir et blanc
+    qr_code.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6,
+      viewbox: true
+    )
+  end
 
   def session_params
     params.require(:gamingsession).permit(:max_production, :total_production, :session_duration, :score, :bike_id)
