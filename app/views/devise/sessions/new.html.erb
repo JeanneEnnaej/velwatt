@@ -1,7 +1,7 @@
 
-<div clas="super-container">
-  <div>
-
+<div class="super-container">
+  <div class="croix">
+    <%= link_to 'X', gamingsession_path(cookies[:gamingsession_id]) %>
   </div>
   <div class="logo">
   </div>
@@ -13,27 +13,27 @@
         data: {turbo: false}) do |f| %>
         <div class="formulaire">
           <div class="form-inputs">
-            <p class="label-fr">Email:</p>
+            <p class="label-fr">Email :</p>
               <%= f.input :email,
                         required: false,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }, label: false %>
+                        input_html: { autocomplete: "email" }, label: false, placeholder: "toto@toto.com" %>
 
-            <p class="label-fr">Mot de passe:</p>
+            <p class="label-fr">Mot de passe :</p>
               <%= f.input :password,
                         required: false,
-                        input_html: { autocomplete: "current-password" }, label: false %>
+                        input_html: { autocomplete: "current-password" }, label: false, placeholder: "mot de passe" %>
               <%# <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
 
           <div class="form-actions">
-            <div class="btns">
+            <div class="button-login">
               <%= f.button :submit, "Connexion" %>
             </div>
           </div>
-           <div class="form-actions">
-            <div class="button-login">
-              <%= link_to "M'inscrire", new_user_registration_path%>
+           <div>
+            <div class="inscription">
+              <p><%= link_to "Vous n'avez pas de compte? Inscrivez-vous !", new_user_registration_path%></p>
             </div>
           </div>
         </div>

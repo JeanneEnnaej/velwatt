@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 
 let participantSession;
-let bikeId = 1;
+let bikeId = 1; // faire un fetch pour dynamique
 let dateSession = 0;
 let oldProduct = 0;
 let compteur = 0;
@@ -156,8 +156,8 @@ export default class extends Controller {
     productTotalSession = Number(product);
     //On renvoie :
     this.totalValueTarget.innerText = `${productHour.toFixed(3)} wh`;
-    this.maxProductTarget.innerText = `${maxProduct} w`;
-    this.compteurValueTarget.innerText = `${compteur} w`;
+    this.maxProductTarget.innerText = `${maxProduct}`;
+    this.compteurValueTarget.innerText = `${compteur}`;
   }
 
   startBike() {

@@ -8,6 +8,7 @@ display:flex;
 justify-content: center;
 flex-direction: column;
 align-items: center;
+overflow-x: hidden;
 }
 
 
@@ -23,35 +24,66 @@ align-items: center;
 display:flex;
 justify-content: center;
 align-items: center;
-flex-direction: column;
-width: 60%;
+flex-direction: row;
+position: relative;
+width: 80%;
 height: 100%;
 background-color: $background-ligth;
 border-radius: 16px;
 box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+padding-left:10px;
+margin-top: 20px;
 
 
-  .tip-image{
-    background-image: url("Vector.png");
+  .Ampoule{
+    background-image: url("ampoule.png");
     background-repeat: no-repeat;
     background-position: center;
-    height: 55px;
-    width: 55px;
-    margin-top: 10px;
-    // box-shadow: 0px 0px 20px #FF5459;
-    // border: solid 0.5px #FF5459;
+    background-size: contain;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    bottom:80px;
+    left: 250px;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   height: 55px;
+  //   width: 50%;
+  //   margin-top: 10px;
+  //   // box-shadow: 0px 0px 20px #FF5459;
+  //   // border: solid 0.5px #FF5459;
+
+  // }
+  .info-tip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    .Subject_tip{
+      display: flex;
+      align-items: start;
+      justify-content: flex-start;
+
+
+      h2{
+        text-align: left
+        ;
+
+      }
+    }
+    .tip-description{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      p{
+        width: 80%;
+        text-align: center;
+      }
+
 
   }
-  .tip-description{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    p{
-      width: 80%;
-      text-align: center;
-    }
 
   }
 
@@ -60,6 +92,9 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     margin-top: 20px;
   }
 }
+}
+
+
 
 .avantages-explication{
 display: flex;
@@ -73,30 +108,61 @@ p{
 }
 }
 
+
+.scroll-card{
+  // display: flex;
+  // overflow-x: auto hidden;
+  // white-space: nowrap;
+  // overflow-y:hidden;
+  // width: 100%;
+  // scroll-snap-type: x var(--tw-scroll-snap-strictness);
+  // scroll-snap-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  height: 250px;
+  padding-left: 50px;
+  margin-right: 20px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .carte-avantage{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-position:relative;
-width:90%;
-height: auto;
-margin-top: 30px;
-margin-bottom: 10px;
+  // flex: 0 0 auto;
+  // margin-right: 3px;
+  // justify-content: center;
+  // margin-left: 50px;
+  position: relative;
+  margin: auto 15px;
+  height: 145px;
+
+// justify-content: center;
+// align-items: center;
+// // flex-direction: column;
+// // position:relative;
+// width:100%;
+// // margin-top: 30px;
+// // margin-bottom: 10px;
+// margin-right: 50px;
+// scroll-snap-align: center;
+}
 
   .coupon-type{
   display: flex;
+  order:-3px;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 15px;
   border-radius: 50%;
   width:50px;
   height: 50px;
   background-color: $background-ligth;
   border: solid 1px $color-primary;
   margin: 0;
+  position:absolute;
+  top:-16px;
+  left:-16px;
 
     .code-promo{
     text-align: center;
@@ -107,46 +173,59 @@ margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width:80%;
+  width:250px;
   height:150px;
   background-image: url("sports.jpeg");
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 16px;
+
   }
   .background-marque-tree{
+    background-image: url("trees.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
-    width:80%;
+    width:250px;
     height:150px;
-    background-image: url("trees.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 16px;
     }
 
 
-
   .carte-marque{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  position: absolute;
-  bottom: -40px;
-  width: 75%;
-  height: 80px;
-  background-color: $background-ligth;
-  border-radius: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 180px;
+    height: 80px;
+    background-color: $background-ligth;
+    border-radius: 16px;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: row;
+    // position: absolute;
+    // bottom: -250px;
+    // left: 7.5px;
+    position:absolute;
+    bottom:-30px;
+    left:42px;
+
 
     .marque-info{
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     flex-direction: column;
+    // bottom: -12px;
+    // left: 100px;
+    // justify-content: center;
+    // align-items:center;
+    // flex-direction: column;
     width:60%;
     height: 100%;
+
 
       .marque-name{
         p{
@@ -174,6 +253,9 @@ margin-bottom: 10px;
         background-position: center;
         width: 40%;
         height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .marque-logo-tree{
@@ -185,16 +267,20 @@ margin-bottom: 10px;
         background-position: center;
         width: 40%;
         height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
   }
-}
+
 
 .buy-button {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  position: absolute;
+  bottom: 30px;
   width: 150px;
   height: 40px;
   background-color: $background-ligth;
@@ -204,6 +290,8 @@ margin-bottom: 10px;
   font-weight: 600;
   border-radius:10px;
   border: solid 0.5px $color-primary;
+  margin-top: 60px;
+  margin-left:20px;
 }
 
 .ticket-content{

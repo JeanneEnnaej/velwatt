@@ -17,7 +17,7 @@
         <div class="img-trophy">
         </div>
         <div class="score">
-          <h2>= <span data-quizz-answer-target="score"><%= @gamingsession.score %></span> pts</h2>
+          <h2><span data-quizz-answer-target="score"><%= @gamingsession.score %></span> pts</h2>
         </div>
 
     </div>
@@ -76,6 +76,7 @@
       <p>Record effectué sur le vélo ce jour</p>
     </div>
   </div>
+  <span class="cache" data-quizz-answer-target="gsid"><%= @gamingsession.id %></span>
   <% if current_user %>
     <div class= "quizz-card">
       <p>Lequel de ces appareils consomme le plus d’électricité par an ?</p>
@@ -121,38 +122,39 @@
 
   <div class="container-comparatif">
     <div class="comparatif-cardleft">
-      <div class="img-frigo"></div>
+      <div class="icone-compa"><span class="iconify" data-icon="bxs:fridge"></span>
+      </div>
       <div class="card-content-left">
-        <p>Réfrigérateur : </p>
         <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
         <p><span class="text-compa"><%= @frigo %>h</span> de Vel-Watt pour alimenter un frigo pendant <span class="text-compa">1 journée.</span></p>
       </div>
     </div>
     <div class="comparatif-cardright">
       <div class="card-content-right">
-        <p>Télévision : </p>
         <% @tv = ((((250.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
         <p><span class="text-compa"><%= @tv %>h</span> de Vel-Watt pour regarder la télévision pendant <span class="text-compa">1 heure.</span></p>
       </div>
-      <div class="img-tv"></div>
+      <div class="icone-compa"><span class="iconify" data-icon="bx:tv"></span>
+      </div>
     </div>
     <div class="comparatif-cardleft">
-      <div class="img-lavelinge"></div>
+      <div class="icone-compa"><span class="iconify" data-icon="mdi:washing-machine"></span>
+      </div>
       <div class="card-content-left">
-        <p>Lave-linge : </p>
         <% @machine = ((((24000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
         <p><span class="text-compa"><%= @machine %>h</span> de Vel-Watt pour faire <span class="text-compa">1 cycle</span> de lave-linge</p>
       </div>
     </div>
     <div class="comparatif-cardright">
       <div class="card-content-right">
-        <p>Radiateur électrique : </p>
         <% @radiateur = ((((10000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @radiateur %>h</span> de Vel-Watt pour alimenter un radiateur pendant <span class="text-compa">1 journée.</span></p>
+        <p><span class="text-compa"><%= @radiateur %>h</span> de Vel-Watt pour alimenter un radiateur électrique pendant <span class="text-compa">1 journée.</span></p>
       </div>
-      <div class="img-radiateur"></div>
+      <div class="text-compa"><span class="iconify" data-icon="mdi:radiator"></span>
+      </div>
     </div>
   </div>
+
     <div class="XXXX">
     </div>
 </div>

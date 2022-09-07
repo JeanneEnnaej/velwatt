@@ -23,7 +23,7 @@ User.create!(first_name: "Tata", last_name: "Tutu", email: "tata@tata.com", pass
 
 p 'seed bike'
 
-Bike.create!(ip_address: "12.345.678.910")
+Bike.create!(ip_address: "12.345.678.910") if Bike.count.zero?
 
 p "seed sessions"
 

@@ -5,8 +5,8 @@
 
 .super-container{
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  height: 780px;
 }
 
 .title-signup{
@@ -20,7 +20,7 @@
 }
 
 .logo{
-  margin-top: 26px;
+  margin-top: 100px;
   background-image: url("VW.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -63,61 +63,70 @@ form{
 
 .input.email.optional.user_email{
   color: #344F6F;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-flex-direction: column;
-height: 100%;
-width: 100%;
-padding: 0;
-margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 
 }
 input[type="email" i]{
-background-color: white;
-color: #344F6F;
-font-family: 'Montserrat', sans-serif;
-font-size: 12px;
-font-weight: 600;
-border-radius:10px;
-border: solid 0.5px $color-primary;
-// box-shadow: 0px 0px 20px $color-primary;
-width: 300px;
-height: 30px;
-margin-bottom: 20px;
-font-family: 'Montserrat', sans-serif;
-padding-left: 10px;
-}
-
-
-input.password.optional.user_password{
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-flex-direction: column;
-height: 100%;
-width: 100%;
-padding: 0;
-margin: 0;
-
-}
-
-input[type="password" i] {
-  background-color: white;
-  color: #344F6F;
+  background-color: $background-ligth;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
   border-radius:10px;
-  border: solid 0.5px $color-primary;
+  border: solid 1px white;
   // box-shadow: 0px 0px 20px $color-primary;
   width: 300px;
-  height: 30px;
-  margin-bottom: 20px;
+  height: 40px;
+  margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
+  font-size: 14px;
+}
+
+
+input.password.optional.user_password{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+
+}
+
+input[type="password" i] {
+  background-color: $background-ligth;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius:10px;
+  border: solid 1px white;
+  // box-shadow: 0px 0px 20px $color-primary;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+  font-size: 14px;
+
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.5;
 }
 
 input.string.required.user_last_name{
@@ -139,7 +148,7 @@ input.string.required.user_last_name{
     font-size: 10px;
     font-weight: 600;
     border-radius:10px;
-    border: solid 0.5px $color-primary;
+    border: solid 1px $color-primary;
     box-shadow: 0px 0px 20px $color-primary;
     width: 300px;
     height: 40px;
@@ -157,6 +166,7 @@ input.string.required.user_last_name{
   height: 10%;
   width: 100%;
   margin-top: 25px;
+
 }
 
 
@@ -170,35 +180,40 @@ input.string.required.user_last_name{
 }
 
 input.btn{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: row;
-width: 154px;
-height: 44px;
-background-color: $background-ligth;
-color:white;
-font-family: 'Montserrat', sans-serif;
-font-size: 10px;
-font-weight: 600;
-border-radius:10px;
-border: solid 2px $stroke-secondary;
-box-shadow: 0px 0px 10px $stroke-secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 310px;
+  height: 40px;
+  background-color: white;
+  color:$background-ligth;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius:10px;
+  border: solid 2px white;
+
 }
 
-.button-login{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: row;
-width: 150px;
-height: 40px;
-background-color: $background-ligth;
-color:white;
-font-family: 'Montserrat', sans-serif;
-font-size: 10px;
-font-weight: 600;
-border-radius:10px;
-border: solid 2px $stroke-secondary;
-box-shadow: 0px 0px 10px $stroke-secondary;
+.inscription{
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+
+  p{
+    text-decoration: underline;
+    font-weight: lighter;
+    width: 65%;
+    line-height: 20px;
+
+  }
+}
+
+.croix {
+  text-align: end;
+  padding-right: 18px;
+  padding-top: 18px;
+  color: $color-primary;
+  font-family: 'Montserrat', sans-serif;
 }

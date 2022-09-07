@@ -2,7 +2,20 @@
 @import "components/button";
 @import"config/variable.scss";
 
-user[first_name]
+.logo-signup{
+  margin-top: 0;
+  background-image: url("VW.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 80px;
+}
+
+.super-container-up{
+  display: flex;
+  flex-direction: column;
+  height: 780px;
+}
 
 .input.string.required.user_first_name{
   display: flex;
@@ -18,22 +31,27 @@ user[first_name]
   }
 
   input[type="text" i]{
-  background-color: white;
-  color: #344F6F;
+  background-color: $background-ligth;
+  color:white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   border-radius:10px;
-  border: solid 0.5px $color-primary;
+  border: solid 1px white;
   // box-shadow: 0px 0px 20px $color-primary;
   width: 300px;
-  height: 30px;
-  margin-bottom: 20px;
+  height: 40px;
+  margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
 
+
   }
 
+  input::placeholder {
+    color: white;
+    opacity: 0.5;
+  }
 
 
 .container-formu{
