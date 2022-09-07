@@ -11,29 +11,59 @@ export default class extends Controller {
   }
 
   frigo(event) {
-    this.frigoTarget.classList.replace('quizz-choice-frigo', 'quizz-choice-frigo-active')
-    this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active") {
+      console.log('deja joué' )
+
+    }
+
+    else {
+      this.frigoTarget.classList.replace('quizz-choice-frigo', 'quizz-choice-frigo-active')
+      this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+
+    }
   }
 
   smartphone(event) {
-    this.smartphoneTarget.classList.replace('quizz-choice-smartphone', 'quizz-choice-smartphone-active')
-    this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active"){
+      console.log('deja joué')
+
+    }
+    else {
+
+      this.smartphoneTarget.classList.replace('quizz-choice-smartphone', 'quizz-choice-smartphone-active')
+      this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+    }
   }
 
   tv(event) {
-    this.tvTarget.classList.replace('quizz-choice-tv', 'quizz-choice-tv-active')
-    this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active"){
+      console.log('deja joué')
+    }
+
+    else {
+      this.tvTarget.classList.replace('quizz-choice-tv', 'quizz-choice-tv-active')
+      this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+
+    }
   }
 
   lavelinge(event) {
-    const goodAnswer = 10
-    this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
-    const pts = this.pointsValue
-    sum = pts + goodAnswer
-    console.log(sum)
-    this.scoreTarget.innerText = sum
-    console.log(this.gsidTarget.innerText)
-    this.updateScoreDB()
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active"){
+
+      console.log('deja joué')
+    }
+    else {
+
+      const goodAnswer = 1
+      this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active')
+      const pts = this.pointsValue
+      sum = pts + goodAnswer
+      console.log(sum)
+      this.scoreTarget.innerText = sum
+      console.log(this.gsidTarget.innerText)
+      this.updateScoreDB()
+
+    }
   }
 
   updateScoreDB(){
