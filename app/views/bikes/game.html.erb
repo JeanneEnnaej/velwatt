@@ -13,12 +13,10 @@
     <h2><span data-game-config-target="maxProduct" >0</span> w</h2>
     <p>Instant :</p>
     <h2><span data-game-config-target="compteurValue" class="compteur">0</span> w</h2>
+
+    <%# affiche le qr code sur la page à la fin du jeu %>
+    <div data-game-config-target="svg" style="width: 100px;height:100px; margin: 20px">
+    </div>
+
   </div>
-</div>
-
-<%# affiche le qr code sur la page à la fin du jeu %>
-
-
-<div class="QRcodes">
-  <%= @svg.html_safe %>
 </div>
