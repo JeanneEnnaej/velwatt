@@ -76,7 +76,7 @@
   margin: 0 auto;
   border-radius: 16px;
   border: solid 2px #07FFD2;
-  margin-top: 24px;
+  // margin-top: 24px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -260,7 +260,7 @@
       background-position: center;
       background-size: cover;
       height: 100%;
-      width: 130px;
+      width: 50%;
       border-bottom-left-radius: 16px;
       border-top-left-radius: 16px;
 
@@ -272,7 +272,7 @@
       background-position: center;
       background-size: cover;
       height: 100%;
-      width: 130px;
+      width: 40%;
       border-bottom-left-radius: 16px;
       border-top-left-radius: 16px;
 
@@ -304,7 +304,7 @@
       background-position: center;
       background-size: cover;
       height: 100%;
-      width: 130px;
+      width: 50%;
       border-bottom-right-radius: 16px;
       border-top-right-radius: 16px;
 
@@ -316,7 +316,7 @@
       background-position: center;
       background-size: cover;
       height: 100%;
-      width: 130px;
+      width: 50%;
       border-bottom-right-radius: 16px;
       border-top-right-radius: 16px;
 
@@ -328,6 +328,7 @@
       flex-direction: column;
       text-align: end;
 
+
       p{
         margin: 0;
       }
@@ -337,4 +338,7 @@
 
 .text-compa{
   color: $txtcolor-secondary;
+}
+.cache{
+  color: #223258;
 }
