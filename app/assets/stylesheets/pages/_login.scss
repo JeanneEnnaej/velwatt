@@ -76,7 +76,7 @@ form{
 }
 input[type="email" i]{
   background-color: $background-ligth;
-  color: #344F6F;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -103,11 +103,12 @@ input.password.optional.user_password{
   padding: 0;
   margin: 0;
 
+
 }
 
 input[type="password" i] {
   background-color: $background-ligth;
-  color: #344F6F;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -120,6 +121,12 @@ input[type="password" i] {
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
   font-size: 14px;
+
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.5;
 }
 
 input.string.required.user_last_name{
@@ -177,15 +184,15 @@ input.btn{
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 300px;
-  height: 44px;
+  width: 310px;
+  height: 40px;
   background-color: white;
   color:$background-ligth;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 600;
   border-radius:10px;
-  border: solid 2px $background-ligth;
+  border: solid 2px white;
 
 }
 
