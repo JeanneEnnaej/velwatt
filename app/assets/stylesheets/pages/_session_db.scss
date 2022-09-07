@@ -76,7 +76,7 @@
   margin: 0 auto;
   border-radius: 16px;
   border: solid 2px #07FFD2;
-  margin-top: 24px;
+  // margin-top: 24px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -338,4 +338,7 @@
 
 .text-compa{
   color: $txtcolor-secondary;
+}
+.cache{
+  color: #223258;
 }
