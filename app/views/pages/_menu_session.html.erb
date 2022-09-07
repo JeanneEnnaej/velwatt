@@ -1,9 +1,16 @@
 
 <div  class= "menu-contain">
   <div class="inscription-menu">
-  <p><%= link_to 'Inscription', new_user_registration_path %></p>
+    <%= link_to new_user_registration_path  do%>
+      <span class="iconify" data-icon="ic:baseline-app-registration"></span>
+    <% end %>
+    <p><%= link_to 'Inscription', new_user_registration_path %></p>
   </div>
+
   <div class="connexion">
-  <p><%= link_to 'Connexion', new_user_session_path %></p>
+    <%= link_to new_user_session_path do %>
+      <span class="iconify" data-icon="carbon:login"></span>
+    <% end %>
+    <p><%= link_to 'Connexion', new_user_session_path %></p>
   </div>
 </div>
