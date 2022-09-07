@@ -32,7 +32,7 @@
 
   input[type="text" i]{
   background-color: $background-ligth;
-  color: #344F6F;
+  color:white;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -45,8 +45,13 @@
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
 
+
   }
 
+  input::placeholder {
+    color: white;
+    opacity: 0.5;
+  }
 
 
 .container-formu{
