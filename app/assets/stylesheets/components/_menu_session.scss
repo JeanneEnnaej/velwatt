@@ -8,39 +8,67 @@
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0;
   margin: 0;
 
     .inscription-menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      width: 40%;
 
+      a {
+        margin: 0;
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        padding-bottom: 8px;
 
-    p{
-      color:white;
-      font-size: 14px;
-      text-decoration: underline;
-      padding-left: 20px;
-    }
+       .iconify{
+        color:$color-primary;
+        font-size: 24px;
+        width: 100%;
+        }
+      }
+      p{
+        color:white;
+        font-size: 14px;
+        padding:0;
+        margin: 0;
+      }
   }
 
     .connexion{
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       text-align: center;
-      width: 30%;
+      width: 40%;
+
+      a {
+        margin: 0;
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        padding-bottom: 8px;
+
+       .iconify{
+        color:$color-primary;
+        font-size: 24px;
+        width: 100%;
+        }
+      }
 
 
-      a{
-        color: white;
+      p{
+        color:white;
         font-size: 14px;
-        text-decoration: underline;
-        padding-right: 20px;
+        padding:0;
+        margin: 0;
       }
   }
 }
