@@ -11,7 +11,7 @@ export default class extends Controller {
   }
 
   frigo(event) {
-    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active") {
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active" || this.lavelingeTarget.className === "quizz-choice-lavelinge-active-succes") {
       console.log('deja joué' )
 
     }
@@ -24,7 +24,7 @@ export default class extends Controller {
   }
 
   smartphone(event) {
-    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active"){
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active" || this.lavelingeTarget.className === "quizz-choice-lavelinge-active-succes"){
       console.log('deja joué')
 
     }
@@ -36,7 +36,7 @@ export default class extends Controller {
   }
 
   tv(event) {
-    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active"){
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active" || this.lavelingeTarget.className === "quizz-choice-lavelinge-active-succes"){
       console.log('deja joué')
     }
 
@@ -48,7 +48,7 @@ export default class extends Controller {
   }
 
   lavelinge(event) {
-    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active"){
+    if (this.lavelingeTarget.className === "quizz-choice-lavelinge-active" || this.lavelingeTarget.className === "quizz-choice-lavelinge-active-succes"){
 
       console.log('deja joué')
     }
