@@ -1,8 +1,4 @@
-<div data-controller="game-three">
-
-</div>
-
-<div class="gamePages" data-controller="game-config timer" data-action="game-session:end->game-config#endSession">
+<div class="gamePages" data-controller="game-config timer game-three" data-action="game-session:end->game-config#endSession">
   <span data-game-config-url-value="/gamingsessions"></span>
   <div data-controller="game-config timer"
     data-action="game-session:end->game-config#endSession"
@@ -12,11 +8,11 @@
     </div>
     <span data-action="click->game-config#initSession click->timer#startTimer">START GAME</span>
     <p>Total :</p>
-    <h2 data-game-config-target="totalValue">0.000 wh</h2>
+    <h2><span data-game-config-target="totalValue">0.000</span> wh</h2>
     <p>Max production :</p>
-    <h2 data-game-config-target="maxProduct">0 w</h2>
+    <h2><span data-game-config-target="maxProduct" >0</span> w</h2>
     <p>Instant :</p>
-    <h2 data-game-config-target="compteurValue">0 w</h2>
+    <h2><span data-game-config-target="compteurValue" data-game-three-target="compteur">0</span> w</h2>
   </div>
 </div>
 

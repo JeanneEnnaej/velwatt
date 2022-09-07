@@ -156,8 +156,8 @@ export default class extends Controller {
     productTotalSession = Number(product);
     //On renvoie :
     this.totalValueTarget.innerText = `${productHour.toFixed(3)} wh`;
-    this.maxProductTarget.innerText = `${maxProduct} w`;
-    this.compteurValueTarget.innerText = `${compteur} w`;
+    this.maxProductTarget.innerText = `${maxProduct}`;
+    this.compteurValueTarget.innerText = `${compteur}`;
   }
 
   startBike() {

@@ -6,12 +6,14 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Connects to data-controller="game-three"
 export default class extends Controller {
+  static targets = ["compteur"];
+
   connect() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x87CEEB);
     const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
-    camera.position.z = -5; //(-5
-    camera.position.y = 55; //55
+    camera.position.z = -5; // -5
+    camera.position.y = 55; // 55
     camera.rotateX( - Math.PI * 0.1 ); // * 0.1
 
     const renderer = new THREE.WebGLRenderer({antialias:true});
@@ -67,6 +69,7 @@ export default class extends Controller {
     })
 
     // Load a glTF resource
+    const compteur = this.compteurTarget.innerText/100000;
     loader.load('models3D/planetTree.glb', function ( gltf ) {
 
         const tree = gltf.scene;
@@ -81,7 +84,7 @@ export default class extends Controller {
 
         function animate() {
           requestAnimationFrame( animate );
-          tree.rotation.z += (0.003);
+          tree.rotation.z += (compteur);
           renderer.render( scene, camera );
         };
 
