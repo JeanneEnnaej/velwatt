@@ -1,6 +1,6 @@
 <div class="container-tip">
   <div class="title-tip">
-    <h2>Le conseil Vel-Watt du jour</h2>
+    <h1>Le conseil Vel-Watt du jour</h1>
   </div>
   <div class="tip-card">
     <div class="Ampoule">
@@ -14,60 +14,30 @@
       </div>
     </div>
   </div>
-  <div>
+  <div class="title-avantage">
     <h2>Les avantages Vel-Watt</h2>
   </div>
   <div class="avantages-explication">
     <p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vell-Watt ( VW ) contre des bons de réductions !</p>
   </div>
 
-
-  <div>
+  <div class="solde-wallet">
       <% if current_user.wallet == nil  %>
         <h2>Votre solde : 0 VW</h2>
       <% else %>
-        <h2>Votre solde : <%=current_user.wallet %> VW</h2>
+      <div class="monnaie">
+      </div>
+      <div class="Solde">
+        <h2><%=current_user.wallet %> VW</h2>
+      </div>
       <% end %>
   </div>
-  <div  class="sessions-container">
-    <div class = "tab-title">
-      <div class="Enseigne">
-      <p>Marque</p>
-      </div>
-      <div class="Content">
-        <p>Description</p>
-      </div>
-      <div class="Statut">
-        <p>Statut</p>
-      </div>
-      <div class="Code">
-        <p>Code</p>
-      </div>
-    </div>
-    <% if Purchase.where(user: current_user) == [] %>
-        <p>Vous n'avez aucun bon actuellement</p>
-    <% else %>
-      <% Purchase.where(user: current_user).each do |p| %>
-        <div class="tab">
-          <div class="Enseigne">
-            <p><%= p.ticket.company %></p>
-          </div>
-          <div class="Content">
-            <p><%= p.ticket.content %></p>
-          </div>
-          <div class="Statut">
-            <p>Valable</p>
-          </div>
-          <div class="Code">
-            <p>X <%= 8.times.map{rand(10)}.join("") %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="scroll-card">
-    <div class="carte-avantage">
 
+  <div class="Partenaires">
+  <h2>Nos partenaires</h2>
+  </div>
+  <div class="scroll-avantage-card">
+    <div class="carte-avantage">
       <div class="coupon-type">
         <div class="code-promo">
           <p><%= Ticket.first.price %> VW</p>
@@ -86,14 +56,14 @@
           <p><%= Ticket.first.content %></p>
           </div>
         </div>
-
+        <div class="plus">
+          <%= link_to ticket_purchases_path(Ticket.last.id), data:{turbo_method: :post} do %>
+            <i class="fa-solid fa-plus fa-xl plus-vert"></i>
+          <% end %>
+        </div>
       </div>
-      <p><%#= link_to "Obtenir", ticket_purchases_path(Ticket.last.id), data:{turbo_method: :post}, class: "buy-button" %></p>
-
     </div>
-
     <div class="carte-avantage">
-
       <div class="coupon-type">
         <div class="code-promo">
           <p><%= Ticket.last.price %> VW</p>
@@ -112,13 +82,63 @@
             <p><%= Ticket.last.content %></p>
             </div>
           </div>
+          <div class="plus">
+            <%= link_to ticket_purchases_path(Ticket.last.id), data:{turbo_method: :post} do %>
+              <i class="fa-solid fa-plus fa-xl plus-vert"></i>
+            <% end %>
+          </div>
         </div>
       </div>
-      <p><%#= link_to "Obtenir", ticket_purchases_path(Ticket.last.id), data:{turbo_method: :post}, class: "buy-button" %></p>
-
     </div>
-
+    <div class="carte-avantage">
+      <div class="carte-soon">
+        <div class="rocket">
+        </div>
+        <div>
+        <h2>Coming</h2>
+        <p>De nouveaux partenariats à venir !</p>
+        <p>Stay tuned !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>Vos coupons</h2>
+  <div class="scroll-coupons-cards">
+    <% Purchase.where(user: current_user).each do |p| %>
+      <div class="coupons-card">
+        <div class="coupon-marque">
+        <p><%= p.ticket.company %></p>
+        </div>
+        <div class="coupon-contenu">
+        <p><%= p.ticket.content %> avec le code :</p>
+        </div>
+        <div class="coupon-code">
+        <p>X <%= 8.times.map{rand(10)}.join("") %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= render "pages/menu" %>
 <div class="XXXX"></div>
+
+<!--
+<% if Purchase.where(user: current_user) == [] %>
+        <p>Vous n'avez aucun bon actuellement</p>
+    <% else %>
+      <% Purchase.where(user: current_user).each do |p| %>
+        <div class="tab">
+          <div class="Enseigne">
+            <p><%= p.ticket.company %></p>
+          </div>
+          <div class="Content">
+            <p><%= p.ticket.content %></p>
+          </div>
+          <div class="Code">
+            <p>X <%= 8.times.map{rand(10)}.join("") %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+-->
