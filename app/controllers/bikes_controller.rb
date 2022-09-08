@@ -12,7 +12,8 @@ class BikesController < ApplicationController
       offset: 0,
       color: '000',
       shape_rendering: 'crispEdges',
-      module_size: 6
+      module_size: 6,
+      viewbox: true
     )
   end
 end

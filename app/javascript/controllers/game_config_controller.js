@@ -27,7 +27,7 @@ export default class extends Controller {
     console.log("game-config init");
     api = this.apiValue;
     console.log(api)
-    this.apiUrl = `https://${api}/api/v1`;
+    this.apiUrl = `${api}/api/v1`;
   }
 
   sleep(ms) {
