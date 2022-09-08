@@ -4,7 +4,7 @@
     data-action="game-session:end->game-config#endSession"
     data-game-config-api-value="<%= ENV['FAST_API_ENDPOINT'] %>">
     <div>
-      <h2 data-timer-target="timerView" class="compteurTime" data-game-animated-target="compteurTime">10:00</h2>
+      <h2 data-timer-target="timerView" class="compteurTime" data-game-config-target="timeLeft" data-game-animated-target="compteurTime">10:00</h2>
     </div>
     <div class="game--message" data-game-animated-target="gameMessage">
       <svg width="30vw" viewBox="0 0 331 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@
         <p data-game-animated-target="gameMessageTxt"></p>
       </div>
     </div>
-    <span data-action="click->game-config#initSession click->timer#startTimer click->game-animated#btnStart" class="button--game" data-game-animated-target="btnStart"><p>START GAME</p></span>
+    
     <div class="game--visuel" data-game-animated-target="gameVisuel">
       <div class="game--visuel--total">
         <h3>(Total de production)</h3>
@@ -34,7 +34,10 @@
         <p><span data-game-config-target="compteurValue" class="compteur">0 </span>w</p>
       </div>
     </div>
-    <span data-action="click->game-config#endSession" data-action="click->game-animated#end" class="button--game--end" data-game-animated-target="btnEnd">
+    <div class="QRcodes" data-game-animated-target="QRcodes">
+        <div data-game-config-target="svg" class="place"></div>
+    </div>
+    <span data-action="click->game-config#endSession click->game-animated#end" class="button--game--end" data-game-animated-target="btnEnd">
       <svg width="1vw" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11 11L1 1ZM11 1L1 11Z" fill="white"/>
         <path d="M11 11L1 1M11 1L1 11" stroke="white" stroke-width="3" stroke-linecap="round"/>
@@ -44,10 +47,8 @@
     <span data-action="click->game-animated#restart" class="button--game--restart" data-game-animated-target="btnRestart">
       <p>RESTART</p>
     </span>
-  </div>
-  <div class="QRcodes" data-game-animated-target="QRcodes">
-    <div class="place">
-      <div data-game-config-target="svg"></div>
-    </div>
+    <span data-action="click->game-config#initSession click->timer#startTimer click->game-animated#btnStart" class="button--game" data-game-animated-target="btnStart">
+      <p>START GAME</p>
+    </span>
   </div>
 </div>

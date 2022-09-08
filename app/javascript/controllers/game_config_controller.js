@@ -27,11 +27,8 @@ export default class extends Controller {
     console.log("game-config init");
     api = this.apiValue;
     console.log(api)
-    this.apiUrl = `${api}/api/v1`;
-  }
-  disconnect() {
-    console.log("hghgh")
-    this.endSession()
+    this.apiUrl = `${api}/api/v1`
+    console.log(this.apiUrl);
   }
 
   sleep(ms) {
@@ -173,7 +170,7 @@ export default class extends Controller {
     productHour = product / 7200 ;
     productTotalSession = Number(product);
     //On renvoie :
-    this.totalValueTarget.innerText = `${productHour.toFixed(3)} wh`;
+    this.totalValueTarget.innerText = `${productHour.toFixed(3)}`;
     this.maxProductTarget.innerText = `${maxProduct}`;
     this.compteurValueTarget.innerText = `${compteur}`;
   }
