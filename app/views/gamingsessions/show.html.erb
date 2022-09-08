@@ -77,6 +77,7 @@
     </div>
   </div>
   <span class="cache" data-quizz-answer-target="gsid"><%= @gamingsession.id %></span>
+  <h2 class="h2-quizz">Quizz du jour :</h2>
   <% if current_user %>
     <div class= "quizz-card">
       <p>Lequel de ces appareils consomme le plus d’électricité par an ?</p>
@@ -119,8 +120,8 @@
   <% end %>
   <%# comparatif %>
   <div class="comparatif-cardp" data-controller="return-images">
-    <p>Et concretement?</p>
-    <p>Découvrez combien de temps vous auriez du pédaler pour utiliser des appareils du quotidien.</p>
+    <h3>Et concretement ?</h3>
+    <p>Comparez ce que vous avez produit avec la consommation d'objets du quotidien.</p>
 
 
   <div class="container-comparatif">
@@ -129,7 +130,8 @@
       </div>
       <div class="card-content-left">
         <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @frigo %>h</span> de Vel-Watt pour alimenter un frigo pendant <span class="text-compa">1 journée.</span></p>
+        <p><span class="text-compa"><%= @frigo %>h</span> de Vel-Watt pour alimenter un frigo <br>pendant <span class="text-compa">
+        1 jour.</span></p>
       </div>
     </div>
     <div class="comparatif-cardright">
@@ -145,13 +147,13 @@
       </div>
       <div class="card-content-left">
         <% @machine = ((((24000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @machine %>h</span> de Vel-Watt pour faire <span class="text-compa">1 cycle</span> de lave-linge</p>
+        <p><span class="text-compa"><%= @machine %>h</span> de Vel-Watt<br> pour faire <span class="text-compa">1 cycle</span><br> de lave-linge.</p>
       </div>
     </div>
     <div class="comparatif-cardright">
       <div class="card-content-right">
         <% @radiateur = ((((10000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @radiateur %>h</span> de Vel-Watt pour alimenter un radiateur électrique pendant <span class="text-compa">1 journée.</span></p>
+        <p><span class="text-compa"><%= @radiateur %>h</span> de Vel-Watt pour alimenter un radiateur pendant <span class="text-compa">1 jour.</span></p>
       </div>
       <div class="text-compa"><span class="iconify" data-icon="mdi:radiator"></span>
       </div>
