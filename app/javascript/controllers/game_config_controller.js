@@ -17,7 +17,7 @@ let i;
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
-  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView", 'svg'];
+  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView", 'svg', 'timeLeft'];
   static values = {
     url: String,
     api: String
@@ -31,6 +31,7 @@ export default class extends Controller {
   }
 
   disconnect() {
+    console.log("hghgh")
     this.endSession()
   }
 
@@ -62,7 +63,7 @@ export default class extends Controller {
 
   startSession(participant) {
 
-    fetch(`${this.apiUrl}/session/save`, {
+    fetch(`${this.apiUrl}session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
@@ -193,6 +194,11 @@ export default class extends Controller {
   }
 
   createGamingSessionDB() {
+
+    const timeLeft = this.timeLeftTarget.innerText.split(':');
+    const duration = 600 - ((Number(timeLeft[0])*60) + (Number(timeLeft[1])));
+
+    const score = productTotalSession/100
     fetch("/gamingsessions", {
       method: "POST",
       headers: {
@@ -202,8 +208,8 @@ export default class extends Controller {
       body: JSON.stringify({
         max_production: maxProduct,
         total_production: productTotalSession,
-        session_duration: 100,
-        score: 10,
+        session_duration: duration,
+        score: score,
         bike_id: bikeId
       })
     })
