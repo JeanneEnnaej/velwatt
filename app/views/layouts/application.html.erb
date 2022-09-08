@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vel-Watt</title>
-    <link rel="icon" type="image/png" href="https://www.velwatt.com/VW.png">
+    <title>Vel-Watt - Produis ton électricité</title>
+    <link rel="icon" type="image/png" href="<%= root_url %>/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta property="og:title" content="Produis de l'électricité avec Vel-Watt" />
+    <meta property="og:description" content="Pédale et génère de l'ectricité avec les vélos Vel-Watt" />
+    <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png" />
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
