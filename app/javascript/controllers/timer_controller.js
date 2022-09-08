@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="timer"
 
-let sec = 00;
+let sec = 0;
 let min = 10;
 let t;
 
