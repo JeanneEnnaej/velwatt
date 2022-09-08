@@ -17,18 +17,18 @@ overflow: hidden;
 
 .salute{
   position: relative;
-width: 100%;
-height: 200px;
-display: flex;
-justify-content: flex-start;
-align-items: flex-start;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 
-flex-direction: column;
-margin-bottom: 30px;
+  flex-direction: column;
+  margin-bottom: 30px;
 
-// background: linear-gradient(44.19deg, #ADEBBA 23.41%, #FFFFFF 115.38%);
-// background: linear-gradient(124.46deg, #ADEBBA 3.8%, #223258 96.95%);
-background: linear-gradient(49.72deg, #ADEBBA 25.02%, #FFFFFF 159.55%);
+  // background: linear-gradient(44.19deg, #ADEBBA 23.41%, #FFFFFF 115.38%);
+  // background: linear-gradient(124.46deg, #ADEBBA 3.8%, #223258 96.95%);
+  background: linear-gradient(49.72deg, #ADEBBA 25.02%, #FFFFFF 159.55%);
 
 
 
@@ -394,7 +394,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 5px;
       align-self: center;
       padding-right: 20px;
       width: 60%;
-      text-align: justify;
+
       line-height:22px ;
       .text-result{
         color:$txtcolor-secondary;

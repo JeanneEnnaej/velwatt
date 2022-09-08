@@ -22,7 +22,7 @@
   height: 60px;
   background-color: $background-ligth;
   display: flex;
-  justify-content: end;
+  justify-content:center;
   text-align: center;
   margin: 0 auto;
   border-radius: 16px;
@@ -57,7 +57,7 @@
     width: 100px;
     position:absolute;
     top:110px;
-    left:80px;
+    left:40px;
     }
   }
 
@@ -227,6 +227,7 @@
       background-color: $background-menu;
       border: solid 1px white;
       margin: 0;
+
       p{
 
         color: white;

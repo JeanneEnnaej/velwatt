@@ -1,11 +1,7 @@
 <div class="container">
   <div class="salute">
     <h1>Bonjour  <%= current_user.first_name %></h1>
-    <p> Vous retrouverez sur cette page toutes les informations vous concernant!
-    <br>
-    <br>Vous pourrez même apprendre ce qu'est 1KWh et à quoi cela correspond.
-    <br>
-    <br>Enjoy !</p>
+    <p> Vous retrouverez sur cette page toutes les informations vous concernant.
   </div>
   <div class="wallet_bloc">
     <div class="trophy">
@@ -33,7 +29,7 @@
       </div>
       <div>
         <p>Vous avez produit</p>
-        <h2><%= (@total_watt).round(2)%>Wh</h2>
+        <h2><%= (@total_watt).round(2)%> Wh</h2>
       </div>
     </div>
 
@@ -42,18 +38,18 @@
       </div>
       <div>
         <p>Temps passé : </p>
-        <h2><%= @total_time%>minutes</h2>
+        <h2><%= @total_time%> min</h2>
       </div>
     </div>
   </div>
   <div class="kWh">
-  <h2>Le saviez-vous ? <br>Avec 1000wh on peut :</h2>
+  <h2>Le saviez-vous ? <br>Avec 1000 Wh on peut :</h2>
   </div>
   <div class="explication">
     <div class="liste">
-      <p>Allumer une ampoule led pendant 143h</p>
-      <p>Rouler avec une Renault électrique Zoé pendant 8,5km</p>
-      <p>Faire fonctionner une tireuse à bières pendant 45mn</p>
+      <p>Allumer une ampoule led pendant 143 h</p>
+      <p>Rouler avec une Renault électrique Zoé pendant 8,5 km</p>
+      <p>Faire fonctionner une tireuse à bières pendant 45 min</p>
     </div>
     <div class="arrow-container">
       <div class="arrow1"></div>
@@ -68,7 +64,7 @@
     <div class="card-reel">
       <span class="iconify" data-icon="ic:outline-smartphone"></span>
 
-      <p>Vous avez produit de quoi recharger pendant <span class="text-result"><%=(@total_watt/0.30).round(1) %> h</span> un smartphone. </p>
+      <p>Vous avez produit de quoi recharger pendant <span class="text-result"><%=(@total_watt/0.30).round(1) %>&nbsp;&nbsp;h</span> un smartphone. </p>
     </div>
 
     <div class="card-reel">
@@ -79,7 +75,7 @@
     <div class="card-reel">
     <span class="iconify" data-icon="bxs:fridge"></span>
 
-      <p>Vous avez produit de quoi faire fonctionner un refrigerateur pendant <span class="text-result"><%=(@total_watt/(548.0/24)).round(1)%> h.</span> </p>
+      <p>Vous avez produit de quoi faire fonctionner un refrigerateur pendant <span class="text-result"><%=(@total_watt/(548.0/24)).round(1)%>&nbsp;&nbsp;h.</span> </p>
     </div>
     <div class="card-reel">
     <span class="iconify" data-icon="mdi:eiffel-tower"></span>

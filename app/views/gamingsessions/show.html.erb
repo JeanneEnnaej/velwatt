@@ -51,29 +51,29 @@
           </div>
         </div>
         <div class="production-title">
-          <p>Prod instantanée max</p>
+          <p>Production totale</p>
         </div>
       </div>
       <div class="data-container">
         <div class="circle-container">
           <div>
-            <h2><%= (@gamingsession.max_production)/7200 %> Wh</h2>
+            <h2><%= (@gamingsession.max_production) %> W</h2>
           </div>
         </div>
         <div class="little-cercle">
             <i class="fa-solid fa-crown fa-xs couronne"></i>
           <div class="prod-record">
-            <p><%= (@maxprodsession[0]["max_production"])/7200 %> Wh</p>
+            <p><%= (@maxprodsession[0]["max_production"]) %> W</p>
           </div>
         </div>
         <div class="production-title">
-          <p>Prod max</p>
+          <p>Production instantanée max</p>
         </div>
       </div>
     </div>
     <div class="legend">
       <i class="fa-solid fa-crown fa-xs couronne"></i>
-      <p>Record effectué sur le vélo ce jour</p>
+      <p>Record effectué sur le vélo</p>
     </div>
   </div>
   <span class="cache" data-quizz-answer-target="gsid"><%= @gamingsession.id %></span>
@@ -129,15 +129,15 @@
       <div class="icone-compa"><span class="iconify" data-icon="bxs:fridge"></span>
       </div>
       <div class="card-content-left">
-        <% @frigo = ((((548.0/((@gamingsession.total_production)))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @frigo %>h</span> de Vel-Watt pour alimenter un frigo <br>pendant <span class="text-compa">
-        1 jour.</span></p>
+        <% @frigo = ((((550.0/((@gamingsession.total_production)/7200))*@gamingsession.session_duration)/60)/60).round %>
+        <p><span class="text-compa"><%= @frigo %> h</span> de Vel-Watt pour alimenter un frigo <br>pendant <span class="text-compa">
+        1 jour</span></p>
       </div>
     </div>
     <div class="comparatif-cardright">
       <div class="card-content-right">
-        <% @tv = ((((250.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @tv %>h</span> de Vel-Watt pour regarder la télévision pendant <span class="text-compa">1 h.</span></p>
+        <% @tv = ((((250.0/((@gamingsession.total_production)/7200))*@gamingsession.session_duration)/60)/60).round %>
+        <p><span class="text-compa"><%= @tv %> h</span> de Vel-Watt pour regarder la télévision pendant <span class="text-compa">1 h</span></p>
       </div>
       <div class="icone-compa"><span class="iconify" data-icon="bx:tv"></span>
       </div>
@@ -146,14 +146,14 @@
       <div class="icone-compa"><span class="iconify" data-icon="mdi:washing-machine"></span>
       </div>
       <div class="card-content-left">
-        <% @machine = ((((24000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @machine %>h</span> de Vel-Watt<br> pour faire <span class="text-compa">1 cycle</span><br> de lave-linge.</p>
+        <% @machine = ((((590/((@gamingsession.total_production)/7200))*@gamingsession.session_duration)/60)/60).round %>
+        <p><span class="text-compa"><%= @machine %> h</span> de Vel-Watt<br> pour faire <span class="text-compa">1 cycle</span><br> de lave-linge</p>
       </div>
     </div>
     <div class="comparatif-cardright">
       <div class="card-content-right">
-        <% @radiateur = ((((10000.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @radiateur %>h</span> de Vel-Watt pour alimenter un radiateur pendant <span class="text-compa">1 jour.</span></p>
+        <% @radiateur = ((((10000.0/((@gamingsession.total_production)/7200))*@gamingsession.session_duration)/60)/60).round %>
+        <p><span class="text-compa"><%= @radiateur %> h</span> de Vel-Watt pour alimenter un radiateur pendant <span class="text-compa">1&nbsp;&nbsp;jour</span></p>
       </div>
       <div class="text-compa"><span class="iconify" data-icon="mdi:radiator"></span>
       </div>
