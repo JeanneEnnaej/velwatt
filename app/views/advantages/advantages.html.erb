@@ -129,8 +129,8 @@
           <div class="coupon-contenu">
           <p><%= p.ticket.content %> avec le code :</p>
           </div>
-          <div class="coupon-code">
-          <p>X <%= 8.times.map{rand(10)}.join("") %></p>
+          <div data-controller="coupon"class="coupon-code">
+          <p data-coupon-target="coupons" data-action="click->coupons#coupon-code" >X <%= 8.times.map{rand(10)}.join("") %></p>
           </div>
         </div>
       <% end %>
