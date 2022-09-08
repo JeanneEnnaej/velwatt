@@ -102,7 +102,7 @@ export default class extends Controller {
         requestAnimationFrame( animate );
         let compteur = document.querySelector(".compteur").innerText / 20000;
 
-        tree.rotation.z += (0.003);
+        tree.rotation.z += (compteur);
         renderer.render( scene, camera );
       };
 
