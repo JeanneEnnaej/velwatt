@@ -8,6 +8,7 @@ class PurchasesController < ApplicationController
     @ticket = Ticket.find(params[:ticket_id])
     @purchase = Purchase.new(ticket: @ticket, user: current_user)
 
+    return unless current_user.wallet >= @purchase.ticket.price
 
     if @purchase.save
       current_user.wallet -= @purchase.ticket.price
