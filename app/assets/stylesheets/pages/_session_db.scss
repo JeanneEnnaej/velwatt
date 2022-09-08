@@ -27,6 +27,8 @@
   margin: 0 auto;
   border-radius: 16px;
   margin-top: 24px;
+  margin-bottom: 30px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 5px;
 
   .score{
     h2 {
@@ -44,6 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 
   .img-trophy{
     background-image: url("trophy.png");
@@ -78,6 +81,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  margin-top: 10px;
   border-radius: 16px;
   border: solid 2px #07FFD2;
   // margin-top: 24px;
@@ -107,7 +111,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
+    border: 1px solid white;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -117,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;;
     border: solid 1px red;
     width: 115px;
     height: 40px;
@@ -128,7 +133,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
+    border: 1px solid white;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -138,7 +144,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
     border: solid 1px red;
     width: 115px;
     height: 40px;
@@ -149,7 +155,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
+    border: 1px solid white;
     width: 115px;
     height: 40px;
     border-radius: 10px;
@@ -159,7 +166,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
     border: solid 1px red;
     width: 115px;
     height: 40px;
@@ -170,21 +177,61 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
+    border: 1px solid white;
     width: 115px;
     height: 40px;
     border-radius: 10px;
+    .succes{
+      display:none;
+    }
   }
 
   .quizz-choice-lavelinge-active {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #666666;
+    background-color: $background-menu;
     border: solid 1px $color-primary;
     width: 115px;
     height: 40px;
     border-radius: 10px;
+    position: relative;
+    .succes{
+      display:none;
+    }
+  }
+
+  .quizz-choice-lavelinge-active-succes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-menu;
+    border: solid 1px $color-primary;
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+    .succes{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position:absolute;
+      row-gap:8px ;
+      bottom:20px;
+      right:-25px;
+      border-radius: 50%;
+      width:70px;
+      height: 70px;
+      background-color: $background-menu;
+      border: solid 1px white;
+      margin: 0;
+      p{
+
+        color: black;
+      }
+    }
   }
 }
 
@@ -196,15 +243,26 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  margin-top: 24px;
+  margin-top: 34px;
   display: flex;
   flex-direction: column;
   text-align: center;
 
+
+  h3{
+    margin-top: 0;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: $txtcolor-secondary;
+  }
   p {
     font-size: 14px;
-    margin-bottom: 8px;
     margin: 0;
+    margin-bottom: 12px;
+    line-height: 20px;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
   }
 
   .comparatif-cat {
@@ -259,6 +317,8 @@
     border-radius: 16px;
     align-items: center;
     padding-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 5px;
+
     .icone-compa{
       width: 60px;
     }
@@ -272,11 +332,12 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      text-align: start;
-      width: auto;
+      text-align: center;
+      width: 60%;
 
       p{
         margin: 0;
+        line-height: 22px;
       }
     }
   }
@@ -284,12 +345,15 @@
   .comparatif-cardright{
     display: flex;
     flex-direction: row;
+    justify-content: end;
     width: 90%;
     height: 110px;
     background-color: $background-ligth;
     border-radius: 16px;
     align-items: center;
     padding-right: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 5px;
+
     .icone-compa{
       width: 60px;
     }
@@ -303,10 +367,12 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      text-align: end;
+      text-align: center;
+      width: 60%;
 
       p{
         margin: 0;
+        line-height: 22px;
       }
     }
   }
@@ -314,7 +380,14 @@
 
 .text-compa{
   color: $txtcolor-secondary;
+  font-size: 20px;
 }
 .cache{
   color: #223258;
+  font-size: 0px;
+}
+.h2-quizz{
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 16px;
 }

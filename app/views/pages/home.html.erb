@@ -2,3 +2,4 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <%= link_to 'index', gamingsessions_path %>
+<%= link_to 'deconnexion', destroy_user_session_path, data: { turbo_method: :delete} %>

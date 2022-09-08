@@ -8,15 +8,16 @@ width: 90%;
 height: 250px;
 margin: 0 auto;
 border-radius: 16px;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 5px;
 
   .legend{
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    margin-left: 50px;
+
     height: 15%;
-    width: 100%;
+    width:auto ;
     margin-top: 30px;
 
     i{

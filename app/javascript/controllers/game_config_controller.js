@@ -17,7 +17,7 @@ let i;
 
 // Connects to data-controller="game-config"
 export default class extends Controller {
-  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView"];
+  static targets = ["compteurValue", "totalValue", "maxProduct", "timerView", 'svg', 'timeLeft'];
   static values = {
     url: String,
     api: String
@@ -28,6 +28,10 @@ export default class extends Controller {
     api = this.apiValue;
     console.log(api)
     this.apiUrl = `${api}/api/v1`;
+  }
+  disconnect() {
+    console.log("hghgh")
+    this.endSession()
   }
 
   sleep(ms) {
@@ -56,13 +60,13 @@ export default class extends Controller {
     });
   }
 
-  startSession(participant) {
+  startSession() {
 
     fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "session_id": participant.session_id,
+        "session_id": participantSession.session_id,
         "session_date": dateSession,
         "session_status": "IN_PROGRESS"
       })
@@ -71,13 +75,30 @@ export default class extends Controller {
     .then(() => {
       console.log("Session Started");
       this.startBike();
-      this.getProduction(participant);
+      this.getProduction();
     });
   }
 
-  endSession(partiipant) {
+  endSession() {
     console.log("session ended");
-    // window.location.reload();
+    this.#apiArduinoEndSession()
+
+    // FAKE DATA
+      // maxProduct = 30
+      // productTotalSession = 345
+      // bikeId = 1
+    // END FAKE DATA
+
+    this.#apiWebEndSession()
+  }
+
+  #apiWebEndSession() {
+    console.log('je fini la session rails')
+    this.createGamingSessionDB()
+  }
+
+
+  #apiArduinoEndSession() {
     fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -88,9 +109,8 @@ export default class extends Controller {
       })
     })
     .then(response => response.json())
-    .then((data) => {
+    .then(() => {
       i = times;
-      this.createGamingSessionDB();
       console.log("session finish");
     });
   }
@@ -113,15 +133,15 @@ export default class extends Controller {
       console.log("Participantalon :", data);
       console.log("Connected !");
       participantSession = data;
-      this.startSession(data)
+      this.startSession()
     });
   }
 
-  async getProduction(participant) {
+  async getProduction() {
     i = 0;
     do {
       console.log(`Boucles : ${i}`);
-      fetch(`${this.apiUrl}/participate/findByBikeIdAndSessionId/${participant.bike_id}/${participant.session_id}`, {
+      fetch(`${this.apiUrl}/participate/findByBikeIdAndSessionId/${participantSession.bike_id}/${participantSession.session_id}`, {
         method: "GET",
         headers: {"Content-Type": "application/json"}
       })
@@ -137,8 +157,6 @@ export default class extends Controller {
   }
 
   showProduction(product) {
-
-
 
     if (compteur < 5 && product === oldProduct) {
       compteur = 0;
@@ -173,6 +191,11 @@ export default class extends Controller {
   }
 
   createGamingSessionDB() {
+
+    const timeLeft = this.timeLeftTarget.innerText.split(':');
+    const duration = 600 - ((Number(timeLeft[0])*60) + (Number(timeLeft[1])));
+
+    const score = productTotalSession/100
     fetch("/gamingsessions", {
       method: "POST",
       headers: {
@@ -182,18 +205,15 @@ export default class extends Controller {
       body: JSON.stringify({
         max_production: maxProduct,
         total_production: productTotalSession,
-        session_duration: 100,
-        score: 10,
+        session_duration: duration,
+        score: score,
         bike_id: bikeId
       })
     })
-      .then(response => () => {
-        if (response.status === 200) {
-          console.log("ok");
-        }
-      })
+      .then(response => response.json())
       .then((data) => {
-        console.log("save to db");
+        console.log("save to db", data.svg);
+        this.svgTarget.innerHTML = data.svg
       })
   }
 }

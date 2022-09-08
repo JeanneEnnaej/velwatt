@@ -35,8 +35,8 @@ export default class extends Controller {
 
 
     //Set up shadow properties for the light
-    light.shadow.mapSize.width = 512*2; // default
-    light.shadow.mapSize.height = 512*2; // default
+    light.shadow.mapSize.width = 512*3; // default
+    light.shadow.mapSize.height = 512*3; // default
     light.shadow.camera.near = 0.5; // default
     light.shadow.camera.far = 4000; // default
     light.shadow.normalBias = -0.1;
@@ -49,14 +49,32 @@ export default class extends Controller {
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 		const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 		const cube = new THREE.Mesh( geometry, material );
-    cube.position.z = 5;
-    cube.position.y = 53;
+    cube.position.z = -10;
+    cube.position.y = 51;
+		// scene.add( cube );
 
-		scene.add( cube );
+
 
     // Instantiate a loader
     const loader = new GLTFLoader();
 
+    // Real Bike
+    loader.load('models3D/VeloFinal.glb', function ( gltf ) {
+      const bike = gltf.scene;
+      bike.rotation.y = Math.PI / 2;
+      bike.traverse(function (node) {
+        if (node.isMesh)
+          node.receiveShadow = true;
+          node.castShadow = true;
+      })
+      bike.position.set(0, 47, -14);
+      bike.rotation.z = Math.PI * 0.05;
+      bike.scale.set(1.4, 1.4, 1.4)
+
+      scene.add( bike );
+    })
+
+    // Load map
     loader.load('models3D/planetMap.glb', function ( gltf ) {
       const map = gltf.scene;
       map.rotation.y = Math.PI / 2;
@@ -64,15 +82,10 @@ export default class extends Controller {
         if (node.isMesh)
           node.receiveShadow = true
       })
-      map.receiveShadow = true;
       scene.add( map );
     })
 
-    // Load a glTF resource
-
-
-
-
+    // Load trees
     loader.load('models3D/planetTree.glb', function ( gltf ) {
 
       const tree = gltf.scene;
@@ -87,7 +100,7 @@ export default class extends Controller {
 
       function animate() {
         requestAnimationFrame( animate );
-        let compteur = document.querySelector(".compteur").innerText / 30000;
+        let compteur = document.querySelector(".compteur").innerText / 20000;
 
         tree.rotation.z += (compteur);
         renderer.render( scene, camera );

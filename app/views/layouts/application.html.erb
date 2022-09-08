@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vel-Watt</title>
-    <link rel="icon" type="image/png" href="VW.png">
+    <%= favicon_link_tag %>
+    <title>Vel-Watt - Produis ton électricité</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta property="og:title" content="Produis de l'électricité avec Vel-Watt" />
+    <meta property="og:description" content="Pédale et génère de l'ectricité avec les vélos Vel-Watt" />
+    <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-
+    <link rel="manifest" href="/manifest.json">
   </head>
   <body>
     <%= render "shared/flashes" %>

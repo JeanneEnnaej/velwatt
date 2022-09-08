@@ -1,8 +1,10 @@
 
 <div class="super-container">
-  <div class="croix">
-    <%= link_to 'X', gamingsession_path(cookies[:gamingsession_id]) %>
-  </div>
+  <% if cookies[:gamingsession_id].present? %>
+    <div class="croix">
+      <%= link_to 'X', gamingsession_path(cookies[:gamingsession_id]) %>
+    </div>
+  <% end %>
   <div class="logo">
   </div>
 
