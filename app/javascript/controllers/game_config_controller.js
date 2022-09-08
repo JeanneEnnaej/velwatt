@@ -61,13 +61,13 @@ export default class extends Controller {
     });
   }
 
-  startSession(participant) {
+  startSession() {
 
-    fetch(`${this.apiUrl}session/save`, {
+    fetch(`${this.apiUrl}/session/save`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "session_id": participant.session_id,
+        "session_id": participantSession.session_id,
         "session_date": dateSession,
         "session_status": "IN_PROGRESS"
       })
@@ -76,7 +76,7 @@ export default class extends Controller {
     .then(() => {
       console.log("Session Started");
       this.startBike();
-      this.getProduction(participant);
+      this.getProduction();
     });
   }
 
@@ -134,15 +134,15 @@ export default class extends Controller {
       console.log("Participantalon :", data);
       console.log("Connected !");
       participantSession = data;
-      this.startSession(data)
+      this.startSession()
     });
   }
 
-  async getProduction(participant) {
+  async getProduction() {
     i = 0;
     do {
       console.log(`Boucles : ${i}`);
-      fetch(`${this.apiUrl}/participate/findByBikeIdAndSessionId/${participant.bike_id}/${participant.session_id}`, {
+      fetch(`${this.apiUrl}/participate/findByBikeIdAndSessionId/${participantSession.bike_id}/${participantSession.session_id}`, {
         method: "GET",
         headers: {"Content-Type": "application/json"}
       })
@@ -158,8 +158,6 @@ export default class extends Controller {
   }
 
   showProduction(product) {
-
-
 
     if (compteur < 5 && product === oldProduct) {
       compteur = 0;

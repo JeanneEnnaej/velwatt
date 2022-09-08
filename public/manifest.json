@@ -1,6 +1,7 @@
 {
-  "theme_color": "#233645",
-  "background_color": "rgba(0,143,100,0.44)",
+  "name": "Vel-Watt",
+  "theme_color": "#d2cece",
+  "background_color": "#73a9ad",
   "display": "standalone",
   "scope": "/",
   "start_url": "/"
