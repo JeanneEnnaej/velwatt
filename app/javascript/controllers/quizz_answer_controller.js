@@ -54,7 +54,7 @@ export default class extends Controller {
     }
     else {
 
-      const goodAnswer = 10
+      const goodAnswer = 100
       this.lavelingeTarget.classList.replace('quizz-choice-lavelinge', 'quizz-choice-lavelinge-active-succes')
       const pts = this.pointsValue
       sum = pts + goodAnswer

@@ -17,7 +17,7 @@
         <div class="img-trophy">
         </div>
         <div class="score">
-          <h2><span data-quizz-answer-target="score"><%= @gamingsession.score %></span> pts</h2>
+          <h2><span data-quizz-answer-target="score"><%= @gamingsession.score %></span> points</h2>
         </div>
 
     </div>
@@ -105,7 +105,7 @@
         </div>
         <div data-quizz-answer-target="lavelinge"  data-action="click->quizz-answer#lavelinge" class="quizz-choice-lavelinge" >
           <div class="succes">
-          <p>Vous avez gagné 10 points</p>
+          <p>Vous avez gagné 100 points</p>
           </div>
           <p>Le lave-linge</p>
         </div>
@@ -129,7 +129,7 @@
       <div class="icone-compa"><span class="iconify" data-icon="bxs:fridge"></span>
       </div>
       <div class="card-content-left">
-        <% @frigo = ((((548.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
+        <% @frigo = ((((548.0/((@gamingsession.total_production)))*@gamingsession.session_duration)/60)/60).round %>
         <p><span class="text-compa"><%= @frigo %>h</span> de Vel-Watt pour alimenter un frigo <br>pendant <span class="text-compa">
         1 jour.</span></p>
       </div>
@@ -137,7 +137,7 @@
     <div class="comparatif-cardright">
       <div class="card-content-right">
         <% @tv = ((((250.0/(@gamingsession.total_production))*@gamingsession.session_duration)/60)/60).round %>
-        <p><span class="text-compa"><%= @tv %>h</span> de Vel-Watt pour regarder la télévision pendant <span class="text-compa">1 heure.</span></p>
+        <p><span class="text-compa"><%= @tv %>h</span> de Vel-Watt pour regarder la télévision pendant <span class="text-compa">1 h.</span></p>
       </div>
       <div class="icone-compa"><span class="iconify" data-icon="bx:tv"></span>
       </div>
