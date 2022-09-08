@@ -1,6 +1,6 @@
 <% if current_user %>
 <div class="div-espace">
-  <h1 > Session du <%= @gamingsession.date %></h1>
+  <h1 > Session du <%= @gamingsession.date.strftime('%d-%m-%Y') %></h1>
 </div>
 <% else %>
   <div class="db-session-title">
@@ -41,13 +41,13 @@
       <div class="data-container">
         <div class="circle-container">
           <div>
-            <h2><%= @gamingsession.total_production %> Wh</h2>
+            <h2><%= (@gamingsession.total_production)/7200%> Wh</h2>
           </div>
         </div>
         <div class="little-cercle">
             <i class="fa-solid fa-crown fa-xs couronne"></i>
           <div class="prod-record">
-            <p><%= @totalprodsession[0]["total_production"] %> Wh</p>
+            <p><%= (@totalprodsession[0]["total_production"])/7200 %> Wh</p>
           </div>
         </div>
         <div class="production-title">
@@ -57,13 +57,13 @@
       <div class="data-container">
         <div class="circle-container">
           <div>
-            <h2><%= @gamingsession.max_production %> Wh</h2>
+            <h2><%= (@gamingsession.max_production)/7200 %> Wh</h2>
           </div>
         </div>
         <div class="little-cercle">
             <i class="fa-solid fa-crown fa-xs couronne"></i>
           <div class="prod-record">
-            <p><%= @maxprodsession[0]["max_production"] %> Wh</p>
+            <p><%= (@maxprodsession[0]["max_production"])/7200 %> Wh</p>
           </div>
         </div>
         <div class="production-title">
@@ -120,7 +120,7 @@
   <% end %>
   <%# comparatif %>
   <div class="comparatif-cardp" data-controller="return-images">
-    <h3>Et concretement ?</h3>
+    <h3>Et concrètement ?</h3>
     <p>Comparez ce que vous avez produit avec la consommation d'objets du quotidien.</p>
 
 
