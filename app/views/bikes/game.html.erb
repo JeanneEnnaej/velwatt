@@ -1,22 +1,53 @@
-<div class="gamePages" data-controller="game-three" data-action="game-session:end->game-config#endSession">
+<div class="gamePages" data-controller="game-three game-animated" data-action="game-session:end->game-config#endSession" data-game-animated-target="pageGame">
   <span data-game-config-url-value="/gamingsessions"></span>
   <div data-controller="game-config timer"
     data-action="game-session:end->game-config#endSession"
     data-game-config-api-value="<%= ENV['FAST_API_ENDPOINT'] %>">
     <div>
-      <p data-timer-target="timerView" data-game-config-target="timeLeft"></p>
+      <h2 data-timer-target="timerView" class="compteurTime" data-game-animated-target="compteurTime">10:00</h2>
     </div>
-    <span data-action="click->game-config#initSession click->timer#startTimer">START GAME</span>
-    <p>Total :</p>
-    <h2><span data-game-config-target="totalValue">0.000</span> wh</h2>
-    <p>Max production :</p>
-    <h2><span data-game-config-target="maxProduct" >0</span> w</h2>
-    <p>Instant :</p>
-    <h2><span data-game-config-target="compteurValue" class="compteur">0</span> w</h2>
-
-    <%# affiche le qr code sur la page à la fin du jeu %>
-    <div data-game-config-target="svg" style="width: 100px;height:100px; margin: 20px">
+    <div class="game--message" data-game-animated-target="gameMessage">
+      <svg width="30vw" viewBox="0 0 331 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M331 99.1862V27.4919C331 21.5711 326.2 16.7713 320.279 16.7713H67.0041C93.8057 25.5714 58.6285 94.1609 0 89.4375V99.1862C0 105.107 4.79981 109.907 10.7207 109.907H320.279C326.2 109.907 331 105.107 331 99.1862Z" fill="white"/>
+        <path d="M0 89.4375C58.6285 94.1609 93.8057 25.5714 67.0041 16.7713H10.7206C4.7998 16.7713 0 21.5711 0 27.4919V89.4375Z" fill="#A4C5C7"/>
+        <path d="M290.988 4.79556C291.846 1.59476 295.136 -0.304732 298.337 0.552919L318.621 5.98812C321.822 6.84577 323.721 10.1358 322.864 13.3366L317.428 33.621C316.571 36.8218 313.281 38.7213 310.08 37.8637L289.796 32.4285C286.595 31.5708 284.695 28.2808 285.553 25.08L290.988 4.79556Z" fill="#FF957E"/>
+        <path d="M300.163 18.3109C299.78 19.7407 298.31 20.5892 296.881 20.2061C295.451 19.8229 294.602 18.3533 294.985 16.9235C295.368 15.4938 296.838 14.6453 298.268 15.0284C299.698 15.4115 300.546 16.8811 300.163 18.3109Z" fill="white"/>
+        <path d="M307.282 20.2185C306.899 21.6483 305.43 22.4967 304 22.1136C302.57 21.7305 301.721 20.2609 302.105 18.8311C302.488 17.4014 303.957 16.5529 305.387 16.936C306.817 17.3191 307.665 18.7887 307.282 20.2185Z" fill="white"/>
+        <path d="M314.402 22.1261C314.019 23.5559 312.549 24.4044 311.119 24.0213C309.689 23.6382 308.841 22.1686 309.224 20.7388C309.607 19.309 311.077 18.4605 312.507 18.8436C313.936 19.2267 314.785 20.6964 314.402 22.1261Z" fill="white"/>
+      </svg>
+      <div class="game--message--txt">
+        <p data-game-animated-target="gameMessageTxt"></p>
+      </div>
     </div>
-
+    <span data-action="click->game-config#initSession click->timer#startTimer click->game-animated#btnStart" class="button--game" data-game-animated-target="btnStart"><p>START GAME</p></span>
+    <div class="game--visuel" data-game-animated-target="gameVisuel">
+      <div class="game--visuel--total">
+        <h3>(Total de production)</h3>
+        <p><span data-game-config-target="totalValue" data-game-animated-target="totalValueInfo">0.000 </span>wh</p>
+      </div>
+      <div class="game--visuel--max">
+        <p>Max production :</p>
+        <p><span data-game-config-target="maxProduct">0</span> w</p>
+      </div>
+      <div class="game--visuel--prod">
+        <h3>(Production instanté)</h3>
+        <p><span data-game-config-target="compteurValue" class="compteur">0 </span>w</p>
+      </div>
+    </div>
+    <span data-action="click->game-config#endSession" data-action="click->game-animated#end" class="button--game--end" data-game-animated-target="btnEnd">
+      <svg width="1vw" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 11L1 1ZM11 1L1 11Z" fill="white"/>
+        <path d="M11 11L1 1M11 1L1 11" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <p>STOP</p>
+    </span>
+    <span data-action="click->game-animated#restart" class="button--game--restart" data-game-animated-target="btnRestart">
+      <p>RESTART</p>
+    </span>
+  </div>
+  <div class="QRcodes" data-game-animated-target="QRcodes">
+    <div class="place">
+      <div data-game-config-target="svg"></div>
+    </div>
   </div>
 </div>

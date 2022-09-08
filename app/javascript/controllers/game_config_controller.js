@@ -29,7 +29,6 @@ export default class extends Controller {
     console.log(api)
     this.apiUrl = `${api}/api/v1`;
   }
-
   disconnect() {
     console.log("hghgh")
     this.endSession()

@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import GameAnimatedController from "./game_animated_controller"
+application.register("game-animated", GameAnimatedController)
+
 import GameConfigController from "./game_config_controller"
 application.register("game-config", GameConfigController)
 
