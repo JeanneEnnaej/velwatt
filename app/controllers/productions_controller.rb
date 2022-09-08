@@ -51,7 +51,7 @@ class ProductionsController < ApplicationController
 
     end
 
-    @user.wallet += @gamingsession.score
+    @user.wallet += (@gamingsession.score/100)
     @user.save
     cookies.delete(:gamingsession_id)
   end
