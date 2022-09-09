@@ -49,7 +49,7 @@ export default class extends Controller {
     this.QRcodesTarget.style.animationFillMode="forwards"
     this.gameMessageTarget.style.animation="fixemessage 5s 1s ease"
     this.gameMessageTarget.style.animationFillMode="forwards"
-    this.gameMessageTxtTarget.innerHTML="Félicitation ! Maintenant scanne le <span style='color:#C55346'>QRcodes</span> pour voir les résultats de ta session"
+    this.gameMessageTxtTarget.innerHTML="Félicitations ! Maintenant scanne le <span style='color:#C55346'>QRcode</span> pour voir les résultats de ta session"
   }
 
   restart(){
