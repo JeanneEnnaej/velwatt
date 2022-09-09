@@ -21,12 +21,12 @@ Bike.create!(ip_address: "12.345.678.910") if Bike.count.zero?
 p "seed sessions"
 
 # date en secondes depuis 1970/01, max_prod/total_prod en w/h, session_duration en secondes
-Gamingsession.create!(date: Time.at(1657497600/1000), max_production: 220, total_production: 144000, session_duration: 600, score: 1440, bike_id: Bike.last.id, user_id: User.last )
-Gamingsession.create!(date: Time.at(1657497600/1000), max_production: 120, total_production: 108000, session_duration: 600, score: 1080, bike_id: Bike.last.id, user_id: User.last )
-Gamingsession.create!(date: Time.at(1659052800/1000), max_production: 160, total_production: 122400, session_duration: 600, score: 1224, bike_id: Bike.last.id, user_id: User.last )
-Gamingsession.create!(date: Time.at(1659484800/1000), max_production: 130, total_production: 100800, session_duration: 600, score: 1008, bike_id: Bike.last.id, user_id: User.last )
-Gamingsession.create!(date: Time.at(1660521600/1000), max_production: 215, total_production: 115200, session_duration: 600, score: 1152, bike_id: Bike.last.id, user_id: User.last )
-Gamingsession.create!(date: Time.at(1661990400/1000), max_production: 170, total_production: 93600, session_duration: 600, score: 936, bike_id: Bike.last.id, user_id: User.last )
+Gamingsession.create!(date: Time.at(1657497600), max_production: 220, total_production: 144000, session_duration: 600, score: 1440, bike_id: Bike.last.id, user_id: User.last.id )
+Gamingsession.create!(date: Time.at(1657497600), max_production: 120, total_production: 108000, session_duration: 600, score: 1080, bike_id: Bike.last.id, user_id: User.last.id)
+Gamingsession.create!(date: Time.at(1659052800), max_production: 160, total_production: 122400, session_duration: 600, score: 1224, bike_id: Bike.last.id, user_id: User.last.id )
+Gamingsession.create!(date: Time.at(1659484800), max_production: 130, total_production: 100800, session_duration: 600, score: 1008, bike_id: Bike.last.id, user_id: User.last.id )
+Gamingsession.create!(date: Time.at(1660521600), max_production: 215, total_production: 115200, session_duration: 600, score: 1152, bike_id: Bike.last.id, user_id: User.last.id )
+Gamingsession.create!(date: Time.at(1661990400), max_production: 170, total_production: 93600, session_duration: 600, score: 936, bike_id: Bike.last.id, user_id: User.last.id )
 
 
 # 1657497600 2022-07-11
