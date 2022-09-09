@@ -23,18 +23,18 @@
   </div>
 
   <div class="avantages-explication">
-    <p>C’est ici que vous pouvez voir les offres négociées spécialement pour vous chez nos partenaires et échanger vos points Vel-Watt ( VW ) contre des bons de réductions !</p>
+    <p>C’est ici que tu pourras voir les offres négociées spécialement pour toi chez nos partenaires et échanger tes Vel-Watt ( VW ) contre des bons de réductions !</p>
   </div>
 
     <!--Argent Wallet-->
   <div class="score_bloc">
     <% if current_user.wallet == nil  %>
-      <h2>Votre solde : 0 VW</h2>
+      <h2>Ton solde : 0 VW</h2>
     <% else %>
     <div class="argent">
     </div>
     <div>
-      <p>Votre solde</p>
+      <p>Ton solde</p>
     </div>
     <div>
       <h2><%= current_user.wallet %> VW</h2>
@@ -115,25 +115,25 @@
 
     <!--Coupons Purchased-->
   <div class="coupons_title">
-    <h2>Vos coupons</h2>
+    <h2>Tes coupons</h2>
   </div>
-  <div class="scroll-coupons-cards">
     <% if Purchase.where(user: current_user) == [] %>
-        <p>Vous n'avez aucun bon actuellement</p>
+        <p>Tu n'as aucun bon actuellement</p>
     <% else %>
-      <% Purchase.where(user: current_user).each do |p| %>
-        <div class="coupons-card">
-          <div class="coupon-marque">
-          <p><%= p.ticket.company %></p>
+      <div class="scroll-coupons-cards">
+        <% Purchase.where(user: current_user).each do |p| %>
+          <div class="coupons-card">
+            <div class="coupon-marque">
+            <p><%= p.ticket.company %></p>
+            </div>
+            <div class="coupon-contenu">
+            <p><%= p.ticket.content %> avec le code :</p>
+            </div>
+            <div data-controller="coupon"class="coupon-code">
+            <p data-coupon-target="coupons" data-action="click->coupons#coupon-code" >X <%= 8.times.map{rand(10)}.join("") %></p>
+            </div>
           </div>
-          <div class="coupon-contenu">
-          <p><%= p.ticket.content %> avec le code :</p>
-          </div>
-          <div data-controller="coupon"class="coupon-code">
-          <p data-coupon-target="coupons" data-action="click->coupons#coupon-code" >X <%= 8.times.map{rand(10)}.join("") %></p>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
     <% end %>
   </div>
 </div>

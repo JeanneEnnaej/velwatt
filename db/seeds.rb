@@ -11,7 +11,7 @@ p "Go la seed !"
 
 p "Seed users"
 
-User.create!(first_name: "Jeanne", last_name: "Desmier", email: "desmierjeanne@gmail.com", password: "lewagon", wallet: 68)
+User.create!(first_name: "Jeanne", last_name: "Desmier", email: "desmierjeanne@gmail.com", password: "lewagon", wallet: 100)
 
 p 'seed bike'
 

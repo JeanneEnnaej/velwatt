@@ -1,7 +1,7 @@
 <div class="container">
   <div class="salute">
     <h1>Bonjour  <%= current_user.first_name %></h1>
-    <p> Vous retrouverez sur cette page toutes les informations vous concernant.
+    <p> Tu retrouveras sur cette page toutes les informations te concernant.
   </div>
   <div class="wallet_bloc">
     <div class="trophy">
@@ -17,7 +17,7 @@
     <div class="argent">
     </div>
     <div>
-      <p>Votre solde</p>
+      <p>Ton solde</p>
     </div>
     <div>
       <h2><%= current_user.wallet %> VW</h2>
@@ -28,7 +28,7 @@
       <div class="eclair">
       </div>
       <div>
-        <p>Vous avez produit</p>
+        <p>Tu as produit</p>
         <h2><%= (@total_watt).round(2)%> Wh</h2>
       </div>
     </div>
@@ -58,53 +58,32 @@
     </div>
   </div>
     <div class="prod-vs">
-    <h2>Ma production VS la réalité</h2>
+    <h2>Ta production VS la réalité</h2>
     </div>
   <div class="reel-vs-prod">
     <div class="card-reel">
       <span class="iconify" data-icon="ic:outline-smartphone"></span>
 
-      <p>Vous avez produit de quoi recharger pendant <span class="text-result"><%=(@total_watt/0.30).round(1) %>&nbsp;&nbsp;h</span> un smartphone. </p>
+      <p>Tu as produit de quoi recharger un smartphone pendant <span class="text-result"><%=(@total_watt/0.30).round(1) %>&nbsp;&nbsp;h</span> </p>
     </div>
 
     <div class="card-reel">
     <span class="iconify" data-icon="mdi:washing-machine"></span>
 
-      <p>Vous avez produit <span class="text-result"><%=((@total_watt/1000.0)*100).round(1) %> %</span> de l'énergie necéssaire au cycle d'une machine à laver. </p>
+      <p>Tu as produit <span class="text-result"><%=((@total_watt/1000.0)*100).round(1) %> %</span> de l'énergie necéssaire au cycle d'une machine à laver </p>
     </div>
     <div class="card-reel">
     <span class="iconify" data-icon="bxs:fridge"></span>
 
-      <p>Vous avez produit de quoi faire fonctionner un refrigerateur pendant <span class="text-result"><%=(@total_watt/(548.0/24)).round(1)%>&nbsp;&nbsp;h.</span> </p>
+      <p>Tu as produit de quoi faire fonctionner un refrigerateur pendant <span class="text-result"><%=(@total_watt/(548.0/24)).round(1)%>&nbsp;&nbsp;h</span> </p>
     </div>
     <div class="card-reel">
     <span class="iconify" data-icon="mdi:eiffel-tower"></span>
 
-      <p>Vous avez produit <span class="text-result"><%=((@total_watt/21095000.0)*100).round(4)%> %</span> de la consommation de la Tour Eiffel pour une journée. </p>
+      <p>Tu as produit <span class="text-result"><%=((@total_watt/21095000.0)*100).round(4)%> %</span> de la consommation de la Tour Eiffel pour une journée </p>
     </div>
   </div>
 
 </div>
 
-
-
-
-
-
-  <%# <div class="echelle-reelle">
-    <div class="user-bike", style="margin-left:0px;"><span class="iconify" data-icon="ic:outline-directions-bike"></span>
-    </div>
-    <div class="echelle">
-      <div class="gradient"></div>
-      <div class="echelons">
-        <span class="iconify" data-icon="ic:baseline-smartphone", style="margin-left:25.3px;" ></span>
-        <span class="iconify" data-icon="bi:pc-display-horizontal", style="margin-left:15.7px;"></span>
-        <span class="iconify" data-icon="material-symbols:oven-gen", style="margin-left:53.3px;"></span>
-        <span class="iconify" data-icon="akar-icons:wifi", style="margin-left:26.7px;"></span>
-        <span class="iconify" data-icon="iconoir:washing-machine", style="margin-left:59.3px;"></span>
-      </div>
-    </div>
-  </div> %>
-
 <%= render "pages/menu"%>
-<div class="XXXX"></div>
