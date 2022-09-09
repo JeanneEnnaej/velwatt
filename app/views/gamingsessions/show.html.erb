@@ -7,7 +7,7 @@
     <h1>Bienvenue sur <br>Vel-Watt !</h1>
   </div>
 <% end %>
-<h2>Votre score :</h2>
+<h2>Ton score :</h2>
 
 
 <%#  parti score %>
@@ -23,7 +23,7 @@
     </div>
   </div>
   <% unless current_user %>
-    <p class="text-div">Convertissez vos <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
+    <p class="text-div">Convertis tes <%= @gamingsession.score %> pts en bons de réductions chez nos partenaires ! </p>
     <div class="button_container">
       <div class="button-net">
         <%= link_to 'Sauvegarder mes points', new_user_session_path %>
@@ -33,7 +33,7 @@
 
   <%# lien vers le sign-up/sign-in %>
   <%# donnée du user vs les records %>
-    <h2>Vous avez produit :</h2>
+    <h2>Tu as produit :</h2>
   <div class="chiffres-container">
     <div>
     </div>
@@ -105,7 +105,7 @@
         </div>
         <div data-quizz-answer-target="lavelinge"  data-action="click->quizz-answer#lavelinge" class="quizz-choice-lavelinge" >
           <div class="succes">
-          <p>Vous avez gagné 100 points</p>
+          <p>Tu as gagné 100 points</p>
           </div>
           <p>Le lave-linge</p>
         </div>
@@ -121,7 +121,7 @@
   <%# comparatif %>
   <div class="comparatif-cardp" data-controller="return-images">
     <h3>Et concrètement ?</h3>
-    <p>Comparez ce que vous avez produit avec la consommation d'objets du quotidien.</p>
+    <p>Compares ce que tu as produit avec la consommation d'électricité de quelques objets du quotidien.</p>
 
 
   <div class="container-comparatif">
