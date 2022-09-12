@@ -1,1 +1,61 @@
 // Specific CSS for your home-page
+
+.home {
+  &--waitproject {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+      h1 {
+        font-size: 32px;
+        color: black;
+      }
+      p {
+        font-size: 24px;
+        color: black;
+      }
+    }
+
+  }
+  
+  &--container {
+    background-color: white;
+    color: black;
+
+    width: 96vw;
+    padding: 0 2vw;
+  }
+
+  &--button {
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 8px 16px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: black;
+  }
+
+  &--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  &--presentation {
+
+  }
+}
