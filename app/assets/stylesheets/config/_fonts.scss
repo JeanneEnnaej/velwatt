@@ -12,3 +12,10 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('Satoshi-Variable.ttf');
+  font-display: swap;
+  font-style: normal;
+}

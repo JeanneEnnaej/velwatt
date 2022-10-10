@@ -28,3 +28,21 @@
 @mixin border-radius{
   border-radius: 16px;
 }
+
+@mixin title {
+  font-family: 'satoshi';
+  font-weight: 700;
+  font-size: 2rem
+}
+
+@mixin subtitle {
+  font-family: 'satoshi';
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+@mixin paragraph {
+  font-family: 'satoshi';
+  font-weight: 400;
+  font-size: 1rem;
+}
