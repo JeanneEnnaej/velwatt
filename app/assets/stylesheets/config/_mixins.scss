@@ -30,19 +30,25 @@
 }
 
 @mixin title {
+  margin: 0;
   font-family: 'satoshi';
-  font-weight: 700;
-  font-size: 2rem
+  font-weight: 800;
+  font-size: 2rem;
+  text-align: start;
 }
 
 @mixin subtitle {
+  margin: 0;
   font-family: 'satoshi';
   font-weight: 500;
   font-size: 1.5rem;
+  text-align: start;
 }
 
 @mixin paragraph {
+  margin: 0;
   font-family: 'satoshi';
   font-weight: 400;
   font-size: 1rem;
+  text-align: start;
 }

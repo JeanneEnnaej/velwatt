@@ -24,8 +24,39 @@
     justify-content: space-around;
     align-items: center;
 
+    &--text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      padding-left: 200px;
+      width: 750px;
+
+      h1 {
+        @include title();
+        color: $primary--dark;
+        font-size: 4rem;
+      }
+
+      h2 {
+        @include subtitle();
+        color: $dark;
+        font-size: 3rem;
+      }
+
+      p {
+        @include paragraph();
+        color: $dark;
+        font-size: 2rem;
+      }
+    }
+
     .media3d {
-      background-image: url();
+      background-image: url('velo3D.png');
+      background-repeat: no-repeat;
+      width: 677px;
+      height: 677px;
     }
   }
 }
