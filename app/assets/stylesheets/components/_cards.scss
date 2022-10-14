@@ -1,0 +1,8 @@
+.card__explication {
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+  width: 30vw;
+  background-color: $primary;
+  padding: 8px 16px;
+}

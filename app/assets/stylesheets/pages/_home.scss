@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 
 .home {
+
   &--container {
     background-color: $light;
   }
@@ -31,24 +32,24 @@
       justify-content: center;
 
       padding-left: 200px;
-      width: 750px;
+      width: 550px;
 
       h1 {
         @include title();
         color: $primary--dark;
-        font-size: 4rem;
+        font-size: 3rem;
       }
 
       h2 {
         @include subtitle();
         color: $dark;
-        font-size: 3rem;
+        font-size: 2rem;
       }
 
       p {
         @include paragraph();
         color: $dark;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
 
@@ -57,6 +58,52 @@
       background-repeat: no-repeat;
       width: 677px;
       height: 677px;
+    }
+  }
+
+  &--explication {
+    h1 {
+      @include title();
+      color: $secondary;
+    }
+
+    h2 {
+      @include subtitle();
+      color: $light;
+    }
+
+    p {
+      @include paragraph();
+      color: $light;
+    }
+
+  }
+  &--team {
+    h1 {
+      @include title();
+      color: $dark
+    }
+
+    h2 {
+      @include subtitle();
+      color: $dark;
+    }
+
+    p {
+      @include paragraph();
+      color: $dark;
+    }
+  }
+
+  &--partenaire {
+    h1 {
+      @include title();
+      color: $dark
+    }
+
+    p {
+      @include paragraph();
+      color: $dark;
     }
   }
 }
