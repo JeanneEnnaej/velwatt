@@ -16,6 +16,8 @@ application.register("game-three", GameThreeController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import NavContactController from "./nav_contact_controller"
+application.register("nav-contact", NavContactController)
 
 import QuizzAnswerController from "./quizz_answer_controller"
 application.register("quizz-answer", QuizzAnswerController)
