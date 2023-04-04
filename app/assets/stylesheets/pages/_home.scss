@@ -1,61 +1,125 @@
-// Specific CSS for your home-page
+:root{
+  --primary: #004643;
+  --primary-dark: #001E1D;
+  --primary-light: #ABD1C6;
+  --secondary: #F9BC60;
+  --white: #FFFFFF;
+}
+
 
 .home {
+  width: 100vw;
+  height: 100vh;
   &--waitproject {
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-    
+    height: 92%;
+    background-color: var(--primary);
+    color : var(--primary-light);
+
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    div {
-      h1 {
-        font-size: 32px;
-        color: black;
+    gap: 5%;
+
+    .main-text {
+      width: 35%;
+      h2 {
+        color: var(--white);
+        text-align: start;
+        font-size: 3rem;
       }
       p {
-        font-size: 24px;
-        color: black;
+        color: var(--primary-light);
+        font-size: 1rem;
       }
     }
-
   }
-  
-  &--container {
-    background-color: white;
-    color: black;
+}
 
-    width: 96vw;
-    padding: 0 2vw;
+.header-waitproject {
+  height: fit-content;
+  background-color: var(--primary);
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  h1 {
+    margin: 0;
+    color: var(--white);
+  }
+}
+
+.btn--primary {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+  }
+}
+
+.link {
+  display: inline;
+  position: relative;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--white);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
   }
 
-  &--button {
-    cursor: pointer;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 16px;
-    padding: 8px 16px;
-
-    font-size: 1rem;
-    font-weight: 600;
-
-    color: black;
+  &:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
   }
 
-  &--header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
+}
+
+@media screen and (max-width: 1070px) {
+  .home--waitproject {
+    img {
+      width: 45%;
+    }
   }
+}
 
-  &--presentation {
-
+@media screen and (max-width: 768px) {
+  .home--waitproject {
+    flex-direction: column;
+    justify-content: start;
+    gap: 5%;
+    padding: 24px;
+    .main-text {
+      width: 100%;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    img {
+      width: 60%;
+    }
   }
 }
