@@ -92,7 +92,27 @@
     visibility: visible;
     transform: scaleX(1);
   }
+}
 
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+  .icone {
+    display: flex;
+    gap: 16px;
+    a {
+      i {
+        color: var(--secondary);
+        font-size: 1.5rem;
+        transition: color 0.3s ease-in-out;
+        &:hover {
+          color: var(--white);
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1070px) {
